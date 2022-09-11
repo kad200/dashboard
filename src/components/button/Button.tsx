@@ -1,37 +1,34 @@
 import React from "react";
-import "button.css";
+import "./button.css";
 
-interface Props {
-    children: string;
-    type: any;
-    onClick: () => void;
-    buttonStyle: STYLES;
-    buttonSize: SIZES;
+export interface Props {
+  children?: string;
+  type?: any;
+  onClick?: () => void;
+  buttonStyle?: string;
+  buttonSize?: string;
 }
 
+// const STYLES = ["btn--primary", "btn--danger"];
 
-type STYLES = [
-    "btn--primary",
-    "btn--danger"
-]
+// const SIZES = ["btn--small", "btn--large"];
 
-type SIZES = [
-    "btn--small",
-    "btn--large"
-]
-
-
-export const Button: React.FC<Props> = ({
+const Button: React.FC<Props> = ({
   children,
   type,
-  onClick,
+  onClick = () => {},
   buttonStyle,
   buttonSize,
 }) => {
-
-    return (
-        <button className={`btn ${buttonStyle} ${buttonSize}`} onClick={onClick} type={type}>
-            {children}
-        </button>
-    )
+  return (
+    <button
+      className={`btn ${buttonStyle} ${buttonSize}`}
+      onClick={onClick}
+      type={type}
+    >
+      {children}
+    </button>
+  );
 };
+
+export default Button;
