@@ -1,3 +1,5 @@
+@import "../../styles/Variables.scss";
+
 .btn {
   border-radius: 0.5rem;
   border: 0;
@@ -11,25 +13,30 @@
   text-align: center;
   vertical-align: baseline;
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.btn:hover {
-  transform: translateY(-2px);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .btn--primary {
-  background-color: rgb(10, 107, 255);
-  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
-}
-.btn--primary:hover {
-  background-color: rgb(6, 93, 216);
+  background-color: $primaryColor;
+  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
+    rgba(0, 44, 97, 0.1) 0 3px 6px 0;
+
+  &:hover {
+    background-color: $primaryActiveColor;
+  }
 }
 
 .btn--danger {
-  background-color: rgb(255, 83, 10);
-  box-shadow: rgba(136, 44, 1, 0.5) 0 -1px 3px 0 inset, rgba(97, 37, 0, 0.1) 0 3px 6px 0;
-}
-.btn--danger:hover {
-  background-color: rgb(240, 100, 6);
+  background-color: $dangerColor;
+  box-shadow: rgba(136, 44, 1, 0.5) 0 -1px 3px 0 inset,
+    rgba(97, 37, 0, 0.1) 0 3px 6px 0;
+
+  &:hover {
+    background-color: $dangerActiveColor;
+  }
 }
 
 .btn--small {
@@ -49,5 +56,3 @@
   min-width: 20rem;
   padding: 1rem 1.25rem;
 }
-
-/*# sourceMappingURL=Button.css.map */

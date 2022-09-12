@@ -1,12 +1,12 @@
 import React from "react";
-import "./button.css";
+import "./Button.css";
 
 export interface Props {
   children?: string;
   type?: any;
-  onClick?: () => void;
-  buttonStyle?: string;
-  buttonSize?: string;
+  onClick?: () => {} ;
+  variant?: "btn--primary" | "btn--danger";
+  size?: "btn--small" | "btn--large";
 }
 
 // const STYLES = ["btn--primary", "btn--danger"];
@@ -17,12 +17,12 @@ const Button: React.FC<Props> = ({
   children,
   type,
   onClick = () => {},
-  buttonStyle,
-  buttonSize,
+  variant,
+  size,
 }) => {
   return (
     <button
-      className={`btn ${buttonStyle} ${buttonSize}`}
+      className={`btn ${variant} ${size}`}
       onClick={onClick}
       type={type}
     >
