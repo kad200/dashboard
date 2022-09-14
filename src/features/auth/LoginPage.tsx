@@ -1,12 +1,15 @@
-import { useRef, useState, useEffect } from "react";
-import Button from "../../components/button/Button";
-import "../../styles/Fonts.css";
+import { useState } from "react";
+import Button from "../../components/Button/Button";
+import Input from "../../components/Input";
+import "../../styles/fonts.scss";
+import "../../styles/index.scss";
+
 
 const LoginPage = () => {
-  const userRef = useRef<any>();
+  // const userRef = useRef<any>();
   // const errRef = useRef<any>();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [errMsg, setErrMsg] = useState("");
   // const [success, setSuccess] = useState(false);
@@ -21,47 +24,42 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(user, password);
-    setUser('');
-    setPassword('');
+    setEmail("");
+    setPassword("");
+    console.log(email, password);
+
     // setSuccess(true);
-  }
+  };
 
   return (
     <section>
       <h1>Please sign in</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          ref={userRef}
+        <Input
+          label="Your email:"
+          type="email"
+          id="email"
           autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           required
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <Input
+          label="Password:"
           type="password"
           id="password"
+          autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           required
         />
-        <Button
-          variant="btn--primary"
-          size="btn--large"
-        >
+        <Button variant="primary" size="large">
           Sign in
         </Button>
       </form>
       <h3>
         Still don't have an account?
-        <Button
-          variant="btn--danger"
-          size="btn--small"
-        >
+        <Button variant="danger" size="small">
           Sign up
         </Button>
       </h3>

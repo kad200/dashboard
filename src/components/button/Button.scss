@@ -1,4 +1,4 @@
-@import "../../styles/Variables.scss";
+@import "../../styles/variables.scss";
 
 .btn {
   border-radius: 0.5rem;
@@ -17,42 +17,42 @@
   &:hover {
     transform: translateY(-2px);
   }
-}
 
-.btn--primary {
-  background-color: $primaryColor;
-  box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
-    rgba(0, 44, 97, 0.1) 0 3px 6px 0;
+  &--primary {
+    background-color: $primary-color;
+    box-shadow: rgba(1, 60, 136, 0.5) 0 -1px 3px 0 inset,
+      rgba(0, 44, 97, 0.1) 0 3px 6px 0;
 
-  &:hover {
-    background-color: $primaryActiveColor;
+    &:hover {
+      background-color: $primary-active-color;
+    }
   }
-}
 
-.btn--danger {
-  background-color: $dangerColor;
-  box-shadow: rgba(136, 44, 1, 0.5) 0 -1px 3px 0 inset,
-    rgba(97, 37, 0, 0.1) 0 3px 6px 0;
+  &--danger {
+    background-color: $danger-color;
+    box-shadow: rgba(136, 44, 1, 0.5) 0 -1px 3px 0 inset,
+      rgba(97, 37, 0, 0.1) 0 3px 6px 0;
 
-  &:hover {
-    background-color: $dangerActiveColor;
+    &:hover {
+      background-color: $danger-active-color;
+    }
   }
-}
 
-.btn--small {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 0.5rem;
-  height: 2.5rem;
-  width: 7rem;
-  padding: 0.5rem 1rem;
-}
+  &--small {
+    font-size: 1rem;
+    // font-weight: 600;
+    line-height: 1.5rem;
+    // height: 2.5rem;
+    // width: 7rem;
+    padding: 0.5rem 1rem;
+  }
 
-.btn--large {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  min-height: 3.5rem;
-  min-width: 20rem;
-  padding: 1rem 1.25rem;
+  &--large {
+    font-size: 1.5rem;
+    // font-weight: 700;
+    line-height: 1.5rem;
+    // min-height: 3.5rem;
+    // min-width: 20rem;
+    padding: 1rem 1.25rem;
+  }
 }
