@@ -2,7 +2,6 @@ import Table from "../../../components/Table";
 import { UserProps } from "../../../types/UserTypes";
 import UserItem from "./UserItem";
 
-
 interface UsersTableProps {
   users: UserProps[];
 }
@@ -30,4 +29,4 @@ const UsersTable = ({ users }: UsersTableProps) => {
   );
 };
 
-export default UsersTable
+export default UsersTable;

@@ -3,9 +3,6 @@ import Select from "../../../components/Select";
 import useSetState from "../../../hooks/useSetState";
 import { UserProps } from "../../../types/UserTypes";
 
-
-
-
 interface UserFormProps {
   user?: UserProps;
 }
@@ -67,4 +64,4 @@ const UserForm = ({ user }: UserFormProps) => {
   );
 };
 
-export default UserForm
+export default UserForm;

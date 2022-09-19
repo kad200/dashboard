@@ -5,7 +5,6 @@ import Input from "../../components/Input";
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 
-
 const LoginPage = () => {
   // const userRef = useRef<any>();
   // const errRef = useRef<any>();
@@ -24,24 +23,19 @@ const LoginPage = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    console.log(email, password);
-    if (
-      email === "admin" &&
-      password === "123456"
-    ) {
-      localStorage.setItem("isAuthenticated", "true");
+    if (email === "email" && password === "password") {
       window.location.pathname = "/";
+      localStorage.setItem("isAuthenticated", "true");
     } else {
-      setErrorMessage("Invalid username/password");
       setEmail("");
       setPassword("");
+      setErrorMessage("Please try again");
       return;
     }
     // setSuccess(true);
   };
 
   const navigate = useNavigate();
-
 
   return (
     <section>
@@ -71,7 +65,11 @@ const LoginPage = () => {
       </form>
       <h3>
         Still don't have an account?
-        <Button variant="danger" size="small" onClick={() => navigate("/register")}>
+        <Button
+          variant="danger"
+          size="small"
+          onClick={() => navigate("/register")}
+        >
           Sign up
         </Button>
       </h3>

@@ -1,16 +1,10 @@
-import { useState } from "react";
+  // import { useState } from "react";
 import Button from "../../../components/Button/Button";
-import { ConfirmationModal } from "../../../components/ConfirmationModal";
-import { Modal } from "../../../components/Modal";
 import { UserProps } from "../../../types/UserTypes";
 
-import UserForm from "./UserForm";
-
-
-
-  const UserItem = ({ user }: { user: UserProps }) => {
-  const [openEditModal, setOpenEditModal] = useState(false);
-  const [openRemoveModal, setOpenRemoveModal] = useState(false);
+const UserItem = ({ user }: { user: UserProps }) => {
+  // const [openEditModal, setOpenEditModal] = useState(false);
+  // const [openRemoveModal, setOpenRemoveModal] = useState(false);
 
   return (
     <tr key={user.id}>
@@ -22,8 +16,18 @@ import UserForm from "./UserForm";
       <td>{user.role}</td>
       <td>
         <div className="user-card__buttons">
-          <Button variant="primary" size="small" onClick={() => setOpenEditModal(true)}>Edit</Button>
-          <Button variant="danger" size="small" onClick={() => setOpenRemoveModal(true)}>
+          <Button
+            variant="primary"
+            size="small"
+            // onClick={() => setOpenEditModal(true)}
+          >
+            Edit
+          </Button>
+          <Button
+            variant="danger"
+            size="small"
+            // onClick={() => setOpenRemoveModal(true)}
+          >
             Remove
           </Button>
         </div>
@@ -32,4 +36,4 @@ import UserForm from "./UserForm";
   );
 };
 
-export default UserItem
+export default UserItem;

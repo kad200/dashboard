@@ -21,7 +21,7 @@ export const ConfirmationModal = ({
       title={title}
       open={open}
       actions={
-        <Button variant="danger" size="small" onClick={onAccept}>
+        <Button variant="danger" size="small" onClick={onClick}>
           Accept
         </Button>
       }

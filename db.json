@@ -7,7 +7,6 @@
     }
   ],
   "users": [
-    [
       {
         "id": 0,
         "name": "Humphrey",
@@ -459,5 +458,4 @@
         "role": "administrator"
       }
     ]
-  ]
 }
