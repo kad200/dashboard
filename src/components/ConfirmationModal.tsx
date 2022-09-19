@@ -1,9 +1,32 @@
-import React from 'react'
+import Button from "./Button/Button";
+import { Modal } from "./Modal";
 
-const ConfirmationModal = () => {
-  return (
-    <div>ConfirmationModal</div>
-  )
+interface ConfirmationModalProps {
+  onClick: () => void;
+  onAccept: () => void;
+  open: boolean;
+  title: string;
 }
 
-export default ConfirmationModal
+export const ConfirmationModal = ({
+  onClick,
+  onAccept,
+  open,
+  children,
+  title,
+}: React.PropsWithChildren<ConfirmationModalProps>) => {
+  return (
+    <Modal
+      onClick={onClick}
+      title={title}
+      open={open}
+      actions={
+        <Button variant="danger" size="small" onClick={onAccept}>
+          Accept
+        </Button>
+      }
+    >
+      {children}
+    </Modal>
+  );
+};

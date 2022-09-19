@@ -1,15 +1,15 @@
 import React from "react";
 import "./Button.scss";
 
-export interface Props {
+interface ButtonProps {
   children?: React.ReactNode;
   type?: "button";
-  onClick?: () => {} ;
+  onClick?: () => void ;
   variant?: "primary" | "danger";
   size?: "small" | "large";
 }
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   type,
   onClick = () => {},

@@ -1,8 +1,9 @@
 import React from "react";
 
-export interface Props {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   label?: string;
-  type: string;
+  placeholder?: string;
+  type?: string;
   id: string;
   value?: string;
   autoComplete?: "off" | "on";
@@ -11,21 +12,21 @@ export interface Props {
   checked?: boolean;
 }
 
-const Input: React.FC<Props> = ({
+const Input: React.FC<InputProps> = ({
   label,
+  placeholder,
   type,
   id,
   value,
   autoComplete,
   onChange,
   required,
-  checked
+  checked,
 }) => (
   <div className="form-group">
-    {label && <label htmlFor={id}>{label}</label>}
-    <br />
     <input
       type={type}
+      placeholder={placeholder}
       id={id}
       value={value}
       autoComplete={autoComplete}
@@ -33,6 +34,7 @@ const Input: React.FC<Props> = ({
       required={required}
       checked={checked}
     />
+    {label && <label htmlFor={id}>{label}</label>}
   </div>
 );
 

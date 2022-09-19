@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input";
 import "../../styles/fonts.scss";
@@ -18,25 +19,36 @@ const LoginPage = () => {
   //   useRef.current.focus();
   // }, [])
 
-  // useEffect(() => {
-  //   setErrMsg("");
-  // }, [user, password]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setEmail("");
-    setPassword("");
-    console.log(email, password);
 
+    console.log(email, password);
+    if (
+      email === "admin" &&
+      password === "123456"
+    ) {
+      localStorage.setItem("isAuthenticated", "true");
+      window.location.pathname = "/";
+    } else {
+      setErrorMessage("Invalid username/password");
+      setEmail("");
+      setPassword("");
+      return;
+    }
     // setSuccess(true);
   };
+
+  const navigate = useNavigate();
+
 
   return (
     <section>
       <h1>Please sign in</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Your email:"
+          placeholder="Your email"
           type="email"
           id="email"
           autoComplete="off"
@@ -45,7 +57,7 @@ const LoginPage = () => {
           required
         />
         <Input
-          label="Password:"
+          placeholder="Password"
           type="password"
           id="password"
           autoComplete="off"
@@ -59,7 +71,7 @@ const LoginPage = () => {
       </form>
       <h3>
         Still don't have an account?
-        <Button variant="danger" size="small">
+        <Button variant="danger" size="small" onClick={() => navigate("/register")}>
           Sign up
         </Button>
       </h3>

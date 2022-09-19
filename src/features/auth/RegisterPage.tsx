@@ -2,11 +2,11 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
+// import Select from "../../components/Select";
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 
 const RegisterPage = () => {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -16,7 +16,14 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(firstName, lastName, gender, password, passwordConfirmation, processingConsent);
+    console.log(
+      firstName,
+      lastName,
+      gender,
+      password,
+      passwordConfirmation,
+      processingConsent
+    );
     setFirstName("");
     setLastName("");
     setGender("");
@@ -31,7 +38,7 @@ const RegisterPage = () => {
       <h1>Sign up form</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="FirstName:"
+          placeholder="First name"
           type="text"
           id="firstName"
           autoComplete="off"
@@ -40,7 +47,7 @@ const RegisterPage = () => {
           required
         />
         <Input
-          label="LastName:"
+          placeholder="Last name"
           type="text"
           id="lastName"
           autoComplete="off"
@@ -48,15 +55,19 @@ const RegisterPage = () => {
           value={lastName}
           required
         />
-        {/* <Select
+        <Select
           label="Your gender:"
           id="gender"
           onChange={(e) => setGender(e.target.value)}
           value={gender}
           required
-        /> */}
+        >
+          <option defaultValue="none">None</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </Select>
         <Input
-          label="Password:"
+          placeholder="Password"
           type="password"
           id="password"
           autoComplete="off"
@@ -65,7 +76,7 @@ const RegisterPage = () => {
           required
         />
         <Input
-          label="Password confirmation:"
+          placeholder="Password confirmation"
           type="password"
           id="password-confirmation"
           autoComplete="off"
@@ -74,7 +85,7 @@ const RegisterPage = () => {
           required
         />
         <Input
-          label="I consent to the processing of the personal data"
+          label="I consent with personal data processing"
           type="checkbox"
           id="processing-confirmation"
           onChange={(e) => setProcessingConsent(!processingConsent)}

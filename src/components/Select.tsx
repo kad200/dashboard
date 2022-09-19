@@ -1,30 +1,17 @@
 import React from "react";
 
-export interface Props {
-  label?: string;
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   id: string;
-  value: string;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  required?: boolean;
-// To manage the options 
-  options?: [];
+  label: string;
 }
 
-const Select: React.FC<Props> = ({
-  label,
-  id,
-  value,
-  onChange,
-}) => (
+const Select: React.FC<SelectProps> = ({ label, id, children, value, onChange }) => (
   <div className="form-group">
     {label && <label htmlFor={id}>{label}</label>}
     <br />
-    <select
-      id={id}
-      value={value}
-      onChange={onChange}
-      required
-    />
+    <select id={id} value={value} onChange={onChange} required>
+      {children}
+    </select>
   </div>
 );
 

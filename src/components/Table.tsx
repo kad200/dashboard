@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Table = () => {
+const Table = ({
+  className,
+  children,
+  ...props
+}: React.PropsWithChildren<React.TableHTMLAttributes<HTMLTableElement>>) => {
   return (
-    <div>Table</div>
-  )
-}
+    <table className={`table ${className}`} {...props}>
+      {children}
+    </table>
+  );
+};
 
 export default Table

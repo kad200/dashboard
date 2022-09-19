@@ -1,0 +1,463 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    [
+      {
+        "id": 0,
+        "name": "Humphrey",
+        "surname": "Holden",
+        "email": "humphreyholden@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 1,
+        "name": "Charlotte",
+        "surname": "Craft",
+        "email": "charlottecraft@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 2,
+        "name": "Roman",
+        "surname": "Sims",
+        "email": "romansims@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 3,
+        "name": "Collins",
+        "surname": "Nunez",
+        "email": "collinsnunez@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 4,
+        "name": "Burgess",
+        "surname": "Leon",
+        "email": "burgessleon@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 5,
+        "name": "Mckenzie",
+        "surname": "Buckley",
+        "email": "mckenziebuckley@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 6,
+        "name": "Heather",
+        "surname": "Duran",
+        "email": "heatherduran@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 7,
+        "name": "Lela",
+        "surname": "Dotson",
+        "email": "leladotson@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 8,
+        "name": "Hogan",
+        "surname": "Kinney",
+        "email": "hogankinney@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 9,
+        "name": "Leach",
+        "surname": "Stewart",
+        "email": "leachstewart@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 10,
+        "name": "Judy",
+        "surname": "Sanders",
+        "email": "judysanders@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 11,
+        "name": "Johnnie",
+        "surname": "Cortez",
+        "email": "johnniecortez@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 12,
+        "name": "Sexton",
+        "surname": "Whitehead",
+        "email": "sextonwhitehead@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 13,
+        "name": "Candy",
+        "surname": "Bird",
+        "email": "candybird@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 14,
+        "name": "Finch",
+        "surname": "Andrews",
+        "email": "finchandrews@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 15,
+        "name": "Larson",
+        "surname": "Pace",
+        "email": "larsonpace@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 16,
+        "name": "Garrett",
+        "surname": "Benjamin",
+        "email": "garrettbenjamin@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 17,
+        "name": "Webster",
+        "surname": "Sullivan",
+        "email": "webstersullivan@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 18,
+        "name": "Mathews",
+        "surname": "Knight",
+        "email": "mathewsknight@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 19,
+        "name": "Danielle",
+        "surname": "Ware",
+        "email": "danielleware@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 20,
+        "name": "Robbie",
+        "surname": "Thornton",
+        "email": "robbiethornton@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 21,
+        "name": "Burch",
+        "surname": "Johnson",
+        "email": "burchjohnson@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 22,
+        "name": "Welch",
+        "surname": "Schultz",
+        "email": "welchschultz@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 23,
+        "name": "Alexandra",
+        "surname": "Nieves",
+        "email": "alexandranieves@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 24,
+        "name": "Kitty",
+        "surname": "Mathis",
+        "email": "kittymathis@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 25,
+        "name": "Katheryn",
+        "surname": "Skinner",
+        "email": "katherynskinner@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 26,
+        "name": "Dominguez",
+        "surname": "Woodward",
+        "email": "dominguezwoodward@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 27,
+        "name": "Banks",
+        "surname": "Lee",
+        "email": "bankslee@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 28,
+        "name": "Forbes",
+        "surname": "Klein",
+        "email": "forbesklein@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 29,
+        "name": "Lauri",
+        "surname": "Hunter",
+        "email": "laurihunter@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 30,
+        "name": "Glenn",
+        "surname": "Gibson",
+        "email": "glenngibson@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 31,
+        "name": "Matthews",
+        "surname": "Pacheco",
+        "email": "matthewspacheco@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 32,
+        "name": "Campbell",
+        "surname": "Knowles",
+        "email": "campbellknowles@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 33,
+        "name": "Franklin",
+        "surname": "Rutledge",
+        "email": "franklinrutledge@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 34,
+        "name": "Talley",
+        "surname": "Allison",
+        "email": "talleyallison@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 35,
+        "name": "Santana",
+        "surname": "Castaneda",
+        "email": "santanacastaneda@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 36,
+        "name": "Orr",
+        "surname": "Rush",
+        "email": "orrrush@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 37,
+        "name": "Carole",
+        "surname": "Livingston",
+        "email": "carolelivingston@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 38,
+        "name": "Tasha",
+        "surname": "Odom",
+        "email": "tashaodom@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 39,
+        "name": "Sabrina",
+        "surname": "Morton",
+        "email": "sabrinamorton@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 40,
+        "name": "Sandy",
+        "surname": "Perez",
+        "email": "sandyperez@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 41,
+        "name": "Erika",
+        "surname": "Oliver",
+        "email": "erikaoliver@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 42,
+        "name": "Casey",
+        "surname": "Pittman",
+        "email": "caseypittman@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 43,
+        "name": "Neal",
+        "surname": "Mack",
+        "email": "nealmack@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 44,
+        "name": "Wynn",
+        "surname": "Bentley",
+        "email": "wynnbentley@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 45,
+        "name": "Andrews",
+        "surname": "Holloway",
+        "email": "andrewsholloway@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 46,
+        "name": "Smith",
+        "surname": "Riddle",
+        "email": "smithriddle@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 47,
+        "name": "Chris",
+        "surname": "Rosales",
+        "email": "chrisrosales@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "female",
+        "role": "administrator"
+      },
+      {
+        "id": 48,
+        "name": "Mckee",
+        "surname": "Rose",
+        "email": "mckeerose@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      },
+      {
+        "id": 49,
+        "name": "Foster",
+        "surname": "Bradshaw",
+        "email": "fosterbradshaw@zerbina.com",
+        "password": "qwerty12345",
+        "gender": "male",
+        "role": "administrator"
+      }
+    ]
+  ]
+}
