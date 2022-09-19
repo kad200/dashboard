@@ -10,9 +10,10 @@ const App = () => {
       <Router>
         <Routes>
           <Route element={<ProtectedRoutes />}>
-            <Route path="/" element={<UsersPage />} />
           </Route>
           <Route element={<PublicRoutes />}>
+          <Route path="/" element={<UsersPage />} />
+
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
           </Route>

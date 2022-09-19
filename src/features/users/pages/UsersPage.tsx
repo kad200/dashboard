@@ -13,9 +13,9 @@ const UsersPage = () => {
     return <h1>There is nothing to show</h1>;
   }
 
-  if (isSuccess) {
+  // if (isSuccess) {
     return <UsersTable users={data} />;
-  }
+  // }
 };
 
 export default UsersPage;
