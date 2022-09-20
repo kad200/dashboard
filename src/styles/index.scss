@@ -4,7 +4,6 @@
 }
 
 body {
-  margin: 0;
   font-family: sans-serif;
   min-height: 100vh;
   background-color: rgb(170, 210, 220);
@@ -12,11 +11,7 @@ body {
 
 .App {
   display: flex;
-  flex-direction:row;
-  justify-content:flex-start;
-  align-items:flex-start;
   min-height: 100vh;
-  padding: 1rem 0.5rem;
 }
 
 section {

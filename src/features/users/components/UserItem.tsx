@@ -1,10 +1,10 @@
-  // import { useState } from "react";
+  import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import { UserProps } from "../../../types/UserTypes";
 
 const UserItem = ({ user }: { user: UserProps }) => {
-  // const [openEditModal, setOpenEditModal] = useState(false);
-  // const [openRemoveModal, setOpenRemoveModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [openRemoveModal, setOpenRemoveModal] = useState(false);
 
   return (
     <tr key={user.id}>
@@ -14,18 +14,18 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <td>{user.email}</td>
       <td>{user.gender}</td>
       <td>{user.role}</td>
-      <td className="table__action-buttons">
+      <td>
           <Button
             variant="primary"
             size="small"
-            // onClick={() => setOpenEditModal(true)}
+            onClick={() => setOpenEditModal(true)}
           >
             Edit
           </Button>
           <Button
             variant="danger"
             size="small"
-            // onClick={() => setOpenRemoveModal(true)}
+            onClick={() => setOpenRemoveModal(true)}
           >
             Remove
           </Button>
