@@ -1,8 +1,9 @@
 @import "../../styles/variables.scss";
 
 table {
+  display:table-column-group;
   border-radius: 0.2rem;
-  padding: 1.5rem 2rem;
+  padding: 0 2rem;
   margin-bottom: 1.5rem;
   th {
     background-color: $primary-color;
