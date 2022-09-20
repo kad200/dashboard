@@ -1,4 +1,4 @@
-import Table from "../../../components/Table";
+import Table from "../../../components/Table/Table";
 import { UserProps } from "../../../types/UserTypes";
 import UserItem from "./UserItem";
 
@@ -17,7 +17,7 @@ const UsersTable = ({ users }: UsersTableProps) => {
           <th>Email</th>
           <th>Gender</th>
           <th>Role</th>
-          <th>Actions</th>
+          <th className="table-header__action-buttons">Actions</th>
         </tr>
       </thead>
       <tbody>

@@ -14,8 +14,7 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <td>{user.email}</td>
       <td>{user.gender}</td>
       <td>{user.role}</td>
-      <td>
-        <div className="user-card__buttons">
+      <td className="table__action-buttons">
           <Button
             variant="primary"
             size="small"
@@ -30,7 +29,6 @@ const UserItem = ({ user }: { user: UserProps }) => {
           >
             Remove
           </Button>
-        </div>
       </td>
     </tr>
   );

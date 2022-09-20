@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+table {
+  border-radius: 0.2rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  th {
+    background-color: $primary-color;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    padding: 1rem 0.5rem;
+  }
+  tr {
+    background-color: rgb(170, 210, 220);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  td {
+    padding: 0.5rem;
+  }
+}
