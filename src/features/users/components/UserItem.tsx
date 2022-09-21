@@ -1,6 +1,7 @@
   import { useState } from "react";
 import Button from "../../../components/Button/Button";
-import { UserProps } from "../../../types/UserTypes";
+import { Modal } from "../../../components/Modal";
+import { UserProps } from "../../../types/userTypes";
 
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -22,6 +23,11 @@ const UserItem = ({ user }: { user: UserProps }) => {
           >
             Edit
           </Button>
+          {openEditModal && (
+            <Modal onClick={() => setOpenEditModal(false)} open={true}>
+              
+            </Modal>
+          )}
           <Button
             variant="danger"
             size="small"

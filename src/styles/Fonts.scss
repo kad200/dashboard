@@ -1,16 +1,16 @@
 @import "./variables.scss";
 
+label {
+  font-size: 1.2rem;
+  color: $primary-active-color;
+}
+
 h1 {
-    font-size: 2rem;
-    color: $danger-active-color;
+  font-size: 2rem;
+  color: $danger-active-color;
 }
 
 h3 {
-    font-size: 1.2rem;
-    color: $danger-active-color;
+  font-size: 1.2rem;
+  color: $danger-active-color;
 }
-
-label {
-    font-size: 1.2rem;
-    color: $primary-active-color;
-  }

@@ -1,5 +1,6 @@
 import Table from "../../../components/Table/Table";
-import { UserProps } from "../../../types/UserTypes";
+import { UserProps } from "../../../types/userTypes";
+
 import UserItem from "./UserItem";
 
 interface UsersTableProps {

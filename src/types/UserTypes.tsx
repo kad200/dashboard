@@ -8,7 +8,6 @@ export interface UserProps {
   role: "administrator" | "moderator";
 }
 
-export interface UserLoginCredentials {
-  email: string;
-  password: string;
-}
+export type UserLoginCredentials = Pick<UserProps, 'email' | 'password'>;
+
+export type UserRegistrationParams = Omit<UserProps, 'id'>;

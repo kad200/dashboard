@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ProtectedRoutes, PublicRoutes } from "./components/RouteTypes";
 import Sidebar from "./components/Sidebar/Sidebar";
 import LoginPage from "./features/auth/LoginPage";
 import RegisterPage from "./features/auth/RegisterPage";
+import { ProtectedRoutes, PublicRoutes } from "./features/auth/RouteTypes";
 import UsersPage from "./features/users/pages/UsersPage";
 
 const App = () => {

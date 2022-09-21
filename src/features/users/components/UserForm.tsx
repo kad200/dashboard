@@ -1,7 +1,7 @@
 import Input from "../../../components/Input";
 import Select from "../../../components/Select";
 import useSetState from "../../../hooks/useSetState";
-import { UserProps } from "../../../types/UserTypes";
+import { UserProps } from "../../../types/userTypes";
 
 interface UserFormProps {
   user?: UserProps;
