@@ -1,4 +1,4 @@
-  import { useState } from "react";
+import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import { Modal } from "../../../components/Modal";
 import { UserProps } from "../../../types/userTypes";
@@ -16,25 +16,23 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <td>{user.gender}</td>
       <td>{user.role}</td>
       <td>
-          <Button
-            variant="primary"
-            size="small"
-            onClick={() => setOpenEditModal(true)}
-          >
-            Edit
-          </Button>
-          {openEditModal && (
-            <Modal onClick={() => setOpenEditModal(false)} open={true}>
-              
-            </Modal>
-          )}
-          <Button
-            variant="danger"
-            size="small"
-            onClick={() => setOpenRemoveModal(true)}
-          >
-            Remove
-          </Button>
+        <Button
+          variant="primary"
+          size="small"
+          onClick={() => setOpenEditModal(true)}
+        >
+          Edit
+        </Button>
+        {openEditModal && (
+          <Modal onClick={() => setOpenEditModal(false)} open={true}></Modal>
+        )}
+        <Button
+          variant="danger"
+          size="small"
+          onClick={() => setOpenRemoveModal(true)}
+        >
+          Remove
+        </Button>
       </td>
     </tr>
   );

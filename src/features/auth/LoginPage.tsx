@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import Input from "../../components/Input";
+import Input from "../../components/Input/Input";
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 
@@ -38,9 +38,9 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   return (
-    <section>
+    <section className="auth-page">
       <h1>Please sign in</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit}>
         <Input
           placeholder="Your email"
           type="email"

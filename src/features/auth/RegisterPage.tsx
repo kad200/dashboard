@@ -1,31 +1,61 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { signUpUser } from "../../api/users";
+import { UserRegistrationParams } from "../../types/userTypes";
 import Button from "../../components/Button/Button";
-import Input from "../../components/Input";
-import Select from "../../components/Select";
-// import Select from "../../components/Select";
+import Input from "../../components/Input/Input";
+import Select from "../../components/Select/Select";
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
+
 const RegisterPage = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
+  const [validPassword, setValidPassword] = useState(false);
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [validPasswordConfirmation, setValidPasswordConfirmation] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [success, setSuccess] = useState(false);
   const [processingConsent, setProcessingConsent] = useState(false);
+
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
+
+  useEffect(() => {
+    setValidPassword(PWD_REGEX.test(password));
+    setValidPasswordConfirmation(password === passwordConfirmation);
+  }, [password, passwordConfirmation]);
+
+  useEffect(() => {
+    setErrorMessage("");
+  }, [email, password, passwordConfirmation]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    if (!validPassword || !validPasswordConfirmation) {
+      setErrorMessage("Invalid password");
+      alert(errorMessage)
+      return;
+    }
     console.log(
-      firstName,
-      lastName,
+      name,
+      surname,
+      email,
       gender,
       password,
       passwordConfirmation,
       processingConsent
     );
-    setFirstName("");
-    setLastName("");
+    signUpUser({ name, surname, email, gender: gender, role: "moderator", password });
+
+    setName("");
+    setSurname("");
+    setEmail("");
     setGender("");
     setPassword("");
     setPasswordConfirmation("");
@@ -34,16 +64,18 @@ const RegisterPage = () => {
   };
 
   return (
-    <section>
-      <h1>Sign up form</h1>
-      <form onSubmit={handleSubmit}>
+    <section className="auth-page">
+      <div className="auth-page__header">
+        <h1>Sign up form</h1>
+      </div>
+      <form className="auth-form" onSubmit={handleSubmit}>
         <Input
           placeholder="First name"
           type="text"
           id="firstName"
           autoComplete="off"
-          onChange={(e) => setFirstName(e.target.value)}
-          value={firstName}
+          onChange={(e) => setName(e.target.value)}
+          value={name}
           required
         />
         <Input
@@ -51,12 +83,23 @@ const RegisterPage = () => {
           type="text"
           id="lastName"
           autoComplete="off"
-          onChange={(e) => setLastName(e.target.value)}
-          value={lastName}
+          onChange={(e) => setSurname(e.target.value)}
+          value={surname}
+          required
+        />
+        <Input
+          placeholder="Email"
+          type="email"
+          id="email"
+          autoComplete="off"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           required
         />
         <Select
-          label="Your gender:"
+          className="custom-select"
+          label="Please set your gender:"
+          placeholder="gender"
           id="gender"
           onChange={(e) => setGender(e.target.value)}
           value={gender}
@@ -90,6 +133,7 @@ const RegisterPage = () => {
           id="processing-confirmation"
           onChange={(e) => setProcessingConsent(!processingConsent)}
           checked={processingConsent}
+          required
         />
         <Button variant="danger" size="large">
           Sign up

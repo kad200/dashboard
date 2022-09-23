@@ -1,0 +1,44 @@
+@import "../../styles/fonts.scss";
+
+.auth-form__input {
+  display: flex;
+  justify-content: flex-start;
+}
+
+input {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 0.6rem;
+  margin: 0.6rem 0;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 0.15rem solid $primary-color;
+  &[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0 1rem 0 0;
+    // font: inherit;
+    // color: $primary-active-color;
+    width: 1rem;
+    height: 1rem;
+    border: 0.15rem solid $primary-active-color;
+    border-radius: 0.15em;
+    transform: translateY(-0.075rem);
+    display: grid;
+    place-content: center;
+    &::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      transform: scale(0);
+      transform-origin: bottom left;
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em $danger-color;
+      background-color: CanvasText;
+    }
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+}

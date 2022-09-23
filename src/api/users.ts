@@ -27,10 +27,20 @@ const getUser = async (userId: string) => {
 
 const signUpUser = async (user: UserRegistrationParams) => {
   try {
-    await axios.get<UserRegistrationParams[]>(
+    // const response = await axios.post(
+    //   URL,
+    //   JSON.stringify({      firstname,
+    //     lastname,
+    //     email,
+    //     gender,
+    //     password,})
+    // )
+    //   }}
+
+    const response = await axios.get<UserRegistrationParams[]>(
       `${URL}/users?email=${user.email}`
     );
-    if (user.email) {
+    if (response.data.length > 0) {
       throw new Error(`An account with the email ${user.email} already exists`);
     }
     const register = await axios.post<UserProps>(`${URL}/users`, user);
@@ -40,6 +50,6 @@ const signUpUser = async (user: UserRegistrationParams) => {
   }
 };
 
-const signInUser = async (user: UserLoginCredentials) => {};
+// const signInUser = async (user: UserLoginCredentials) => {};
 
-export { getUsers, getUser, signUpUser, signInUser };
+export { getUsers, getUser, signUpUser };

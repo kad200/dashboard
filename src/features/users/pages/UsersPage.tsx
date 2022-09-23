@@ -10,7 +10,7 @@ const UsersPage = () => {
   }
 
   if (!data) {
-    return <h1>There is nothing to show</h1>;
+    return <h1>Waiting for the information</h1>;
   }
 
   // if (isSuccess) {

@@ -3,7 +3,8 @@ export interface UserProps {
   name: string;
   surname: string;
   email: string;
-  gender: "none" | "male" | "female";
+  // gender: "none" | "male" | "female";
+  gender: any;
   password?: string;
   role: "administrator" | "moderator";
 }

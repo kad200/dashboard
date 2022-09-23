@@ -1,5 +1,5 @@
-import Input from "../../../components/Input";
-import Select from "../../../components/Select";
+import Input from "../../../components/Input/Input";
+import Select from "../../../components/Select/Select";
 import useSetState from "../../../hooks/useSetState";
 import { UserProps } from "../../../types/userTypes";
 

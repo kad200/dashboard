@@ -9,7 +9,6 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Sidebar />
         <Routes>
           <Route element={<ProtectedRoutes />}></Route>
           <Route element={<PublicRoutes />}>

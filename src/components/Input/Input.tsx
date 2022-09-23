@@ -1,6 +1,7 @@
 import React from "react";
+import "./Input.scss";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   placeholder?: string;
   type?: string;
@@ -23,7 +24,7 @@ const Input: React.FC<InputProps> = ({
   required,
   checked,
 }) => (
-  <div className="form-group">
+  <div className="auth-form__input">
     <input
       type={type}
       placeholder={placeholder}
@@ -34,7 +35,11 @@ const Input: React.FC<InputProps> = ({
       required={required}
       checked={checked}
     />
-    {label && <label htmlFor={id}>{label}</label>}
+    {label && (
+      <label className="checkbox-label" htmlFor={id}>
+        {label}
+      </label>
+    )}
   </div>
 );
 

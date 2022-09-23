@@ -1,9 +1,9 @@
-import React from 'react'
+import Sidebar from "./Sidebar/Sidebar";
 
-const Layout = () => {
+export const Layout = () => {
   return (
-    <div>Layout</div>
-  )
-}
-
-export default Layout
+    <div className="layout">
+      <Sidebar />
+    </div>
+  );
+};
