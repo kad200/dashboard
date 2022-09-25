@@ -1,16 +1,14 @@
 import Button from "./Button/Button";
-import { Modal } from "./Modal";
+import Modal from "./Modal/Modal";
 
 interface ConfirmationModalProps {
   onClick: () => void;
-  onAccept: () => void;
   open: boolean;
   title: string;
 }
 
-export const ConfirmationModal = ({
+const ConfirmationModal = ({
   onClick,
-  onAccept,
   open,
   children,
   title,
@@ -30,3 +28,5 @@ export const ConfirmationModal = ({
     </Modal>
   );
 };
+
+export default ConfirmationModal;

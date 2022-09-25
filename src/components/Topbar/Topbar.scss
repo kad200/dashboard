@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+.topbar {
+  position: sticky;
+  z-index: 1;
+  top:0;
+  background-color: $primary-color;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  &__logo {
+    padding-left: 2rem;
+    width: 50px;
+  }
+  &__user-container {
+    position: absolute;
+    right: 2rem;
+  }
+}

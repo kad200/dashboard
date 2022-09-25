@@ -1,5 +1,5 @@
 import Table from "../../../components/Table/Table";
-import { UserProps } from "../../../types/userTypes";
+import { UserProps } from "../../../types/types";
 
 import UserItem from "./UserItem";
 
@@ -9,23 +9,21 @@ interface UsersTableProps {
 
 const UsersTable = ({ users }: UsersTableProps) => {
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Email</th>
-          <th>Gender</th>
-          <th>Role</th>
-          <th className="table-header__action-buttons">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table className="table-container">
+      <div className="table-header table__row">
+          <div className="table__cell header-cell">ID</div>
+          <div className="table__cell header-cell">Name</div>
+          <div className="table__cell header-cell">Surname</div>
+          <div className="table__cell header-cell table__cell-email">Email</div>
+          <div className="table__cell header-cell">Gender</div>
+          <div className="table__cell header-cell">Role</div>
+          <div className="table__cell header-cell action-buttons">Actions</div>
+      </div>
+      <div>
         {users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
-      </tbody>
+      </div>
     </Table>
   );
 };

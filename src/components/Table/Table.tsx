@@ -7,9 +7,9 @@ const Table = ({
   ...props
 }: React.PropsWithChildren<React.TableHTMLAttributes<HTMLTableElement>>) => {
   return (
-    <table className={`table ${className}`} {...props}>
+    <section className={`table ${className}`} {...props}>
       {children}
-    </table>
+    </section>
   );
 };
 

@@ -1,7 +1,15 @@
-import React from "react";
+import axios from "axios";
+import { PostProps } from "../types/types";
 
-const posts = () => {
-  return null;
+const URL = "http://localhost:3000";
+
+const getPosts = async () => {
+  try {
+    const response = await axios.get<PostProps[]>(`${URL}/posts`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-export default posts;
+export { getPosts };

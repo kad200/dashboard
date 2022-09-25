@@ -1,21 +1,22 @@
 import { useState } from "react";
 import Button from "../../../components/Button/Button";
-import { Modal } from "../../../components/Modal";
-import { UserProps } from "../../../types/userTypes";
+import ConfirmationModal from "../../../components/ConfirmationModal";
+import Modal from "../../../components/Modal/Modal";
+import { UserProps } from "../../../types/types";
 
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
 
   return (
-    <tr key={user.id}>
-      <td>{user.id}</td>
-      <td>{user.name}</td>
-      <td>{user.surname}</td>
-      <td>{user.email}</td>
-      <td>{user.gender}</td>
-      <td>{user.role}</td>
-      <td>
+    <div className="table__row" key={user.id}>
+      <div className="table__cell">{user.id}</div>
+      <div className="table__cell">{user.name}</div>
+      <div className="table__cell">{user.surname}</div>
+      <div className="table__cell table__cell-email">{user.email}</div>
+      <div className="table__cell">{user.gender}</div>
+      <div className="table__cell">{user.role}</div>
+      <div className="table__cell action-buttons">
         <Button
           variant="primary"
           size="small"
@@ -33,8 +34,15 @@ const UserItem = ({ user }: { user: UserProps }) => {
         >
           Remove
         </Button>
-      </td>
-    </tr>
+        {openRemoveModal && (
+          <ConfirmationModal
+            onClick={() => setOpenRemoveModal(false)}
+            title=""
+            open={true}
+          ></ConfirmationModal>
+        )}
+      </div>
+    </div>
   );
 };
 

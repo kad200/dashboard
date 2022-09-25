@@ -3,7 +3,7 @@ import {
   UserProps,
   UserRegistrationParams,
   UserLoginCredentials,
-} from "../types/userTypes";
+} from "../types/types";
 
 const URL = "http://localhost:3000";
 
@@ -52,4 +52,16 @@ const signUpUser = async (user: UserRegistrationParams) => {
 
 // const signInUser = async (user: UserLoginCredentials) => {};
 
-export { getUsers, getUser, signUpUser };
+const signInUser = async (UserLoginCredentials: UserLoginCredentials) => {
+  const response = await axios.get<UserLoginCredentials[]>(
+    `/users?email=${UserLoginCredentials.email}&password=${UserLoginCredentials.password}`
+  );
+
+  if (response.data.length === 0) {
+    throw new Error("Please check your email or password!");
+  }
+
+  return response.data;
+};
+
+export { getUsers, getUser, signUpUser, signInUser };

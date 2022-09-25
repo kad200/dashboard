@@ -10,19 +10,20 @@ body {
 }
 
 .App {
+  height: 100vh;
+}
+
+.auth-page {
+  height: 100vh;
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.auth-page {
-  width: 420px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.auth-section {
   padding: 1rem;
+  width: 420px;
   background-color: rgba(62, 145, 181, 0.4);
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -34,10 +35,7 @@ body {
   justify-content: space-evenly;
 }
 
-
-
 a,
 a:visited {
   color: #fff;
 }
-

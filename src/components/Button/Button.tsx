@@ -4,7 +4,7 @@ import "./Button.scss";
 interface ButtonProps {
   children?: React.ReactNode;
   type?: "button";
-  onClick?: () => void ;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void ;
   variant?: "primary" | "danger";
   size?: "small" | "large";
 }
