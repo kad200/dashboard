@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import { Button } from "components";
 import "./Modal.scss";
 
 interface ModalProps {
@@ -9,7 +9,7 @@ interface ModalProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Modal = ({
+export const Modal = ({
   title,
   children,
   onClick,
@@ -35,4 +35,3 @@ const Modal = ({
   );
 };
 
-export default Modal;

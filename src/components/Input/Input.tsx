@@ -3,17 +3,13 @@ import "./Input.scss";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  placeholder?: string;
-  type?: string;
-  id: string;
-  value?: string;
-  autoComplete?: "off" | "on";
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  checked?: boolean;
+  // id: string;
+  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  // required?: boolean;
+  // checked?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   label,
   placeholder,
   type,
@@ -23,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   required,
   checked,
+  ...props
 }) => (
   <div className="auth-form__input">
     <input
@@ -34,6 +31,7 @@ const Input: React.FC<InputProps> = ({
       onChange={onChange}
       required={required}
       checked={checked}
+      {...props}
     />
     {label && (
       <label className="checkbox-label" htmlFor={id}>
@@ -42,5 +40,3 @@ const Input: React.FC<InputProps> = ({
     )}
   </div>
 );
-
-export default Input;

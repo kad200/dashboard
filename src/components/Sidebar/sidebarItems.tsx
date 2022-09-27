@@ -1,4 +1,4 @@
-const SidebarItem = [
+export const sidebarItems = [
     {
         id: 1,
         title: 'Users',
@@ -19,4 +19,3 @@ const SidebarItem = [
     }
 ]
 
-export default SidebarItem

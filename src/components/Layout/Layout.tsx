@@ -1,11 +1,12 @@
-import Sidebar from "../Sidebar/Sidebar";
-import Topbar from "../Topbar/Topbar";
+import { Sidebar, Topbar } from "components";
+import { PropsWithChildren } from "react";
 
-interface Props {
-  children: React.ReactNode;
-}
 
-const Layout: React.FC<Props> = (props: Props) => {
+// interface Props {
+//   children: React.ReactNode;
+// }
+
+export const Layout: React.FC<PropsWithChildren> = (props) => {
   return (
     <div className="layout">
       <Topbar />
@@ -14,5 +15,3 @@ const Layout: React.FC<Props> = (props: Props) => {
     </div>
   );
 };
-
-export default Layout;

@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import "/src/styles/variables.scss";
 
 .post-item {
   background: transparent;
@@ -22,7 +22,7 @@
     &-name {
       text-align: center;
       font-size: 1.3rem;
-      color: $danger-active-color;
+      color: $danger-color-active;
     }
   }
   &__content {

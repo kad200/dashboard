@@ -6,7 +6,7 @@ interface GridProps {
   children: React.ReactNode;
 }
 
-const Grid = ({
+export const Grid = ({
   variant,
   children,
   columns,
@@ -21,4 +21,3 @@ const Grid = ({
   );
 };
 
-export default Grid;

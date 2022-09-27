@@ -1,0 +1,9 @@
+1. Edit 
+	la users => modal
+	la posts => new page2
+2. În topbar de adăugat user-ul
+3. De făcut modalul pentru user
+4. De făcut modalul de confirmare
+5. De revăzut props la FC
+6. De făcut index.ts acolo unde sunt mai multe de exportat
+7. De terminat requests

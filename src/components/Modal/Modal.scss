@@ -24,7 +24,7 @@
       }
       &__header {
         height: 50px;
-        background: $primary-active-color;
+        background: $primary-color-active;
         overflow: hidden;
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
@@ -44,8 +44,8 @@
         text-align: center;
       }
       &__buttons {
-        position: absolute;
-        bottom: 2px;
+        // position: absolute;
+        // bottom: 2px;
         margin-bottom: 10px;
         width: 100%;
         display: flex;

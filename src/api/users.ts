@@ -1,15 +1,13 @@
-import axios from "axios";
+import axios from "./index";
 import {
   UserProps,
   UserRegistrationParams,
   UserLoginCredentials,
 } from "../types/types";
 
-const URL = "http://localhost:3000";
-
 const getUsers = async () => {
   try {
-    const response = await axios.get<UserProps[]>(`${URL}/users`);
+    const response = await axios.get<UserProps[]>(`/users`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -18,7 +16,7 @@ const getUsers = async () => {
 
 const getUser = async (userId: string) => {
   try {
-    const response = await axios.get<UserProps>(`${URL}/users/${userId}`);
+    const response = await axios.get<UserProps>(`/users/${userId}`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -38,12 +36,12 @@ const signUpUser = async (user: UserRegistrationParams) => {
     //   }}
 
     const response = await axios.get<UserRegistrationParams[]>(
-      `${URL}/users?email=${user.email}`
+      `/users?email=${user.email}`
     );
     if (response.data.length > 0) {
       throw new Error(`An account with the email ${user.email} already exists`);
     }
-    const register = await axios.post<UserProps>(`${URL}/users`, user);
+    const register = await axios.post<UserProps>(`/users`, user);
     return register.data;
   } catch (error) {
     throw error;

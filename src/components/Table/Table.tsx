@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Table.scss"
 
-const Table = ({
+export const Table = ({
   className,
   children,
   ...props
@@ -13,4 +13,3 @@ const Table = ({
   );
 };
 
-export default Table

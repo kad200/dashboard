@@ -1,8 +1,8 @@
+import { signInUser } from "api/users";
+import { Button, Input } from "components"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInUser } from "../../api/users";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
+
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 

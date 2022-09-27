@@ -7,7 +7,7 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
 }
 
-const Select: React.FC<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   placeholder,
   label,
   id,
@@ -30,4 +30,3 @@ const Select: React.FC<SelectProps> = ({
   </div>
 );
 
-export default Select;

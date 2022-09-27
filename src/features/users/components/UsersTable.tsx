@@ -1,4 +1,4 @@
-import Table from "../../../components/Table/Table";
+import { Table } from "components";
 import { UserProps } from "../../../types/types";
 
 import UserItem from "./UserItem";

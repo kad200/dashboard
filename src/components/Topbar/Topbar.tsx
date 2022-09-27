@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Topbar.scss";
 
 
-const Topbar: React.FC = () => {
+export const Topbar: React.FC = () => {
   return (
   <div className="topbar">
     <div className="topbar__logo">
@@ -16,4 +16,3 @@ const Topbar: React.FC = () => {
   )
 };
 
-export default Topbar;

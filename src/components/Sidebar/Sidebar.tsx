@@ -1,13 +1,13 @@
+import { sidebarItems } from "components";
 import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Sidebar.scss";
-import SidebarItem from "./SidebarItem";
 
-const Sidebar: React.FC = () => {
+export const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
-      {SidebarItem.map((item) => {
+      {sidebarItems.map((item) => {
         return (
             <Link className="sidebar__link-item" key={item.id} to={item.path}>
               {item.icon}
@@ -19,4 +19,3 @@ const Sidebar: React.FC = () => {
   );
 };
 
-export default Sidebar;

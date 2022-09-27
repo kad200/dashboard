@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { signUpUser } from "../../api/users";
 import { UserRegistrationParams } from "../../types/types";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
-import Select from "../../components/Select/Select";
+
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Input, Select, Button } from "components";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 

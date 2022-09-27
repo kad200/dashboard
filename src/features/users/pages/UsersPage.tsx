@@ -1,10 +1,9 @@
 import UsersTable from "../components/UsersTable";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../../../api/users";
-import Layout from "../../../components/Layout/Layout";
-import Button from "../../../components/Button/Button";
 import { useState } from "react";
-import Modal from "../../../components/Modal/Modal";
+import { Layout, Button, Modal } from "components";
+
 
 const UsersPage = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -15,9 +14,9 @@ const UsersPage = () => {
     return <h1>An unknown error occured</h1>;
   }
 
-  if (isLoading) {
-    return <h1>Loading the information</h1>;
-  }
+  // if (isLoading) {
+  //   return <h1>Loading the information</h1>;
+  // }
 
   if (!data) {
     return <h1>Waiting for the information</h1>;

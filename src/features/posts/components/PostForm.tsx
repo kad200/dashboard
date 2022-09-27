@@ -1,6 +1,6 @@
-import Input from "../../../components/Input/Input";
-import useSetState from "../../../hooks/useSetState";
-import { PostProps } from "../../../types/types";
+import { Input } from "components";
+import useSetState from "hooks/useSetState";
+import { PostProps } from "types/types";
 
 interface PostFormProps {
   post?: PostProps;

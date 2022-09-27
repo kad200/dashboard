@@ -1,7 +1,5 @@
+import { Button, Modal, ConfirmationModal } from "components";
 import { useState } from "react";
-import Button from "../../../components/Button/Button";
-import ConfirmationModal from "../../../components/ConfirmationModal";
-import Modal from "../../../components/Modal/Modal";
 import { UserProps } from "../../../types/types";
 
 const UserItem = ({ user }: { user: UserProps }) => {

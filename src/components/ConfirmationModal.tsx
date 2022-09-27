@@ -1,5 +1,5 @@
-import Button from "./Button/Button";
-import Modal from "./Modal/Modal";
+import { Button, Modal } from "components";
+
 
 interface ConfirmationModalProps {
   onClick: () => void;
@@ -7,7 +7,7 @@ interface ConfirmationModalProps {
   title: string;
 }
 
-const ConfirmationModal = ({
+export const ConfirmationModal = ({
   onClick,
   open,
   children,
@@ -29,4 +29,3 @@ const ConfirmationModal = ({
   );
 };
 
-export default ConfirmationModal;

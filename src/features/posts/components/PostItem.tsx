@@ -1,8 +1,7 @@
+
+import { Button, Modal, ConfirmationModal } from "components";
 import { useState } from "react";
-import Button from "../../../components/Button/Button";
-import ConfirmationModal from "../../../components/ConfirmationModal";
-import Modal from "../../../components/Modal/Modal";
-import { PostProps } from "../../../types/types";
+import { PostProps } from "types/types";
 import "./PostItem.scss";
 
 const PostItem = ({ post }: { post: PostProps }) => {
