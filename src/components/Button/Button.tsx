@@ -13,8 +13,8 @@ type ButtonType = JSX.IntrinsicElements["button"];
 
 export interface ButtonProps extends ButtonType { 
   children: React.ReactNode,
-  variant?: "primary" | "danger",
-  size?: "small" | "large",
+  variant: "primary" | "danger",
+  size: "small" | "large",
  }
 
 

@@ -27,7 +27,7 @@ const LoginPage = () => {
     e.preventDefault();
     signInUser(signInData);
     window.location.pathname = "/";
-    localStorage.setItem("user", JSON.stringify(e.data));
+    localStorage.setItem("user", signInData.email);
     // } else {
     //   setEmail("");
     //   setPassword("");

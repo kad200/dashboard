@@ -7,11 +7,13 @@ interface ModalProps {
   setOpen?: string;
   actions?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  buttons?: React.ReactNode;
 }
 
 export const Modal = ({
   title,
   children,
+  buttons,
   onClick,
 }: React.PropsWithChildren<ModalProps>) => {
   return (
@@ -19,16 +21,11 @@ export const Modal = ({
       <div className="modal-bg" onClick={onClick} />
       <div className="modal">
         <div className="modal__header">
-          <h3 className="modal__header-title">{title}</h3>
+          <h1 className="modal__header-title">{title}</h1>
         </div>
         <div className="modal__content">{children}</div>
         <div className="modal__buttons">
-          <Button variant="primary" size="small" onClick={onClick}>
-            Save
-          </Button>
-          <Button variant="danger" size="small" onClick={onClick}>
-            Cancel
-          </Button>
+          {/* {buttons} */}
         </div>
       </div>
     </>

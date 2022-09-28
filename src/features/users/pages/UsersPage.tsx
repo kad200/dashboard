@@ -3,12 +3,17 @@ import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../../../api/users";
 import { useState } from "react";
 import { Layout, Button, Modal } from "components";
+import UserForm from "../components/UserForm";
+import React from "react";
 
+export const UsersContext = React.createContext({
+  refetch: () => {},
+});
 
 const UsersPage = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
 
-  const { isError, isLoading, data } = useQuery(["users"], getUsers);
+  const { isError, isLoading, data, refetch } = useQuery(["users"], getUsers);
 
   if (isError) {
     return <h1>An unknown error occured</h1>;
@@ -28,19 +33,31 @@ const UsersPage = () => {
         <Button
           variant="danger"
           size="small"
-          onClick={(event) => { 
-            event.stopPropagation()
-            setOpenAddModal(true)}}
+          onClick={(event) => {
+            event.stopPropagation();
+            setOpenAddModal(true);
+          }}
         >
           Add a new user
         </Button>
         {openAddModal && (
-          <Modal 
-          title='asdsg'
-          onClick={() => setOpenAddModal(false)} open={true}></Modal>
+          <Modal
+            title="Add a new user"
+            onClick={() => setOpenAddModal(false)}
+            open={openAddModal}
+          >
+            <UserForm
+              onSubmit={() => {
+                refetch();
+                setOpenAddModal(false);
+              }}
+            />
+          </Modal>
         )}
       </div>
-      <UsersTable users={data} />;
+      <UsersContext.Provider value={{ refetch: refetch }}>
+        <UsersTable users={data} />;
+      </UsersContext.Provider>
     </Layout>
   );
 };

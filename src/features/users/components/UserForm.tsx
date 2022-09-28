@@ -1,16 +1,22 @@
-
-import { Input, Select } from "components";
-import useSetState from "../../../hooks/useSetState";
-import { UserProps } from "../../../types/types";
+import { signUpUser } from "api/users";
+import { Button, Input, Select } from "components";
+import useSetState from "hooks/useSetState";
+import { UserProps } from "types/types";
 
 interface UserFormProps {
   user?: UserProps;
+  onSubmit: (e: any) => void;
 }
 
 const UserForm = ({ user }: UserFormProps) => {
   const [userForm, setUserForm] = useSetState(
     user
-      ? user
+      ? {name: user.name,
+        surname: user.surname,
+        email: user.email,
+        gender: user.gender,
+        role: user.role,
+      }
       : {
           name: "",
           surname: "",
@@ -20,8 +26,34 @@ const UserForm = ({ user }: UserFormProps) => {
         }
   );
 
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    // console.log(
+    //   userForm.name,
+    //   userForm.surname,
+    //   userForm.email,
+    //   userForm.gender,
+    //   userForm.role
+    // );
+    signUpUser({
+      name: userForm.name,
+      surname: userForm.surname,
+      email: userForm.email,
+      gender: userForm.gender,
+      role: userForm.role,
+      password: "default123"
+    });
+
+    setUserForm("");
+    window.location.pathname = "/";
+
+    // setSuccess(true);
+    // navigate("/");
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <Input
         id="name"
         placeholder="Name"
@@ -60,6 +92,12 @@ const UserForm = ({ user }: UserFormProps) => {
         <option value="moderator">Moderator</option>
         <option value="administrator">Administrator</option>
       </Select>
+      <Button variant="primary" size="small">
+        Save
+      </Button>
+      <Button variant="danger" size="small">
+        Cancel
+      </Button>
     </form>
   );
 };

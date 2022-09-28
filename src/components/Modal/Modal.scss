@@ -1,8 +1,10 @@
-@import "../../styles/variables.scss";
+@import "styles/variables.scss";
+@import "styles/fonts.scss";
+
 
 .modal {
-    width: 250px;
-    height: 170px;
+    width:fit-content;
+    height:fit-content;
     background: white;
     color: white;
     z-index: 10;
