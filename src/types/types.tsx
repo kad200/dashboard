@@ -14,11 +14,11 @@ export type UserLoginCredentials = Pick<UserProps, "email" | "password">;
 export type UserRegistrationParams = Omit<UserProps, "id">;
 
 export interface PostProps {
-  id: number;
+  id?: number;
   title: string;
   content: string;
-  imageUrl: string;
-  date: Date;
+  imageURL: string;
+  date: string;
   author: Author;
 }
 

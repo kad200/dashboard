@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import { signUpUser } from "../../api/users";
-import { UserRegistrationParams } from "../../types/types";
+import { useEffect, useState } from "react";
+import { getUsers, signUpUser } from "../../api/users";
 
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Input, Select, Button } from "components";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
@@ -20,7 +19,7 @@ const RegisterPage = () => {
   const [validPasswordConfirmation, setValidPasswordConfirmation] =
     useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
   const [processingConsent, setProcessingConsent] = useState(false);
 
   const navigate = useNavigate();
@@ -62,6 +61,9 @@ const RegisterPage = () => {
       role: "moderator",
       password,
     });
+    getUsers();
+     
+
 
     setName("");
     setSurname("");
@@ -72,7 +74,9 @@ const RegisterPage = () => {
     setProcessingConsent(false);
     // setSuccess(true);
     navigate("/");
+
   };
+
 
   return (
     <div className="auth-page">

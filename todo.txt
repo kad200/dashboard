@@ -1,9 +1,6 @@
-1. Edit 
-	la users => modal
-	la posts => new page2
-2. În topbar de adăugat user-ul
-3. De făcut modalul pentru user
-4. De făcut modalul de confirmare
-5. De revăzut props la FC
-6. De făcut index.ts acolo unde sunt mai multe de exportat
-7. De terminat requests
+1. De făcut userContext și de adăugat în topbar userul și logout
+2. De revăzut props la FC
+3. De făcut index.ts acolo unde sunt mai multe de exportat
+4. De revăzut requests
+5. De văzut cum să aștepte postForm datele de pe server
+6. Dashboard

@@ -4,106 +4,96 @@
       "id": 1,
       "title": "Lorem ipsum",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2022-08-07",
+      "author": {
+        "name": "Heather",
+        "surname": "Duran",
+        "id": "6"
+      }
     },
     {
       "id": 2,
-      "title": "Lorem ipsum",
+      "title": "Lorem asdfadf",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2025-05-05",
+      "author": {
+        "name": "Heather",
+        "surname": "Duran",
+        "id": "6"
+      }
     },
     {
       "id": 3,
-      "title": "Lorem ipsum",
+      "title": "Lorem ipsum ipsum",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
-    },
-    {
-      "id": 4,
-      "title": "Lorem ipsum",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
-    },
-    {
-      "id": 5,
-      "title": "Lorem ipsum",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venialit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2022-02-28",
+      "author": {
+        "name": "Heather",
+        "surname": "Duran",
+        "id": "6"
+      }
     },
     {
       "id": 6,
       "title": "Lorem ipsum",
       "content": "Lorem ipsum dolor sit amUt enim ad minim vnsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "author": "Bad Boys",
-      "date": "../../...."
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2022-06-02",
+      "author": {
+        "name": "Heather",
+        "surname": "Duran",
+        "id": "6"
+      }
+    },
+    {
+      "id": 7,
+      "title": "saddad",
+      "content": "Loolo",
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2033-03-03",
+      "author": ""
+    },
+    {
+      "id": 8,
+      "title": "Alexandr",
+      "content": "fergethyjtuthtgrfedas",
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "2022-04-04",
+      "author": ""
+    },
+    {
+      "title": "dsaz",
+      "content": "sdff",
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "1999-01-01",
+      "id": 9
+    },
+    {
+      "title": "ssssss",
+      "content": "sss",
+      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
+      "date": "1111-01-01",
+      "author": "name",
+      "id": 10
     }
   ],
   "users": [
-    {
-      "id": 0,
-      "name": "Humphrey",
-      "surname": "Holden",
-      "email": "humphreyholden@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 1,
-      "name": "Charlotte",
-      "surname": "Craft",
-      "email": "charlottecraft@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "female",
-      "role": "administrator"
-    },
-    {
-      "id": 2,
-      "name": "Roman",
-      "surname": "Sims",
-      "email": "romansims@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 3,
-      "name": "Collins",
-      "surname": "Nunez",
-      "email": "collinsnunez@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 4,
-      "name": "Burgess",
-      "surname": "Leon",
-      "email": "burgessleon@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
     {
       "id": 5,
       "name": "Mckenzie",
       "surname": "Buckley",
       "email": "mckenziebuckley@zerbina.com",
-      "password": "qwerty12345",
       "gender": "male",
       "role": "administrator"
     },
     {
       "id": 6,
-      "name": "Heather",
+      "name": "Heatherq",
       "surname": "Duran",
       "email": "heatherduran@zerbina.com",
-      "password": "qwerty12345",
       "gender": "female",
       "role": "administrator"
     },
@@ -414,94 +404,75 @@
       "role": "administrator"
     },
     {
-      "id": 41,
-      "name": "Erika",
-      "surname": "Oliver",
-      "email": "erikaoliver@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "female",
-      "role": "administrator"
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "dalexandrd@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "password": "default123",
+      "id": 45
     },
     {
-      "id": 42,
-      "name": "Casey",
-      "surname": "Pittman",
-      "email": "caseypittman@zerbina.com",
-      "password": "qwerty12345",
+      "name": "Asalexandr",
+      "surname": "Dimovasd",
+      "email": "asdsdalexandrd@gmail.com",
       "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 43,
-      "name": "Neal",
-      "surname": "Mack",
-      "email": "nealmack@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 44,
-      "name": "Wynn",
-      "surname": "Bentley",
-      "email": "wynnbentley@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 45,
-      "name": "Andrews",
-      "surname": "Holloway",
-      "email": "andrewsholloway@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 46,
-      "name": "Smith",
-      "surname": "Riddle",
-      "email": "smithriddle@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
+      "role": "moderator",
+      "password": "default123",
+      "id": 46
     },
     {
       "id": 47,
-      "name": "Chris",
-      "surname": "Rosales",
-      "email": "chrisrosales@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "female",
-      "role": "administrator"
-    },
-    {
-      "id": 48,
-      "name": "Mckee",
-      "surname": "Rose",
-      "email": "mckeerose@zerbina.com",
-      "password": "qwerty12345",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "xandrd@gmail.com",
       "gender": "male",
-      "role": "administrator"
-    },
-    {
-      "id": 49,
-      "name": "Foster",
-      "surname": "Bradshaw",
-      "email": "fosterbradshaw@zerbina.com",
-      "password": "qwerty12345",
-      "gender": "male",
-      "role": "administrator"
+      "role": "moderator"
     },
     {
       "name": "Alexandr",
       "surname": "Dimov",
-      "email": "dalexandrd@gmail.com",
-      "gender": "",
+      "email": "tttttt@gmail.com",
+      "gender": "male",
       "role": "moderator",
-      "password": "SlipKnot1",
+      "password": "default123",
+      "id": 48
+    },
+    {
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "popopopop@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "password": "asdasd23S",
+      "id": 49
+    },
+    {
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "aaaaaa@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "password": "default123",
       "id": 50
+    },
+    {
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "aaaaaaaaaaa@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "password": "default123",
+      "id": 51
+    },
+    {
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "hhhhhhhh@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "password": "Asdasd123",
+      "id": 52
     }
   ]
 }

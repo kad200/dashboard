@@ -1,4 +1,4 @@
-import { deleteUser } from "api/users";
+import { deleteUser, editUser, getUser } from "api/users";
 import { Button, Modal, ConfirmationModal } from "components";
 import { useState } from "react";
 import { UserProps } from "types/types";
@@ -10,14 +10,13 @@ const UserItem = ({ user }: { user: UserProps }) => {
 
   const handleDelete = async (e: any) => {
     e.preventDefault();
-    deleteUser(user.email);
+    deleteUser(user.id);
     window.location.pathname = "/";
   };
 
   const handleEdit = async (e: any) => {
     e.preventDefault();
-    console.log(`${user.name} was edited`)
-    // editUser(user.email);
+    editUser(user);
     window.location.pathname = "/";
   };
 
@@ -40,11 +39,28 @@ const UserItem = ({ user }: { user: UserProps }) => {
         {openEditModal && (
           <Modal
             onClick={() => {
-              setOpenEditModal(false)}}
-            title={`Edit ${user.name} data`}
-            open={true}
+              setOpenEditModal(false);
+            }}
+            title={`Edit ${user.name} ${user.surname} data`}
+            open
           >
-            <UserForm onSubmit={handleEdit}/>
+            <UserForm
+              user={user}
+              onSubmit={() => {
+                handleEdit(user);
+                setOpenEditModal(false);
+              }}
+            />
+            <Button
+              onClick={(event) => {
+                event.stopPropagation();
+                setOpenEditModal(false);
+              }}
+              variant={"danger"}
+              size={"small"}
+            >
+              Cancel
+            </Button>
           </Modal>
         )}
         <Button
@@ -58,7 +74,7 @@ const UserItem = ({ user }: { user: UserProps }) => {
           <ConfirmationModal
             onClick={() => setOpenRemoveModal(false)}
             title="Do you really want to delete this user?"
-            open={true}
+            open
           >
             <Button
               onClick={handleDelete}

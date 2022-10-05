@@ -1,25 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
-import { Layout, Button, Modal, Grid } from "components";
+import { Layout, Button, Grid } from "components";
 
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import PostForm from "../components/PostForm";
 import PostItem from "../components/PostItem";
 
-
 const PostsPage = () => {
-  const [openAddModal, setOpenAddModal] = useState(false);
+  // const [openAddModal, setOpenAddModal] = useState(false);
 
-  const { isError, isLoading, data } = useQuery(["posts"], getPosts);
+  const { isError, data } = useQuery(["posts"], getPosts);
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate('create');
+  };
 
   if (isError) {
     return <h1>An unknown error occured</h1>;
   }
-
-  // if (isLoading) {
-  //   return <h1>Loading the information</h1>;
-  // }
 
   if (!data) {
     return <h1>Waiting for the information</h1>;
@@ -31,21 +30,10 @@ const PostsPage = () => {
         <Button
           variant="danger"
           size="small"
-          onClick={(event) => {
-            event.stopPropagation();
-            setOpenAddModal(true);
-          }}
+          onClick={routeChange}
         >
           Add a new post
         </Button>
-        {openAddModal && (
-          <Modal
-            onClick={() => setOpenAddModal(false)}
-            open={true}
-          >
-            <PostForm />
-          </Modal>
-        )}
       </div>
       <Grid columns={4}>
         {data.map((post) => (

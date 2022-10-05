@@ -10,7 +10,7 @@ export const UsersContext = React.createContext({
   refetch: () => {},
 });
 
-const UsersPage = () => {
+const UsersPage = (user: any) => {
   const [openAddModal, setOpenAddModal] = useState(false);
 
   const { isError, isLoading, data, refetch } = useQuery(["users"], getUsers);
@@ -18,10 +18,6 @@ const UsersPage = () => {
   if (isError) {
     return <h1>An unknown error occured</h1>;
   }
-
-  // if (isLoading) {
-  //   return <h1>Loading the information</h1>;
-  // }
 
   if (!data) {
     return <h1>Waiting for the information</h1>;
@@ -46,12 +42,17 @@ const UsersPage = () => {
             onClick={() => setOpenAddModal(false)}
             open={openAddModal}
           >
-            <UserForm
-              onSubmit={() => {
-                refetch();
+            <UserForm />
+            <Button
+              onClick={(event) => {
+                event.stopPropagation();
                 setOpenAddModal(false);
               }}
-            />
+              variant={"danger"}
+              size={"small"}
+            >
+              Cancel
+            </Button>
           </Modal>
         )}
       </div>

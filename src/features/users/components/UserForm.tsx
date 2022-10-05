@@ -1,22 +1,24 @@
-import { signUpUser } from "api/users";
-import { Button, Input, Select } from "components";
+import { editUser, getUsers, signUpUser } from "api/users";
+import { Button, Input, Modal, Select } from "components";
 import useSetState from "hooks/useSetState";
 import { UserProps } from "types/types";
 
 interface UserFormProps {
-  user?: UserProps;
-  onSubmit: (e: any) => void;
+  user?: UserProps | null;
+  onSubmit?: (e: any) => void;
 }
 
-const UserForm = ({ user }: UserFormProps) => {
+const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
   const [userForm, setUserForm] = useSetState(
     user
-      ? {name: user.name,
-        surname: user.surname,
-        email: user.email,
-        gender: user.gender,
-        role: user.role,
-      }
+      ? {
+          id: user.id,
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          gender: user.gender,
+          role: user.role,
+        }
       : {
           name: "",
           surname: "",
@@ -28,28 +30,27 @@ const UserForm = ({ user }: UserFormProps) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
-    // console.log(
-    //   userForm.name,
-    //   userForm.surname,
-    //   userForm.email,
-    //   userForm.gender,
-    //   userForm.role
-    // );
-    signUpUser({
-      name: userForm.name,
-      surname: userForm.surname,
-      email: userForm.email,
-      gender: userForm.gender,
-      role: userForm.role,
-      password: "default123"
-    });
-
+    console.log(userForm);
+    user
+      ? editUser({
+          id: userForm.id,
+          name: userForm.name,
+          surname: userForm.surname,
+          email: userForm.email,
+          gender: userForm.gender,
+          role: userForm.role,
+        })
+      : signUpUser({
+          name: userForm.name,
+          surname: userForm.surname,
+          email: userForm.email,
+          gender: userForm.gender,
+          role: userForm.role,
+          password: "default123",
+        });
     setUserForm("");
-    window.location.pathname = "/";
-
-    // setSuccess(true);
-    // navigate("/");
+    getUsers();
+    window.location.reload();
   };
 
   return (
@@ -94,9 +95,6 @@ const UserForm = ({ user }: UserFormProps) => {
       </Select>
       <Button variant="primary" size="small">
         Save
-      </Button>
-      <Button variant="danger" size="small">
-        Cancel
       </Button>
     </form>
   );

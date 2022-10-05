@@ -1,23 +1,75 @@
-import { Input } from "components";
+import { useQuery } from "@tanstack/react-query";
+import { addPost, editPost, getPost, getPosts } from "api/posts";
+import { Button, Input } from "components";
 import useSetState from "hooks/useSetState";
+import { useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { PostProps } from "types/types";
 
 interface PostFormProps {
-  post?: PostProps;
+  post: PostProps | null;
 }
 
-const PostForm = ({ post }: PostFormProps) => {
+const PostForm = (post: PostFormProps) => {
+  // const { id: postId } = useParams();
+  // const {
+  //   isFetching,
+  //   isLoading,
+  //   // isSuccess,
+  //   data: post,
+  // } = useQuery(["posts", postId], () => getPost(Number(postId)), );
+
+  // console.log(post);
+
+
   const [postForm, setPostForm] = useSetState(
-    post
-      ? post
+    post.post?.id
+      ? {
+          title: post.post?.title,
+          content: post.post?.content,
+          imageURL: post.post?.imageURL,
+          date: post.post?.date,
+          author: post.post?.author,
+        }
       : {
           title: "",
           content: "",
           image: "",
           date: "",
-          author: "",
+          author: "name",
         }
   );
+
+  console.log(postForm);
+  const navigate = useNavigate();
+
+  // if (isLoading || isFetching) {
+  //   return <h1>Be patient</h1>;
+  // }
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(postForm);
+    post.post?.id
+      ? editPost({
+          id: post.post?.id,
+          title: postForm.title,
+          content: postForm.content,
+          imageURL: postForm.imageURL,
+          date: postForm.date,
+          author: postForm.author,
+        })
+      : addPost({
+          title: postForm.title,
+          content: postForm.content,
+          imageURL: postForm.imageURL,
+          date: postForm.date,
+          author: postForm.author,
+        });
+    setPostForm("");
+    navigate('/posts');
+    getPosts();
+  };
 
   return (
     <form className="form">
@@ -33,23 +85,39 @@ const PostForm = ({ post }: PostFormProps) => {
         type="textarea"
         placeholder="Content"
         value={postForm.content}
-        onChange={(event) => setPostForm({ surname: event.target.value })}
+        onChange={(event) => setPostForm({ content: event.target.value })}
       />
       <Input
         id="image"
         type="text"
         placeholder="Please put a link to an image"
-        value={postForm.image}
-        onChange={(event) => setPostForm({ image: event.target.value })}
+        value={postForm.imageURL}
+        onChange={(event) => setPostForm({ imageURL: event.target.value })}
       />
       <Input
         id="date"
         type="date"
-        // placeholder="Please put a link to an image"
         value={postForm.date}
         onChange={(event) => setPostForm({ date: event.target.value })}
       />
-      <div>Author</div>
+      <div>
+        {post.post?.id
+          ? post.post?.author.name + " " + post.post?.author.surname
+          : "name" + " " + "surname"}
+      </div>{" "}
+      <Link to={"/posts"}>
+      <Button
+        children={"Go back"}
+        variant={"danger"}
+        size={"small"}
+      ></Button>
+      </Link>
+      <Button
+        onClick={handleSubmit}
+        children={"Submit"}
+        variant={"primary"}
+        size={"small"}
+      ></Button>
     </form>
   );
 };
