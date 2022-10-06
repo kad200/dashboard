@@ -1,49 +1,29 @@
 import { signInUser } from "api/users";
-import { Button, Input } from "components"
-import { useEffect, useState } from "react";
+import { Button, Input } from "components";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../../styles/fonts.scss";
 import "../../styles/index.scss";
 
 const LoginPage = () => {
-  // const userRef = useRef<any>();
-  // const errRef = useRef<any>();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errMsg, setErrMsg] = useState("");
-  // const [success, setSuccess] = useState(false);
-
-  // useEffect(() => {
-  //   useRef.current.focus();
-  // }, [])
-
-  const signInData = {email, password}
-
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    signInUser(signInData);
-    window.location.pathname = "/";
-    localStorage.setItem("user", signInData.email);
-    // } else {
-    //   setEmail("");
-    //   setPassword("");
-    //   setErrorMessage("Please try again");
-    //   return;
-    // }
-    // setSuccess(true);
-  };
+  const signInData = { email, password };
 
   const navigate = useNavigate();
 
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    signInUser(signInData);
+    navigate("/");
+  };
+
   return (
     <div className="auth-page">
-      <section className="auth-section">
+      <section className="auth-page__section">
         <h1>Please sign in</h1>
-        <form className="auth-form" onSubmit={handleSubmit}>
+        <form className="auth-page__form" onSubmit={handleSubmit}>
           <Input
             placeholder="Your email"
             type="email"
@@ -62,9 +42,7 @@ const LoginPage = () => {
             value={password}
             required
           />
-          <Button variant="primary" size="large">
-            Sign in
-          </Button>
+          <Button variant="primary" size="large" children="Sign in" />
         </form>
         <h3>
           Still don't have an account?
@@ -73,9 +51,8 @@ const LoginPage = () => {
             variant="danger"
             size="small"
             onClick={() => navigate("/register")}
-          >
-            Sign up
-          </Button>
+            children="Sign up"
+          />
         </h3>
       </section>
     </div>

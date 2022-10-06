@@ -10,10 +10,10 @@ export const UsersContext = React.createContext({
   refetch: () => {},
 });
 
-const UsersPage = (user: any) => {
+const UsersPage = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
 
-  const { isError, isLoading, data, refetch } = useQuery(["users"], getUsers);
+  const { isError, data, refetch } = useQuery(["users"], getUsers);
 
   if (isError) {
     return <h1>An unknown error occured</h1>;
@@ -27,15 +27,14 @@ const UsersPage = (user: any) => {
     <Layout>
       <div className="btn-container__add-user">
         <Button
+          children="Add a new user"
           variant="danger"
           size="small"
           onClick={(event) => {
             event.stopPropagation();
             setOpenAddModal(true);
           }}
-        >
-          Add a new user
-        </Button>
+        />
         {openAddModal && (
           <Modal
             title="Add a new user"

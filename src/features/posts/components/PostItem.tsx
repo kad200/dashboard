@@ -10,12 +10,13 @@ const PostItem = ({ post }: { post: PostProps }) => {
 
   const navigate = useNavigate();
 
-  const handleDelete = async (e: any) => {
+  const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (post.id) {
       deletePost(post.id);
     }
-    window.location.pathname = "/";
+    setOpenRemoveModal(false);
+    window.location.reload();
   };
 
   return (
@@ -34,9 +35,9 @@ const PostItem = ({ post }: { post: PostProps }) => {
       <div className="post-item__info">
         <div className="post-item__info-date">{post.date}</div>
         <div className="post-item__info-author">
-          {/* {post.author.name
+          {post.author
             ? post.author.name + " " + post.author.surname
-            : "anonymous"} */}
+            : "anonymous"}
         </div>
       </div>
       <div className="post-item__action-buttons">

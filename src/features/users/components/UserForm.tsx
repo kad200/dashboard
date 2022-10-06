@@ -5,7 +5,7 @@ import { UserProps } from "types/types";
 
 interface UserFormProps {
   user?: UserProps | null;
-  onSubmit?: (e: any) => void;
+  onSubmit?: (e: React.SyntheticEvent<UserProps>) => void;
 }
 
 const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
@@ -28,7 +28,7 @@ const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
         }
   );
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log(userForm);
     user

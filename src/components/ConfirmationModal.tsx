@@ -12,12 +12,14 @@ export const ConfirmationModal = ({
   open,
   children,
   title,
+  ...props
 }: React.PropsWithChildren<ConfirmationModalProps>) => {
   return (
     <Modal
       onClick={onClick}
       title={title}
       open={open}
+      {...props}
       actions={
         <Button variant="danger" size="small" onClick={onClick}>
           Accept

@@ -8,7 +8,7 @@ const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
 
-  const handleDelete = async (e: any) => {
+  const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     deleteUser(user.id);
     window.location.pathname = "/";
@@ -58,9 +58,8 @@ const UserItem = ({ user }: { user: UserProps }) => {
               }}
               variant={"danger"}
               size={"small"}
-            >
-              Cancel
-            </Button>
+              children="Cancel"
+            />
           </Modal>
         )}
         <Button

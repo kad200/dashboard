@@ -4,7 +4,7 @@ export interface UserProps {
   surname: string;
   email: string;
   // gender: "none" | "male" | "female";
-  gender: any;
+  gender: string;
   password?: string;
   role: "administrator" | "moderator";
 }

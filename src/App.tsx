@@ -4,6 +4,7 @@ import routes from "routes";
 
 const App = () => {
   return (
+
     <div className="App">
       <Router>
         <Routes>
@@ -17,6 +18,7 @@ const App = () => {
         </Routes>
       </Router>
     </div>
+
   );
 };
 

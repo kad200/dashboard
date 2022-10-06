@@ -1,5 +1,5 @@
-import React from 'react'
-import "./Table.scss"
+import React from "react";
+import "./Table.scss";
 
 export const Table = ({
   className,
@@ -12,4 +12,3 @@ export const Table = ({
     </section>
   );
 };
-

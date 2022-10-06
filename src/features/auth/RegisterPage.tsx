@@ -37,7 +37,7 @@ const RegisterPage = () => {
     setErrorMessage("");
   }, [email, password, passwordConfirmation]);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (!validPassword || !validPasswordConfirmation) {
       setErrorMessage("Invalid password");
@@ -62,8 +62,6 @@ const RegisterPage = () => {
       password,
     });
     getUsers();
-     
-
 
     setName("");
     setSurname("");
@@ -73,18 +71,16 @@ const RegisterPage = () => {
     setPasswordConfirmation("");
     setProcessingConsent(false);
     // setSuccess(true);
-    navigate("/");
-
+    navigate("/login");
   };
-
 
   return (
     <div className="auth-page">
-      <section className="auth-section">
+      <section className="auth-page__section">
         <div className="auth-page__header">
           <h1>Sign up form</h1>
         </div>
-        <form className="auth-form" onSubmit={handleSubmit}>
+        <form className="auth-page__form" onSubmit={handleSubmit}>
           <Input
             placeholder="First name"
             type="text"
@@ -113,7 +109,6 @@ const RegisterPage = () => {
             required
           />
           <Select
-            className="custom-select"
             label="Please set your gender:"
             placeholder="gender"
             id="gender"
@@ -151,9 +146,7 @@ const RegisterPage = () => {
             checked={processingConsent}
             required
           />
-          <Button variant="danger" size="large">
-            Sign up
-          </Button>
+          <Button children="Sign up" variant="danger" size="large" />
         </form>
       </section>
     </div>

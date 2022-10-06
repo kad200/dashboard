@@ -14,7 +14,7 @@ export const sidebarItems = [
     {
         id: 3,
         title: 'Dashboard',
-        path: '/',
+        path: '/dashboard',
         icon: <i className="gg-screen" />
     }
 ]

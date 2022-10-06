@@ -1,4 +1,3 @@
-import { Button } from "components";
 import "./Modal.scss";
 
 interface ModalProps {
@@ -7,13 +6,11 @@ interface ModalProps {
   setOpen?: string;
   actions?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
-  buttons?: React.ReactNode;
 }
 
 export const Modal = ({
   title,
   children,
-  buttons,
   onClick,
 }: React.PropsWithChildren<ModalProps>) => {
   return (
@@ -25,7 +22,6 @@ export const Modal = ({
         </div>
         <div className="modal__content">{children}</div>
         <div className="modal__buttons">
-          {/* {buttons} */}
         </div>
       </div>
     </>

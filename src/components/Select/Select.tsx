@@ -2,9 +2,7 @@ import React from "react";
 import "./Select.scss"
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  id: string;
   label?: string;
-  placeholder?: string;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -14,6 +12,7 @@ export const Select: React.FC<SelectProps> = ({
   children,
   value,
   onChange,
+  ...props
 }) => (
   <div className="form-group">
     {label && <label htmlFor={id}>{label}</label>}
@@ -24,6 +23,7 @@ export const Select: React.FC<SelectProps> = ({
       value={value}
       onChange={onChange}
       required
+      {...props}
     >
       {children}
     </select>

@@ -3,10 +3,6 @@ import "./Input.scss";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  // id: string;
-  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  // required?: boolean;
-  // checked?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -34,7 +30,7 @@ export const Input: React.FC<InputProps> = ({
       {...props}
     />
     {label && (
-      <label className="checkbox-label" htmlFor={id}>
+      <label className={`${type}-label`} htmlFor={id}>
         {label}
       </label>
     )}

@@ -1,83 +1,52 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Lorem ipsum",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2022-08-07",
+      "title": "How to Format Dates in JS",
+      "content": "Getting the date in JavaScript isn't usually a problem, but formatting these dates to suit your project can be cumbersome for beginners. Because of this, most people eventually end up using libraries.  The most used method to get the date in JavaScript is the new Date() object.  By default, when you run new Date() in your terminal, it uses your browser's time zone and displays the date as a full text string, like Fri Jul 02 2021 12:44:45 GMT+0100 (British Summer Time).  But having something like this in your web page or application is not professional and isn't easy to read. So this forces you to look for better ways to format these dates.  Let’s take a look at some methods that operate on a date object.",
+      "imageURL": "https://pbs.twimg.com/profile_images/1276770212927410176/qTgTIejk_400x400.jpg",
+      "date": "2022-09-05",
       "author": {
-        "name": "Heather",
-        "surname": "Duran",
-        "id": "6"
-      }
+        "name": "Alexandr",
+        "surname": "Dimov",
+        "id": 53
+      },
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Lorem asdfadf",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2025-05-05",
+      "title": "Date Methods in JavaScript",
+      "content": "There are so many methods that you can apply to the date object. You can use these methods to get information from a date object. Here are some of them:  getFullYear() – gets the year as a four digit number (yyyy) getMonth() – gets the month as a number (0-11) getDate() – gets the day as a number (1-31) getHours() – gets the hour (0-23) And lots more…  Unfortunately, most of these methods still needs a lot of code to convert the dates to the format we desire.  For example, new Date().getMonth() will output 6 which stands for July.",
+      "imageURL": "https://pbs.twimg.com/profile_images/1276770212927410176/qTgTIejk_400x400.jpg",
+      "date": "2022-09-06",
       "author": {
-        "name": "Heather",
-        "surname": "Duran",
-        "id": "6"
-      }
+        "name": "Alexandr",
+        "surname": "Dimov",
+        "id": 53
+      },
+      "id": 2
     },
     {
       "id": 3,
-      "title": "Lorem ipsum ipsum",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2022-02-28",
+      "title": "React Router",
+      "content": "React Router is published to npm in three different packages:  react-router contains most of the core functionality of React Router including the route matching algorithm and most of the core components and hooks react-router-dom includes everything from react-router and adds a few DOM-specific APIs, including <BrowserRouter>, <HashRouter>, and <Link> react-router-native includes everything from react-router and adds a few APIs that are specific to React Native, including <NativeRouter> and a native version of <Link> Both react-router-dom and react-router-native automatically include react-router as a dependency when you install them, and both packages re-export everything from react-router. When you import stuff, you should always import from either react-router-dom or react-router-native and never directly from react-router. Otherwise you may accidentally import mismatched versions of the library in your app.  If you installed React Router as a global (using a <script> tag), you can find the library on the window.ReactRouterDOM object. If you installed it from npm, you can import the pieces you need. The examples in this reference all use import syntax.",
+      "imageURL": "https://reactrouter.com/twitterimage.jpg",
+      "date": "2022-09-04",
       "author": {
-        "name": "Heather",
-        "surname": "Duran",
-        "id": "6"
+        "name": "Alexandr",
+        "surname": "Dimov",
+        "id": 53
       }
     },
     {
-      "id": 6,
-      "title": "Lorem ipsum",
-      "content": "Lorem ipsum dolor sit amUt enim ad minim vnsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2022-06-02",
+      "title": "Navigation",
+      "content": "React Router's navigation interfaces let you change the currently rendered page by modifying the current location. There are two main interfaces for navigating between pages in your app, depending on what you need.  <Link> and <NavLink> render an accessible <a> element, or a TouchableHighlight on React Native. This lets the user initiate navigation by clicking or tapping an element on the page. useNavigate and <Navigate> let you programmatically navigate, usually in an event handler or in response to some change in state There are a few low-level APIs that we use internally that may also prove useful when building your own navigation interfaces.  useResolvedPath - resolves a relative path against the current location useHref - resolves a relative path suitable for use as a <a href> useLocation and useNavigationType - these describe the current location and how we got there useLinkClickHandler - returns an event handler to for navigation when building a custom <Link> in react-router-dom useLinkPressHandler - returns an event handler to for navigation when building a custom <Link> in react-router-native resolvePath - resolves a relative path against a given URL pathname",
+      "imageURL": "https://reactrouter.com/twitterimage.jpg",
+      "date": "2022-08-08",
       "author": {
-        "name": "Heather",
-        "surname": "Duran",
-        "id": "6"
-      }
-    },
-    {
-      "id": 7,
-      "title": "saddad",
-      "content": "Loolo",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2033-03-03",
-      "author": ""
-    },
-    {
-      "id": 8,
-      "title": "Alexandr",
-      "content": "fergethyjtuthtgrfedas",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "2022-04-04",
-      "author": ""
-    },
-    {
-      "title": "dsaz",
-      "content": "sdff",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "1999-01-01",
-      "id": 9
-    },
-    {
-      "title": "ssssss",
-      "content": "sss",
-      "imageURL": "https://images.unsplash.com/photo-1664058986963-5f531744c710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1146&q=80",
-      "date": "1111-01-01",
-      "author": "name",
-      "id": 10
+        "name": "Alexandr",
+        "surname": "Dimov",
+        "id": 53
+      },
+      "id": 4
     }
   ],
   "users": [
@@ -422,14 +391,6 @@
       "id": 46
     },
     {
-      "id": 47,
-      "name": "Alexandr",
-      "surname": "Dimov",
-      "email": "xandrd@gmail.com",
-      "gender": "male",
-      "role": "moderator"
-    },
-    {
       "name": "Alexandr",
       "surname": "Dimov",
       "email": "tttttt@gmail.com",
@@ -473,6 +434,15 @@
       "role": "moderator",
       "password": "Asdasd123",
       "id": 52
+    },
+    {
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "alex@gmail.com",
+      "gender": "female",
+      "role": "moderator",
+      "password": "Default123",
+      "id": 53
     }
   ]
 }

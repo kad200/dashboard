@@ -10,11 +10,13 @@ export const Grid = ({
   variant,
   children,
   columns,
+  ...props
 }: GridProps) => {
   return (
     <div
       className={`grid grid--${variant}`}
       style={{ gridTemplateColumns: "minmax(0, 1fr) ".repeat(columns) }}
+      {...props}
     >
       {children}
     </div>

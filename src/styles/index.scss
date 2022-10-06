@@ -19,22 +19,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &__section {
+    padding: 1rem;
+    width: 420px;
+    background-color: rgba(62, 145, 181, 0.4);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }
-
-.auth-section {
-  padding: 1rem;
-  width: 420px;
-  background-color: rgba(62, 145, 181, 0.4);
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
 a,
 a:visited {
   color: #fff;

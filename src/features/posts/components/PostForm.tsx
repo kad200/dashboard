@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { addPost, editPost, getPost, getPosts } from "api/posts";
 import { Button, Input } from "components";
+import { useUserContext } from "context/userContext";
 import useSetState from "hooks/useSetState";
 import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -11,6 +12,8 @@ interface PostFormProps {
 }
 
 const PostForm = (post: PostFormProps) => {
+  const { name, surname, id } = useUserContext();
+
   // const { id: postId } = useParams();
   // const {
   //   isFetching,
@@ -21,7 +24,6 @@ const PostForm = (post: PostFormProps) => {
 
   // console.log(post);
 
-
   const [postForm, setPostForm] = useSetState(
     post.post?.id
       ? {
@@ -29,14 +31,22 @@ const PostForm = (post: PostFormProps) => {
           content: post.post?.content,
           imageURL: post.post?.imageURL,
           date: post.post?.date,
-          author: post.post?.author,
+          author: {
+            name: name,
+            surname: surname,
+            id: id,
+          },
         }
       : {
           title: "",
           content: "",
           image: "",
           date: "",
-          author: "name",
+          author: {
+            name: name,
+            surname: surname,
+            id: id,
+          },
         }
   );
 
@@ -47,7 +57,12 @@ const PostForm = (post: PostFormProps) => {
   //   return <h1>Be patient</h1>;
   // }
 
-  const handleSubmit = async (e: any) => {
+  const handleBack = () => {
+    console.log("push me");
+    navigate("/posts");
+  };
+
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log(postForm);
     post.post?.id
@@ -67,7 +82,7 @@ const PostForm = (post: PostFormProps) => {
           author: postForm.author,
         });
     setPostForm("");
-    navigate('/posts');
+    navigate("/posts");
     getPosts();
   };
 
@@ -82,6 +97,7 @@ const PostForm = (post: PostFormProps) => {
       />
       <Input
         id="content"
+        className="form__textarea"
         type="textarea"
         placeholder="Content"
         value={postForm.content}
@@ -103,16 +119,17 @@ const PostForm = (post: PostFormProps) => {
       <div>
         {post.post?.id
           ? post.post?.author.name + " " + post.post?.author.surname
-          : "name" + " " + "surname"}
-      </div>{" "}
-      <Link to={"/posts"}>
+          : `${name} ${surname}`}
+      </div>
       <Button
+        type="button"
+        onClick={handleBack}
         children={"Go back"}
         variant={"danger"}
         size={"small"}
       ></Button>
-      </Link>
       <Button
+        type="button"
         onClick={handleSubmit}
         children={"Submit"}
         variant={"primary"}
