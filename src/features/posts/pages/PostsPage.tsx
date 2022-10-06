@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 import PostItem from "../components/PostItem";
 
 const PostsPage = () => {
-  // const [openAddModal, setOpenAddModal] = useState(false);
-
   const { isError, data } = useQuery(["posts"], getPosts);
 
   let navigate = useNavigate();

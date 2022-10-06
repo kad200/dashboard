@@ -47,6 +47,18 @@
         "id": 53
       },
       "id": 4
+    },
+    {
+      "title": "<HashRouter>",
+      "content": "<HashRouter> is for use in web browsers when the URL should not (or cannot) be sent to the server for some reason. This may happen in some shared hosting scenarios where you do not have full control over the server. In these situations, <HashRouter> makes it possible to store the current location in the hash portion of the current URL, so it is never sent to the server.\n\n<HashRouter window> defaults to using the current document's defaultView, but it may also be used to track changes to another window's URL, in an <iframe>, for example.",
+      "imageURL": "https://www.loginradius.com/blog/static/a53096b6796dd3d1e3f3df8bc77a6689/03979/index.png",
+      "date": "2021-08-04",
+      "author": {
+        "name": "Kitty",
+        "surname": "Mathis",
+        "id": 24
+      },
+      "id": 5
     }
   ],
   "users": [
@@ -226,7 +238,7 @@
       "email": "kittymathis@zerbina.com",
       "password": "qwerty12345",
       "gender": "female",
-      "role": "administrator"
+      "role": "moderator"
     },
     {
       "id": 25,

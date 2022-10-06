@@ -1,6 +1,3 @@
 1. Error handling
 2. Dashboard
-3. Admin access
-
-
-input or textarea?
+3. Admin rights

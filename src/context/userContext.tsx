@@ -6,6 +6,7 @@ export type Context = {
   name: string | undefined;
   surname: string | undefined;
   id: number | null;
+  role: string | null;
   //   setUser: () => void;
 };
 
@@ -13,6 +14,7 @@ const UserContext = createContext<Context>({
   name: undefined,
   surname: undefined,
   id: null,
+  role: null,
   //   setUser: () => {},
 });
 
@@ -20,10 +22,12 @@ export const useUserContext = () => useContext(UserContext);
 
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const userId = Number(localStorage.getItem("userId"));
+  const userRole = localStorage.getItem("userRole");
   const [userName, setUserName] = useState<string>();
   const [userSurname, setUserSurname] = useState<string>();
 
-  const { isError, error } = useQuery(["user", userId], () => getUser(userId), {
+
+  const { isError, error } = useQuery(["user", userId], () => getUser(userId), {enabled: !!userId,
     onSuccess: (user) => {
       setUserName(user?.name);
       setUserSurname(user?.surname);
@@ -42,6 +46,7 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
         name: userName,
         surname: userSurname,
         id: userId,
+        role: userRole,
       }}
     >
       {children}

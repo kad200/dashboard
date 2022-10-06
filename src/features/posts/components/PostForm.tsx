@@ -95,10 +95,10 @@ const PostForm = (post: PostFormProps) => {
         value={postForm.title}
         onChange={(event) => setPostForm({ title: event.target.value })}
       />
-      <Input
+      <textarea
         id="content"
         className="form__textarea"
-        type="textarea"
+        // type="textarea"
         placeholder="Content"
         value={postForm.content}
         onChange={(event) => setPostForm({ content: event.target.value })}

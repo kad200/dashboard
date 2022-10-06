@@ -54,10 +54,15 @@ const signInUser = async (UserLoginCredentials: UserLoginCredentials) => {
   if (response.data.length === 0) {
     throw new Error("Please check your email or password!");
   }
-  const data = JSON.stringify(response.data[0].id);
-    console.log(data)
-    localStorage.setItem("userId", data);
+  const userId = JSON.stringify(response.data[0].id);
+  console.log(userId);
+  localStorage.setItem("userId", userId);
 
+  const userRole = JSON.stringify(response.data[0].role);
+  console.log(userRole);
+  localStorage.setItem("userRole", userRole);
+
+  window.location.replace("/");
   return response.data;
 };
 
@@ -74,6 +79,8 @@ const deleteUser = async (userId: number) => {
 
 const logoutUser = () => {
   localStorage.removeItem("userId");
+  localStorage.removeItem("userRole");
+  window.location.reload();
 };
 
 export {
