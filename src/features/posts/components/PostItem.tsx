@@ -1,5 +1,6 @@
 import { deletePost } from "api/posts";
 import { Button, ConfirmationModal } from "components";
+import { useUserContext } from "context/userContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostProps } from "types/types";
@@ -9,6 +10,7 @@ const PostItem = ({ post }: { post: PostProps }) => {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
 
   const navigate = useNavigate();
+  const { id, role } = useUserContext();
 
   const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -41,35 +43,36 @@ const PostItem = ({ post }: { post: PostProps }) => {
         </div>
       </div>
       <div className="post-item__action-buttons">
-        <Button
-          variant="primary"
-          size="small"
-          // onClick={() => navigate(`/${post.id}/edit`)}
-          onClick={() => navigate(`/posts/${post.id}/edit`)}
-        >
-          Edit
-        </Button>
-        <Button
-          variant="danger"
-          size="small"
-          onClick={() => setOpenRemoveModal(true)}
-        >
-          Remove
-        </Button>
-        {openRemoveModal && (
-          <ConfirmationModal
-            onClick={() => setOpenRemoveModal(false)}
-            title="Do you really want to delete this post?"
-            open={true}
-          >
+        {role === '"administrator"' || id === post.author.id ? (
+          <>
             <Button
-              onClick={handleDelete}
-              children={"Accept"}
-              variant={"danger"}
-              size={"small"}
-            ></Button>
-          </ConfirmationModal>
-        )}
+              variant="primary"
+              size="small"
+              onClick={() => navigate(`/posts/${post.id}/edit`)}
+              children="Edit"
+            />
+            <Button
+              variant="danger"
+              size="small"
+              onClick={() => setOpenRemoveModal(true)}
+              children="Remove"
+            />
+            {openRemoveModal && (
+              <ConfirmationModal
+                onClick={() => setOpenRemoveModal(false)}
+                title="Do you really want to delete this post?"
+                open={true}
+              >
+                <Button
+                  onClick={handleDelete}
+                  children={"Accept"}
+                  variant={"danger"}
+                  size={"small"}
+                ></Button>
+              </ConfirmationModal>
+            )}
+          </>
+        ) : null}
       </div>
     </div>
   );

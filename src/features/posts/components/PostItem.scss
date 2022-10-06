@@ -20,7 +20,7 @@
     display: inline;
     width: 100%;
     padding: 0.3rem 0;
-    height: 5rem;
+    height:max-content;
     overflow: hidden;
     &-name {
       text-align: center;
@@ -44,6 +44,7 @@
   }
   &__info {
     display: grid;
+    margin: 1rem 0;
     grid-template-columns: 1fr 1fr;
     color: $danger-color;
     &-date {
@@ -52,6 +53,9 @@
     &-author {
       text-align: end;
     }
+  }
+  &__action-buttons > Button {
+    margin: 0;
   }
 }
 

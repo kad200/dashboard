@@ -6,7 +6,7 @@ import {
 } from "../types/types";
 import { useNavigate } from "react-router-dom";
 
-const getUsers = () => axios.get("/users").then((res) => res.data);
+// const getUsers = () => axios.get<UserProps[]>("/users").then((res) => res.data);
 
 const getUser = (id: number) =>
   axios.get(`/users/${id}`).then((res) => res.data);
@@ -14,14 +14,14 @@ const getUser = (id: number) =>
 // const editUser = (id: number , { ...editedUser }) =>
 //   axios.put(`/users/${id}`, editedUser).then((res) => res.data);
 
-// const getUsers = async () => {
-//   try {
-//     const response = await axios.get<UserProps[]>(`/users`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+const getUsers = async () => {
+  try {
+    const response = await axios.get<UserProps[]>(`/users`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // const getUser = async (userId: number) => {
 //   try {

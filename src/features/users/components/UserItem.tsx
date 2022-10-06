@@ -1,5 +1,6 @@
 import { deleteUser, editUser, getUser } from "api/users";
 import { Button, Modal, ConfirmationModal } from "components";
+import { useUserContext } from "context/userContext";
 import { useState } from "react";
 import { UserProps } from "types/types";
 import UserForm from "./UserForm";
@@ -7,6 +8,8 @@ import UserForm from "./UserForm";
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
+
+  const { id, role } = useUserContext();
 
   const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -29,60 +32,63 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <div className="table__cell">{user.gender}</div>
       <div className="table__cell">{user.role}</div>
       <div className="table__cell action-buttons">
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => setOpenEditModal(true)}
-        >
-          Edit
-        </Button>
-        {openEditModal && (
-          <Modal
-            onClick={() => {
-              setOpenEditModal(false);
-            }}
-            title={`Edit ${user.name} ${user.surname} data`}
-            open
-          >
-            <UserForm
-              user={user}
-              onSubmit={() => {
-                handleEdit(user);
-                setOpenEditModal(false);
-              }}
-            />
+        {role === '"administrator"' || id === user.id 
+        ? (
+          <>
             <Button
-              onClick={(event) => {
-                event.stopPropagation();
-                setOpenEditModal(false);
-              }}
-              variant={"danger"}
-              size={"small"}
-              children="Cancel"
+              variant="primary"
+              size="small"
+              onClick={() => setOpenEditModal(true)}
+              children="Edit"
             />
-          </Modal>
-        )}
-        <Button
-          variant="danger"
-          size="small"
-          onClick={() => setOpenRemoveModal(true)}
-        >
-          Remove
-        </Button>
-        {openRemoveModal && (
-          <ConfirmationModal
-            onClick={() => setOpenRemoveModal(false)}
-            title="Do you really want to delete this user?"
-            open
-          >
+            {openEditModal && (
+              <Modal
+                onClick={() => {
+                  setOpenEditModal(false);
+                }}
+                title={`Edit ${user.name} ${user.surname} data`}
+                open
+              >
+                <UserForm
+                  user={user}
+                  onSubmit={() => {
+                    handleEdit(user);
+                    setOpenEditModal(false);
+                  }}
+                />
+                <Button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setOpenEditModal(false);
+                  }}
+                  variant={"danger"}
+                  size={"small"}
+                  children="Cancel"
+                />
+              </Modal>
+            )}
             <Button
-              onClick={handleDelete}
-              children={"Delete user"}
-              variant={"danger"}
-              size={"large"}
+              variant="danger"
+              size="small"
+              onClick={() => setOpenRemoveModal(true)}
+              children="Remove"
             />
-          </ConfirmationModal>
-        )}
+            {openRemoveModal && (
+              <ConfirmationModal
+                onClick={() => setOpenRemoveModal(false)}
+                title="Do you really want to delete this user?"
+                open
+              >
+                <Button
+                  onClick={handleDelete}
+                  children={"Delete user"}
+                  variant={"danger"}
+                  size={"large"}
+                />
+              </ConfirmationModal>
+            )}
+          </>
+        ) : null}
       </div>
     </div>
   );

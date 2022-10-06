@@ -1,0 +1,42 @@
+.widget {
+  display: inline-flex;
+  // align-items:center;
+  flex-direction: column;
+  padding: 15px 15px 30px 15px;
+  box-shadow: 2px 4px 10px 1px rgba(187, 114, 114, 0.47);
+  border-radius: 30px;
+  border: 5px rgb(216, 219, 231) solid;
+  height: 100px;
+  width: 300px;
+  margin-inline: 40px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+    // justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: rgb(128, 103, 103);
+  }
+
+  &__counter {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 1rem;
+    border-bottom: 1px solid gray;
+  }
+
+  &__icon {
+    width: 100px;
+  }
+}

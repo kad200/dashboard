@@ -20,6 +20,7 @@ $table-border: #d9d9d9;
   display: flex;
   border-left: solid 1px $table-border;
   transition: 0.5s;
+  min-height: 90px;
   &:hover {
     background: #f5f5f5;
     transition: 500ms;

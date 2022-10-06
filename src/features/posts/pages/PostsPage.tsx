@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
 import { Layout, Button, Grid } from "components";
-
 import { useNavigate } from "react-router-dom";
 
 import PostItem from "../components/PostItem";
@@ -11,7 +10,7 @@ const PostsPage = () => {
 
   let navigate = useNavigate();
   const routeChange = () => {
-    navigate('create');
+    navigate("create");
   };
 
   if (isError) {
@@ -26,12 +25,11 @@ const PostsPage = () => {
     <Layout>
       <div className="btn-container__add-user">
         <Button
+          children="Add a new post"
           variant="danger"
           size="small"
           onClick={routeChange}
-        >
-          Add a new post
-        </Button>
+        />
       </div>
       <Grid columns={4}>
         {data.map((post) => (

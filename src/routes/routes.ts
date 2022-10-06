@@ -1,4 +1,5 @@
 import NotFound from "components/NotFound/NotFound";
+import Unauthorized from "components/Unauthorized/Unauthorized";
 import LoginPage from "features/auth/LoginPage";
 import RegisterPage from "features/auth/RegisterPage";
 import Dashboard from "features/dashboard/Dashboard";
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "register",
     element: RegisterPage,
+  },
+  {
+    path: "/unauthorized",
+    element: Unauthorized,
   },
   {
     path: "/*",

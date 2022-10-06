@@ -1,10 +1,10 @@
 import { Button } from "components/Button/Button";
-import "./NotFound.scss";
+import "./Unauthorized.scss"
 
-function NotFound() {
+function Unauthorized() {
   return (
-    <div className="page__not-found">
-      <h1>Page not found</h1>
+    <div className="page__unauthorized">
+      <h1>You are not authorized to visit this page</h1>
       <Button
         children="Go back"
         onClick={() => {
@@ -17,4 +17,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default Unauthorized;

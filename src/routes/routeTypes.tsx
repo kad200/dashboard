@@ -10,7 +10,7 @@ const AuthorizedRoutes = ({ allowedRoles }: any) => {
   return allowedRoles?.includes(role) ? (
     <Outlet />
   ) : role ? (
-    <Navigate to="unathorized" state={{ from: location }} replace />
+    <Navigate to="unauthorized" state={{ from: location }} replace />
   ) : (
     <Navigate to="login" state={{ from: location }} replace />
   );

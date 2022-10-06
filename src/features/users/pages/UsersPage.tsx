@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Layout, Button, Modal } from "components";
 import UserForm from "../components/UserForm";
 import React from "react";
+import { useUserContext } from "context/userContext";
 
 export const UsersContext = React.createContext({
   refetch: () => {},
@@ -12,6 +13,8 @@ export const UsersContext = React.createContext({
 
 const UsersPage = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
+
+  const { role } = useUserContext();
 
   const { isError, data, refetch } = useQuery(["users"], getUsers);
 
@@ -25,36 +28,37 @@ const UsersPage = () => {
 
   return (
     <Layout>
-      <div className="btn-container__add-user">
-        <Button
-          children="Add a new user"
-          variant="danger"
-          size="small"
-          onClick={(event) => {
-            event.stopPropagation();
-            setOpenAddModal(true);
-          }}
-        />
-        {openAddModal && (
-          <Modal
-            title="Add a new user"
-            onClick={() => setOpenAddModal(false)}
-            open={openAddModal}
-          >
-            <UserForm />
-            <Button
-              onClick={(event) => {
-                event.stopPropagation();
-                setOpenAddModal(false);
-              }}
-              variant={"danger"}
-              size={"small"}
+      {role === '"administrator"' ? (
+        <div className="btn-container__add-user">
+          <Button
+            children="Add a new user"
+            variant="danger"
+            size="small"
+            onClick={(event) => {
+              event.stopPropagation();
+              setOpenAddModal(true);
+            }}
+          />
+          {openAddModal && (
+            <Modal
+              title="Add a new user"
+              onClick={() => setOpenAddModal(false)}
+              open={openAddModal}
             >
-              Cancel
-            </Button>
-          </Modal>
-        )}
-      </div>
+              <UserForm />
+              <Button
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setOpenAddModal(false);
+                }}
+                variant={"danger"}
+                size={"small"}
+                children="Cancel"
+              />
+            </Modal>
+          )}
+        </div>
+      ) : null}
       <UsersContext.Provider value={{ refetch: refetch }}>
         <UsersTable users={data} />;
       </UsersContext.Provider>

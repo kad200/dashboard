@@ -14,7 +14,14 @@ const App = () => {
               element={<route.element />}
             />
           ))}
-          <Route element={<AuthorizedRoutes allowedRoles={['"moderator"', '"administrator"']}/>}>
+          
+          <Route
+            element={
+              <AuthorizedRoutes
+                allowedRoles={['"moderator"', '"administrator"']}
+              />
+            }
+          >
             {authRoutes.map((route: any) => (
               <Route
                 key={route.path}
@@ -23,7 +30,9 @@ const App = () => {
               />
             ))}
           </Route>
-          <Route element={<AuthorizedRoutes allowedRoles={['"administrator"']}/>}>
+          <Route
+            element={<AuthorizedRoutes allowedRoles={['"administrator"']} />}
+          >
             {adminRoutes.map((route: any) => (
               <Route
                 key={route.path}
