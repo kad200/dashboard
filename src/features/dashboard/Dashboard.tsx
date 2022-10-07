@@ -54,39 +54,44 @@ const Dashboard = () => {
     },
   };
 
-  const array = usersData.map((u) => ({
-    id: u.id,
-    name: u.name,
-    surname: u.surname,
+  const authorPostsArray = usersData.map((user) => ({
+    id: user.id,
+    name: user.name,
+    surname: user.surname,
     value: 0,
   }));
 
-  const authors: number[] = [];
+  const postsPerId: number[] = [];
   postsData.forEach((post) => {
-    const author = post.author.id;
-    if (author in authors) {
-      authors[author]++;
-    } else {
-      authors[author] = 1;
-    }
-    for (let i = 0; i < array.length; i++) {
-      if (!authors[i] === false) {
-        array[i].value = authors[i];
+    const authorId = post.author.id;
+    authorId in postsPerId
+      ? postsPerId[authorId]++
+      : (postsPerId[authorId] = 1);
+
+    authorPostsArray.forEach((el) => {
+      if (!!postsPerId[el.id - 1] === true) {
+        el.value = postsPerId[el.id - 1];
       }
-    }
+    });
+
+    // for (let i = 0; i < authorPostsArray.length; i++) {
+    //   if (!!postsPerId[i] === true) {
+    //     authorPostsArray[i].value = postsPerId[i];
+    //   }
+    // }
   });
 
-  console.log(authors);
-  console.log(array);
+  console.log(postsPerId);
+  console.log(authorPostsArray);
 
   return (
     <Layout>
       <Widget data={dataPosts} />
       <Widget data={dataUsers} />
-      {array.map((array) => (
+      {/* {array.map((array) => (
         <div key={array.id}>{array.name}</div>
-      ))}
-      <Chart props={array}/>
+      ))} */}
+      <Chart props={authorPostsArray} />
     </Layout>
   );
 };
