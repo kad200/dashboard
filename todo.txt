@@ -1,3 +1,2 @@
 1. Error handling
-2. Dashboard
-3. Admin rights
+2. Styles
