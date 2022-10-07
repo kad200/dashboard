@@ -1,6 +1,5 @@
 .widget {
   display: inline-flex;
-  // align-items:center;
   flex-direction: column;
   padding: 15px 15px 30px 15px;
   box-shadow: 2px 4px 10px 1px rgba(187, 114, 114, 0.47);
@@ -13,8 +12,6 @@
   &__title {
     display: flex;
     align-items: center;
-    // flex-direction: column;
-    // justify-content: space-between;
     font-weight: bold;
     font-size: 1.4rem;
     color: rgb(128, 103, 103);
@@ -23,6 +20,7 @@
   &__counter {
     font-size: 28px;
     font-weight: 400;
+    color:rgb(50, 10, 135)
   }
 
   &__footer {
@@ -34,6 +32,9 @@
   &__link {
     font-size: 1rem;
     border-bottom: 1px solid gray;
+    > a {
+      color:rgb(157, 44, 36);
+    }
   }
 
   &__icon {

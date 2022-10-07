@@ -2,8 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
 import { getUsers } from "api/users";
 import { Button, Layout } from "components";
+import Chart from "components/Chart/Chart";
 import Widget from "components/Widget/Widget";
 import { useNavigate } from "react-router-dom";
+
+export interface WidgetDataProps {
+  title: string;
+  length: number;
+  icon: React.ReactNode;
+  link: {
+    path: string;
+    name: string;
+  };
+}
 
 const Dashboard = () => {
   const { isError: isPostsError, data: postsData } = useQuery(
@@ -23,7 +34,7 @@ const Dashboard = () => {
     return <h1>Waiting for the information</h1>;
   }
 
-  const dataPosts = {
+  const dataPosts: WidgetDataProps = {
     title: "Total posts",
     length: postsData.length,
     icon: <img src="/posts-icon.png" alt="logo" />,
@@ -33,25 +44,49 @@ const Dashboard = () => {
     },
   };
 
-  const dataUsers = {
+  const dataUsers: WidgetDataProps = {
     title: "Total users",
     length: usersData.length,
-    icon: <img src="/users-icon.png"  alt="logo" />,
+    icon: <img src="/users-icon.png" alt="logo" />,
     link: {
       path: "/",
       name: "See all users",
-    },  };
-  
+    },
+  };
 
-  for (let i = 0; i < usersData.length; i++) {
-  const postsByUser = postsData.filter(post => post.author.id === i).length
-  console.log(postsByUser)
-  }
+  const array = usersData.map((u) => ({
+    id: u.id,
+    name: u.name,
+    surname: u.surname,
+    value: 0,
+  }));
+
+  const authors: number[] = [];
+  postsData.forEach((post) => {
+    const author = post.author.id;
+    if (author in authors) {
+      authors[author]++;
+    } else {
+      authors[author] = 1;
+    }
+    for (let i = 0; i < array.length; i++) {
+      if (!authors[i] === false) {
+        array[i].value = authors[i];
+      }
+    }
+  });
+
+  console.log(authors);
+  console.log(array);
 
   return (
     <Layout>
       <Widget data={dataPosts} />
       <Widget data={dataUsers} />
+      {array.map((array) => (
+        <div key={array.id}>{array.name}</div>
+      ))}
+      <Chart props={array}/>
     </Layout>
   );
 };

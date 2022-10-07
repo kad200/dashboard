@@ -14,7 +14,7 @@ const App = () => {
               element={<route.element />}
             />
           ))}
-          
+
           <Route
             element={
               <AuthorizedRoutes
