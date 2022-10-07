@@ -93,9 +93,7 @@ const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
         <option value="moderator">Moderator</option>
         <option value="administrator">Administrator</option>
       </Select>
-      <Button variant="primary" size="small">
-        Save
-      </Button>
+      <Button variant="primary" size="small" children="Save" />
     </form>
   );
 };

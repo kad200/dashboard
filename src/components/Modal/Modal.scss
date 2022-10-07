@@ -9,6 +9,7 @@
     color: white;
     z-index: 10;
     border-radius: 16px;
+    
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
     position: fixed;
     top: 50%;
@@ -46,13 +47,10 @@
         text-align: center;
       }
       &__buttons {
-        // position: absolute;
-        // bottom: 2px;
         margin-bottom: 10px;
         width: 100%;
         display: flex;
         justify-content: space-around;
-        align-items: center;
       }
 
   }

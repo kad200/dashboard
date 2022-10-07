@@ -359,7 +359,8 @@
         "id": 5
       },
       "id": 30
-    },    {
+    },
+    {
       "title": "Navigation",
       "content": "React Router's navigation interfaces let you change the currently rendered page by modifying the current location. There are two main interfaces for navigating between pages in your app, depending on what you need.  <Link> and <NavLink> render an accessible <a> element, or a TouchableHighlight on React Native. This lets the user initiate navigation by clicking or tapping an element on the page. useNavigate and <Navigate> let you programmatically navigate, usually in an event handler or in response to some change in state There are a few low-level APIs that we use internally that may also prove useful when building your own navigation interfaces.  useResolvedPath - resolves a relative path against the current location useHref - resolves a relative path suitable for use as a <a href> useLocation and useNavigationType - these describe the current location and how we got there useLinkClickHandler - returns an event handler to for navigation when building a custom <Link> in react-router-dom useLinkPressHandler - returns an event handler to for navigation when building a custom <Link> in react-router-native resolvePath - resolves a relative path against a given URL pathname",
       "imageURL": "https://reactrouter.com/twitterimage.jpg",
@@ -382,7 +383,8 @@
         "id": 5
       },
       "id": 32
-    },    {
+    },
+    {
       "title": "Navigation",
       "content": "React Router's navigation interfaces let you change the currently rendered page by modifying the current location. There are two main interfaces for navigating between pages in your app, depending on what you need.  <Link> and <NavLink> render an accessible <a> element, or a TouchableHighlight on React Native. This lets the user initiate navigation by clicking or tapping an element on the page. useNavigate and <Navigate> let you programmatically navigate, usually in an event handler or in response to some change in state There are a few low-level APIs that we use internally that may also prove useful when building your own navigation interfaces.  useResolvedPath - resolves a relative path against the current location useHref - resolves a relative path suitable for use as a <a href> useLocation and useNavigationType - these describe the current location and how we got there useLinkClickHandler - returns an event handler to for navigation when building a custom <Link> in react-router-dom useLinkPressHandler - returns an event handler to for navigation when building a custom <Link> in react-router-native resolvePath - resolves a relative path against a given URL pathname",
       "imageURL": "https://reactrouter.com/twitterimage.jpg",
@@ -405,6 +407,18 @@
         "id": 1
       },
       "id": 34
+    },
+    {
+      "title": "5 Advanced React Patterns",
+      "content": "https://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\n\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\n\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.pnghttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png",
+      "imageURL": "https://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png",
+      "date": "2022-10-07",
+      "author": {
+        "name": "Alex",
+        "surname": "Dimov",
+        "id": 1
+      },
+      "id": 35
     }
   ],
   "users": [
