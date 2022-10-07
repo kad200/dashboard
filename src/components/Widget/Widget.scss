@@ -8,7 +8,9 @@
   height: 100px;
   width: 300px;
   margin-inline: 40px;
-
+  &:hover {
+    transform: translateY(-2px);
+  }
   &__title {
     display: flex;
     align-items: center;
@@ -20,7 +22,7 @@
   &__counter {
     font-size: 28px;
     font-weight: 400;
-    color:rgb(50, 10, 135)
+    color: rgb(50, 10, 135);
   }
 
   &__footer {
@@ -33,7 +35,7 @@
     font-size: 1rem;
     border-bottom: 1px solid gray;
     > a {
-      color:rgb(157, 44, 36);
+      color: rgb(157, 44, 36);
     }
   }
 

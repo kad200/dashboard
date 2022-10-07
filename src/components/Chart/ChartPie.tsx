@@ -1,14 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
-];
 
-const renderActiveShape = (props: any) => {
+const renderActiveShape = (props : any) => {
   const RADIAN = Math.PI / 180;
   const {
     cx,
@@ -21,7 +15,7 @@ const renderActiveShape = (props: any) => {
     fill,
     payload,
     percent,
-    value
+    value,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -36,7 +30,7 @@ const renderActiveShape = (props: any) => {
   return (
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-        {payload.name}
+        {payload.name} {payload.surname}
       </text>
       <Sector
         cx={cx}
@@ -67,7 +61,7 @@ const renderActiveShape = (props: any) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+      >{`${value} posts`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -81,26 +75,26 @@ const renderActiveShape = (props: any) => {
   );
 };
 
-export default function Chart(props: any) {
+export default function ChartPie(props: any) {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
-    (_:any, index:any) => {
+    (_: any, index: any) => {
       setActiveIndex(index);
     },
     [setActiveIndex]
   );
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={600} height={400}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
-        data={data}
-        cx={200}
+        data={props.props}
+        cx={300}
         cy={200}
-        innerRadius={60}
-        outerRadius={80}
-        fill="#8884d8"
+        innerRadius={90}
+        outerRadius={120}
+        fill="#0a64ff"
         dataKey="value"
         onMouseEnter={onPieEnter}
       />

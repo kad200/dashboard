@@ -1,0 +1,13 @@
+.dashboard-page {
+
+    &__widgets {
+        display:flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+    }
+    &__charts{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

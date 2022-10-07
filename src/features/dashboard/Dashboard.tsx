@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
 import { getUsers } from "api/users";
-import { Button, Layout } from "components";
-import Chart from "components/Chart/Chart";
+import { Layout } from "components";
+import ChartBar from "components/Chart/ChartBar";
+import ChartPie from "components/Chart/ChartPie";
 import Widget from "components/Widget/Widget";
-import { useNavigate } from "react-router-dom";
+import "./Dashboard.scss";
 
 export interface WidgetDataProps {
   title: string;
@@ -63,7 +64,7 @@ const Dashboard = () => {
 
   const postsPerId: number[] = [];
   postsData.forEach((post) => {
-    const authorId = post.author.id;
+    const authorId = post.author.id - 1;
     authorId in postsPerId
       ? postsPerId[authorId]++
       : (postsPerId[authorId] = 1);
@@ -86,12 +87,16 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <Widget data={dataPosts} />
-      <Widget data={dataUsers} />
-      {/* {array.map((array) => (
-        <div key={array.id}>{array.name}</div>
-      ))} */}
-      <Chart props={authorPostsArray} />
+      <div className="dashboard-page">
+        <section className="dashboard-page__widgets">
+          <Widget data={dataPosts} />
+          <Widget data={dataUsers} />
+        </section>
+        <section className="dashboard-page__charts">
+          <ChartBar props={authorPostsArray} />
+          <ChartPie props={authorPostsArray} />
+        </section>
+      </div>
     </Layout>
   );
 };

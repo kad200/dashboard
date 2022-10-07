@@ -8,5 +8,5 @@ export * from "./Sidebar/Sidebar";
 export * from "./Sidebar/sidebarItems"
 export * from "./Table/Table";
 export * from "./Topbar/Topbar";
-export * from "./Chart/Chart";
+export * from "./Chart/ChartPie";
 export * from "./ConfirmationModal";

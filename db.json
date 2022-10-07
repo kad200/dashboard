@@ -222,9 +222,9 @@
       "imageURL": "https://reactrouter.com/twitterimage.jpg",
       "date": "2022-08-08",
       "author": {
-        "name": "Alex",
-        "surname": "Dimov",
-        "id": 1
+        "name": "Lela",
+        "surname": "Dotson",
+        "id": 3
       },
       "id": 19
     },
@@ -259,9 +259,9 @@
       "imageURL": "https://pbs.twimg.com/profile_images/1276770212927410176/qTgTIejk_400x400.jpg",
       "date": "2022-09-06",
       "author": {
-        "name": "Alex",
-        "surname": "Dimov",
-        "id": 1
+        "name": "Hogan",
+        "surname": "Kinney",
+        "id": 4
       }
     },
     {
@@ -282,9 +282,9 @@
       "imageURL": "https://reactrouter.com/twitterimage.jpg",
       "date": "2022-08-08",
       "author": {
-        "name": "Alex",
-        "surname": "Dimov",
-        "id": 1
+        "name": "Hogan",
+        "surname": "Kinney",
+        "id": 4
       },
       "id": 24
     },
@@ -359,6 +359,52 @@
         "id": 5
       },
       "id": 30
+    },    {
+      "title": "Navigation",
+      "content": "React Router's navigation interfaces let you change the currently rendered page by modifying the current location. There are two main interfaces for navigating between pages in your app, depending on what you need.  <Link> and <NavLink> render an accessible <a> element, or a TouchableHighlight on React Native. This lets the user initiate navigation by clicking or tapping an element on the page. useNavigate and <Navigate> let you programmatically navigate, usually in an event handler or in response to some change in state There are a few low-level APIs that we use internally that may also prove useful when building your own navigation interfaces.  useResolvedPath - resolves a relative path against the current location useHref - resolves a relative path suitable for use as a <a href> useLocation and useNavigationType - these describe the current location and how we got there useLinkClickHandler - returns an event handler to for navigation when building a custom <Link> in react-router-dom useLinkPressHandler - returns an event handler to for navigation when building a custom <Link> in react-router-native resolvePath - resolves a relative path against a given URL pathname",
+      "imageURL": "https://reactrouter.com/twitterimage.jpg",
+      "date": "2022-08-08",
+      "author": {
+        "name": "Alex",
+        "surname": "Dimov",
+        "id": 1
+      },
+      "id": 31
+    },
+    {
+      "title": "<HashRouter>",
+      "content": "<HashRouter> is for use in web browsers when the URL should not (or cannot) be sent to the server for some reason. This may happen in some shared hosting scenarios where you do not have full control over the server. In these situations, <HashRouter> makes it possible to store the current location in the hash portion of the current URL, so it is never sent to the server.\n\n<HashRouter window> defaults to using the current document's defaultView, but it may also be used to track changes to another window's URL, in an <iframe>, for example.",
+      "imageURL": "https://www.loginradius.com/blog/static/a53096b6796dd3d1e3f3df8bc77a6689/03979/index.png",
+      "date": "2021-08-04",
+      "author": {
+        "name": "Leach",
+        "surname": "Stewart",
+        "id": 5
+      },
+      "id": 32
+    },    {
+      "title": "Navigation",
+      "content": "React Router's navigation interfaces let you change the currently rendered page by modifying the current location. There are two main interfaces for navigating between pages in your app, depending on what you need.  <Link> and <NavLink> render an accessible <a> element, or a TouchableHighlight on React Native. This lets the user initiate navigation by clicking or tapping an element on the page. useNavigate and <Navigate> let you programmatically navigate, usually in an event handler or in response to some change in state There are a few low-level APIs that we use internally that may also prove useful when building your own navigation interfaces.  useResolvedPath - resolves a relative path against the current location useHref - resolves a relative path suitable for use as a <a href> useLocation and useNavigationType - these describe the current location and how we got there useLinkClickHandler - returns an event handler to for navigation when building a custom <Link> in react-router-dom useLinkPressHandler - returns an event handler to for navigation when building a custom <Link> in react-router-native resolvePath - resolves a relative path against a given URL pathname",
+      "imageURL": "https://reactrouter.com/twitterimage.jpg",
+      "date": "2022-08-08",
+      "author": {
+        "name": "Alex",
+        "surname": "Dimov",
+        "id": 1
+      },
+      "id": 33
+    },
+    {
+      "title": "<HashRouter>",
+      "content": "<HashRouter> is for use in web browsers when the URL should not (or cannot) be sent to the server for some reason. This may happen in some shared hosting scenarios where you do not have full control over the server. In these situations, <HashRouter> makes it possible to store the current location in the hash portion of the current URL, so it is never sent to the server.\n\n<HashRouter window> defaults to using the current document's defaultView, but it may also be used to track changes to another window's URL, in an <iframe>, for example.",
+      "imageURL": "https://www.loginradius.com/blog/static/a53096b6796dd3d1e3f3df8bc77a6689/03979/index.png",
+      "date": "2021-08-04",
+      "author": {
+        "name": "Alex",
+        "surname": "Dimov",
+        "id": 1
+      },
+      "id": 34
     }
   ],
   "users": [
