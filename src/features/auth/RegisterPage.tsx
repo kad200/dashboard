@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { getUsers, signUpUser } from "../../api/users";
-
-import "../../styles/fonts.scss";
-import "../../styles/index.scss";
 import { useNavigate } from "react-router-dom";
+
+import { getUsers, signUpUser } from "api/users";
 import { Input, Select, Button } from "components";
+
+import "styles/fonts.scss";
+import "styles/index.scss";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
@@ -77,7 +78,8 @@ const RegisterPage = () => {
   return (
     <div className="auth-page">
       <section className="auth-page__section">
-        <div className="auth-page__header">
+        <div className="auth-page__section-header">
+          <img src="logo.png" width="300px" alt="logo" />
           <h1>Sign up form</h1>
         </div>
         <form className="auth-page__form" onSubmit={handleSubmit}>

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
 import { getPost } from "api/posts";
 import { Layout } from "components";
-import { useParams } from "react-router-dom";
 import PostForm from "../components/PostForm";
 
 const AddPostPage = () => {

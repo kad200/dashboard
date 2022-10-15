@@ -1,7 +1,7 @@
-import { deleteUser, editUser, getUser } from "api/users";
+import { useState } from "react";
+import { deleteUser, editUser } from "api/users";
 import { Button, Modal, ConfirmationModal } from "components";
 import { useUserContext } from "context/userContext";
-import { useState } from "react";
 import { UserProps } from "types/types";
 import UserForm from "./UserForm";
 
@@ -25,15 +25,14 @@ const UserItem = ({ user }: { user: UserProps }) => {
 
   return (
     <div className="table__row" key={user.id}>
-      <div className="table__cell">{user.id}</div>
+      <div className="table__cell table__cell-id">{user.id}</div>
       <div className="table__cell">{user.name}</div>
       <div className="table__cell">{user.surname}</div>
       <div className="table__cell table__cell-email">{user.email}</div>
       <div className="table__cell">{user.gender}</div>
       <div className="table__cell">{user.role}</div>
       <div className="table__cell action-buttons">
-        {role === '"administrator"' || id === user.id 
-        ? (
+        {role === "administrator" || id === user.id ? (
           <>
             <Button
               variant="primary"
@@ -56,15 +55,17 @@ const UserItem = ({ user }: { user: UserProps }) => {
                     setOpenEditModal(false);
                   }}
                 />
-                <Button
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setOpenEditModal(false);
-                  }}
-                  variant={"danger"}
-                  size={"small"}
-                  children="Cancel"
-                />
+                <div>
+                  <Button
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setOpenEditModal(false);
+                    }}
+                    variant={"danger"}
+                    size={"small"}
+                    children="Cancel"
+                  />
+                </div>
               </Modal>
             )}
             <Button
@@ -79,12 +80,20 @@ const UserItem = ({ user }: { user: UserProps }) => {
                 title="Do you really want to delete this user?"
                 open
               >
-                <Button
-                  onClick={handleDelete}
-                  children={"Delete user"}
-                  variant={"danger"}
-                  size={"large"}
-                />
+                <div>
+                  <Button
+                    onClick={() => setOpenRemoveModal(false)}
+                    children={"Cancel"}
+                    variant={"primary"}
+                    size={"large"}
+                  />
+                  <Button
+                    onClick={handleDelete}
+                    children={"Delete user"}
+                    variant={"danger"}
+                    size={"large"}
+                  />
+                </div>
               </ConfirmationModal>
             )}
           </>

@@ -1,39 +1,42 @@
-@import "/src/styles/variables.scss";
+@import "styles/variables.scss";
 
 .post-item {
-  background: transparent;
+  background: $main-color;
   overflow: hidden;
   margin: 0.6rem;
   padding: 0.6rem;
-  border-radius: 0.4rem;
+  border-radius: 3rem 0.6rem 3rem 0.6rem;
+  border: 3px solid rgba(77, 202, 108, 0.6);
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 3px solid #ece0e0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   height: 600px;
   &:hover {
-    box-shadow: 0 5px 10px rgba(10, 100, 255, 0.6);
+    box-shadow: 10px 15px 10px rgba(77, 202, 108, 0.6);
   }
   &__title {
     box-sizing: border-box;
     display: inline;
     width: 100%;
     padding-bottom: 1rem;
-    height:max-content;
+    height: max-content;
     overflow: hidden;
-    &-name {
-      text-align: center;
-      font-size: 1.3rem;
-      color: $danger-color-active;
-    }
+    // &-name {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: $danger-color;
+    font-weight: 700;
+    // }
   }
   &__content {
     box-sizing: border-box;
     height: 500px;
     overflow: hidden;
     &-text {
-      color: $primary-color;
+      color: $main-text-color;
       margin-bottom: 1rem;
       text-align: justify;
     }
@@ -47,6 +50,8 @@
     margin: 1rem 0;
     grid-template-columns: 1fr 1fr;
     color: $danger-color;
+    font-weight: 700;
+    font-size: 1.2rem;
     &-date {
       text-align: start;
     }

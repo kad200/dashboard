@@ -1,7 +1,6 @@
-import { sidebarItems } from "components";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { sidebarItems } from "components";
 import "./Sidebar.scss";
 
 export const Sidebar: React.FC = () => {

@@ -1,8 +1,10 @@
-import { logoutUser } from "api/users";
-import { Button } from "components/Button/Button";
-import { useUserContext } from "context/userContext";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+import { logoutUser } from "api/users";
+import { useUserContext } from "context/userContext";
+import { Button } from "components/Button/Button";
+
 import "./Topbar.scss";
 
 

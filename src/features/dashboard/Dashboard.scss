@@ -1,8 +1,14 @@
+@import "styles/variables.scss";
+
 .dashboard-page {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: calc(100vh - 13rem);
   &__widgets {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     flex-wrap: wrap;
   }
   &__charts {

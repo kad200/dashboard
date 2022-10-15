@@ -1,11 +1,10 @@
-import UsersTable from "../components/UsersTable";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "../../../api/users";
-import { useState } from "react";
+import { getUsers } from "api/users";
 import { Layout, Button, Modal } from "components";
-import UserForm from "../components/UserForm";
-import React from "react";
 import { useUserContext } from "context/userContext";
+import UsersTable from "../components/UsersTable";
+import UserForm from "../components/UserForm";
 
 export const UsersContext = React.createContext({
   refetch: () => {},
@@ -28,7 +27,7 @@ const UsersPage = () => {
 
   return (
     <Layout>
-      {role === '"administrator"' ? (
+      {role === "administrator" ? (
         <div className="btn-container__add-user">
           <Button
             children="Add a new user"
@@ -46,6 +45,7 @@ const UsersPage = () => {
               open={openAddModal}
             >
               <UserForm />
+              <div>
               <Button
                 onClick={(event) => {
                   event.stopPropagation();
@@ -55,12 +55,13 @@ const UsersPage = () => {
                 size={"small"}
                 children="Cancel"
               />
+              </div>
             </Modal>
           )}
         </div>
       ) : null}
       <UsersContext.Provider value={{ refetch: refetch }}>
-        <UsersTable users={data} />;
+        <UsersTable users={data} />
       </UsersContext.Provider>
     </Layout>
   );

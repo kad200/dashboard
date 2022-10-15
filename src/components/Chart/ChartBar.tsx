@@ -22,7 +22,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-export default function ChartBar(props: any) {
+export function ChartBar(props: any) {
   return (
     <BarChart
       width={700}

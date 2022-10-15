@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { getPosts } from "api/posts";
 import { Layout, Button, Grid } from "components";
-import { useNavigate } from "react-router-dom";
-
 import PostItem from "../components/PostItem";
 
 const PostsPage = () => {

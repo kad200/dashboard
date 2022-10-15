@@ -1,4 +1,4 @@
-import { Button, Modal } from "components";
+import { Modal } from "components";
 
 
 interface ConfirmationModalProps {
@@ -20,11 +20,6 @@ export const ConfirmationModal = ({
       title={title}
       open={open}
       {...props}
-      actions={
-        <Button variant="danger" size="small" onClick={onClick}>
-          Accept
-        </Button>
-      }
     >
       {children}
     </Modal>

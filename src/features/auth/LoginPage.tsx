@@ -1,10 +1,11 @@
-import { signInUser } from "api/users";
-import { Button, Input } from "components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../../styles/fonts.scss";
-import "../../styles/index.scss";
+import { signInUser } from "api/users";
+import { Button, Input } from "components";
+
+import "styles/fonts.scss";
+import "styles/index.scss";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -22,10 +23,13 @@ const LoginPage = () => {
   return (
     <div className="auth-page">
       <section className="auth-page__section">
-        <h1>Please sign in</h1>
+        <div className="auth-page__section-header">
+          <img src="logo.png" width="300px" alt="logo" />
+          <h1>Please sign in</h1>
+        </div>
         <form className="auth-page__form" onSubmit={handleSubmit}>
           <Input
-            placeholder="Your email"
+            placeholder="Enter your email"
             type="email"
             id="email"
             autoComplete="off"
@@ -34,7 +38,7 @@ const LoginPage = () => {
             required
           />
           <Input
-            placeholder="Password"
+            placeholder="Enter your password"
             type="password"
             id="password"
             autoComplete="off"
@@ -44,16 +48,13 @@ const LoginPage = () => {
           />
           <Button variant="primary" size="large" children="Sign in" />
         </form>
-        <h3>
-          Still don't have an account?
-          <br />
-          <Button
-            variant="danger"
-            size="small"
-            onClick={() => navigate("/register")}
-            children="Sign up"
-          />
-        </h3>
+        <h3>Still don't have an account?</h3>
+        <Button
+          variant="danger"
+          size="small"
+          onClick={() => navigate("/register")}
+          children="Sign up"
+        />
       </section>
     </div>
   );

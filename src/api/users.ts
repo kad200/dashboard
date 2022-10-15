@@ -3,8 +3,7 @@ import {
   UserProps,
   UserRegistrationParams,
   UserLoginCredentials,
-} from "../types/types";
-import { useNavigate } from "react-router-dom";
+} from "types/types";
 
 // const getUsers = () => axios.get<UserProps[]>("/users").then((res) => res.data);
 

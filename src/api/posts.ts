@@ -1,5 +1,5 @@
 import axios from "./index";
-import { PostProps } from "../types/types";
+import { PostProps } from "types/types";
 
 
 const getPosts = async () => {

@@ -75,7 +75,7 @@ const renderActiveShape = (props : any) => {
   );
 };
 
-export default function ChartPie(props: any) {
+export function ChartPie(props: any) {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_: any, index: any) => {

@@ -1,13 +1,13 @@
-@import "../../styles/variables.scss";
+@import "styles/variables.scss";
 
 select {
     box-sizing: border-box;
     appearance: none;
     outline: none;
     border-radius: 0.5rem;
-    border: 0.15rem solid $primary-color-active;
-    padding: 0.4rem;
-    margin: 0.4rem 0;
+    border: 0.15rem solid $primary-color;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
     width: 100%;
     line-height: inherit;
     font-size: 1rem;

@@ -1,11 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { addPost, editPost, getPost, getPosts } from "api/posts";
+// import { useQuery } from "@tanstack/react-query";
+// import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { addPost, editPost, getPosts } from "api/posts";
 import { Button, Input } from "components";
 import { useUserContext } from "context/userContext";
 import useSetState from "hooks/useSetState";
-import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import { PostProps } from "types/types";
+import "./PostForm.scss";
 
 interface PostFormProps {
   post: PostProps | null;
@@ -64,23 +66,22 @@ const PostForm = (post: PostFormProps) => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(postForm);
+
+    const postData = {
+      title: postForm.title,
+      content: postForm.content,
+      imageURL: postForm.imageURL,
+      date: postForm.date,
+      author: postForm.author,
+    };
+
     post.post?.id
       ? editPost({
           id: post.post?.id,
-          title: postForm.title,
-          content: postForm.content,
-          imageURL: postForm.imageURL,
-          date: postForm.date,
-          author: postForm.author,
+          ...postData,
         })
-      : addPost({
-          title: postForm.title,
-          content: postForm.content,
-          imageURL: postForm.imageURL,
-          date: postForm.date,
-          author: postForm.author,
-        });
+      : addPost(postData);
+
     setPostForm("");
     navigate("/posts");
     getPosts();
@@ -98,7 +99,6 @@ const PostForm = (post: PostFormProps) => {
       <textarea
         id="content"
         className="form__textarea"
-        // type="textarea"
         placeholder="Content"
         value={postForm.content}
         onChange={(event) => setPostForm({ content: event.target.value })}
@@ -116,11 +116,12 @@ const PostForm = (post: PostFormProps) => {
         value={postForm.date}
         onChange={(event) => setPostForm({ date: event.target.value })}
       />
-      <div>
+      <div className="post-edit-author">
         {post.post?.id
           ? post.post?.author.name + " " + post.post?.author.surname
           : `${name} ${surname}`}
       </div>
+      <br />
       <Button
         type="button"
         onClick={handleBack}

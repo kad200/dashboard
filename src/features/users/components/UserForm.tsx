@@ -1,14 +1,15 @@
 import { editUser, getUsers, signUpUser } from "api/users";
-import { Button, Input, Modal, Select } from "components";
+import { Button, Input, Select } from "components";
 import useSetState from "hooks/useSetState";
 import { UserProps } from "types/types";
 
 interface UserFormProps {
+  id?: string
   user?: UserProps | null;
   onSubmit?: (e: React.SyntheticEvent<UserProps>) => void;
 }
 
-const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
+const UserForm = ({ user }: UserFormProps) => {
   const [userForm, setUserForm] = useSetState(
     user
       ? {
@@ -54,7 +55,7 @@ const UserForm = ({ user, onSubmit = () => {} }: UserFormProps) => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form-user" onSubmit={handleSubmit}>
       <Input
         id="name"
         placeholder="Name"

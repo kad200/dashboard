@@ -1,5 +1,6 @@
-import { Sidebar, Topbar } from "components";
 import { PropsWithChildren } from "react";
+import { Sidebar, Topbar } from "components";
+import "./Layout.scss"
 
 
 export const Layout: React.FC<PropsWithChildren> = (props) => {

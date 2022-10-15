@@ -1,4 +1,10 @@
-$danger-color: rgb(255, 80, 10);
-$danger-color-active: rgb(220, 80, 0);
-$primary-color: rgb(10, 100, 255);
-$primary-color-active: rgb(10, 100, 200);
+$danger-color: #ff500a;
+$danger-color-active: #fd6f1d;
+$primary-color: #24C18F;
+$primary-color-active: #00DEA3;
+
+
+$background-color: #EFF3FD;
+$background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #EFF3FD 10px ), repeating-linear-gradient( #f5e4dc, #d9d8d7 );
+$main-color: #f6f6f6;
+$main-text-color: #213b87;

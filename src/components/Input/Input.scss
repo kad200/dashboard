@@ -1,4 +1,4 @@
-@import "../../styles/fonts.scss";
+@import "styles/fonts.scss";
 
 .auth-form__input {
   display: flex;
@@ -9,12 +9,12 @@ input,
 .form__textarea {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  padding: 0.6rem;
+  padding: 0.8rem;
   margin: 0.6rem 0;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 0.5rem;
-  border: 0.15rem solid $primary-color;
+  border-radius: 0.6rem;
+  border: 0.2rem solid $primary-color;
   &[type="checkbox"] {
     appearance: none;
     background-color: #fff;
@@ -35,7 +35,7 @@ input,
       transform: scale(0);
       transform-origin: bottom left;
       transition: 120ms transform ease-in-out;
-      box-shadow: inset 1em 1em $danger-color;
+      box-shadow: inset 1em 1em $primary-color-active;
       background-color: CanvasText;
     }
     &:checked::before {

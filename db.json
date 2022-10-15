@@ -407,29 +407,17 @@
         "id": 1
       },
       "id": 34
-    },
-    {
-      "title": "5 Advanced React Patterns",
-      "content": "https://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\n\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\n\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.pnghttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png\nhttps://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png",
-      "imageURL": "https://miro.medium.com/max/1400/1*PDLXhIsh_ceBpN_MGCaotw.png",
-      "date": "2022-10-07",
-      "author": {
-        "name": "Alex",
-        "surname": "Dimov",
-        "id": 1
-      },
-      "id": 35
     }
   ],
   "users": [
     {
+      "id": 1,
       "name": "Alex",
       "surname": "Dimov",
       "email": "alex@gmail.com",
       "gender": "male",
       "role": "administrator",
-      "password": "Default123",
-      "id": 1
+      "password": "Default123"
     },
     {
       "name": "Alexandr",

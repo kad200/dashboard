@@ -1,7 +1,7 @@
 // may be used for admin/moderator rules
 
 import { useUserContext } from "context/userContext";
-import { Navigate, Outlet, Route, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const AuthorizedRoutes = ({ allowedRoles }: any) => {
   const { role } = useUserContext();

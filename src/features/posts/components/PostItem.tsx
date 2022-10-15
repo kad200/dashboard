@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { deletePost } from "api/posts";
 import { Button, ConfirmationModal } from "components";
 import { useUserContext } from "context/userContext";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { PostProps } from "types/types";
 import "./PostItem.scss";
 
@@ -23,15 +24,13 @@ const PostItem = ({ post }: { post: PostProps }) => {
 
   return (
     <div className="post-item" key={post.id}>
-      <div className="post-item__title">
-        <span className="post-item__title-name">{post.title}</span>
-      </div>
+        <h3 className="post-item__title">{post.title}</h3>
       <div className="post-item__content">
         <img
           className="post-item__content-image"
           src={post.imageURL}
           alt="post-logo"
-        ></img>
+        />
         <p className="post-item__content-text">{post.content}</p>
       </div>
       <div className="post-item__info">
@@ -43,7 +42,7 @@ const PostItem = ({ post }: { post: PostProps }) => {
         </div>
       </div>
       <div className="post-item__action-buttons">
-        {role === '"administrator"' || id === post.author.id ? (
+        {role === "administrator" || id === post.author.id ? (
           <>
             <Button
               variant="primary"
@@ -63,12 +62,20 @@ const PostItem = ({ post }: { post: PostProps }) => {
                 title="Do you really want to delete this post?"
                 open={true}
               >
-                <Button
-                  onClick={handleDelete}
-                  children={"Accept"}
-                  variant={"danger"}
-                  size={"small"}
-                ></Button>
+                <div>
+                  <Button
+                    onClick={() => setOpenRemoveModal(false)}
+                    children={"Cancel"}
+                    variant={"primary"}
+                    size={"large"}
+                  />
+                  <Button
+                    onClick={handleDelete}
+                    children={"Accept"}
+                    variant={"danger"}
+                    size={"large"}
+                  />
+                </div>
               </ConfirmationModal>
             )}
           </>

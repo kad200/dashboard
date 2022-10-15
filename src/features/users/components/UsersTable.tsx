@@ -1,6 +1,6 @@
 import { Table } from "components";
 import { UserProps } from "types/types";
-
+import "./UsersTable.scss"
 
 import UserItem from "./UserItem";
 
@@ -12,7 +12,7 @@ const UsersTable = ({ users }: UsersTableProps) => {
   return (
     <Table className="table-container">
       <div className="table-header table__row">
-          <div className="table__cell header-cell">ID</div>
+          <div className="table__cell header-cell table__cell-id">ID</div>
           <div className="table__cell header-cell">Name</div>
           <div className="table__cell header-cell">Surname</div>
           <div className="table__cell header-cell table__cell-email">Email</div>

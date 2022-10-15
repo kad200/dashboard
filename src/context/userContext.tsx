@@ -1,6 +1,6 @@
+import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "api/users";
-import { createContext, useContext, useState } from "react";
 
 export type Context = {
   name: string | undefined;

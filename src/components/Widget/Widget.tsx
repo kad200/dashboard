@@ -2,7 +2,7 @@ import "./Widget.scss";
 
 import { Link } from "react-router-dom";
 
-const Widget = ({ data }: any) => {
+export const Widget = ({ data }: any) => {
   return (
     <div className="widget">
       <div className="widget__title">{data.title}</div>
@@ -16,5 +16,3 @@ const Widget = ({ data }: any) => {
     </div>
   );
 };
-
-export default Widget;

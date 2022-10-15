@@ -18,7 +18,7 @@ const App = () => {
           <Route
             element={
               <AuthorizedRoutes
-                allowedRoles={['"moderator"', '"administrator"']}
+                allowedRoles={["moderator", "administrator"]}
               />
             }
           >
@@ -31,7 +31,7 @@ const App = () => {
             ))}
           </Route>
           <Route
-            element={<AuthorizedRoutes allowedRoles={['"administrator"']} />}
+            element={<AuthorizedRoutes allowedRoles={["administrator"]} />}
           >
             {adminRoutes.map((route: any) => (
               <Route
