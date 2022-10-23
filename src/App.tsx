@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes, authRoutes, adminRoutes } from "routes/routes";
 import { AuthorizedRoutes } from "routes/routeTypes";
+import { Roles } from "types/enums";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route
             element={
               <AuthorizedRoutes
-                allowedRoles={["moderator", "administrator"]}
+                allowedRoles={[Roles.administrator, Roles.moderator]}
               />
             }
           >
@@ -31,7 +32,7 @@ const App = () => {
             ))}
           </Route>
           <Route
-            element={<AuthorizedRoutes allowedRoles={["administrator"]} />}
+            element={<AuthorizedRoutes allowedRoles={[Roles.administrator]} />}
           >
             {adminRoutes.map((route: any) => (
               <Route

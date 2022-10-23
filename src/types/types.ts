@@ -1,3 +1,5 @@
+import { Roles } from "types/enums";
+
 export interface UserProps {
   id: number;
   name: string;
@@ -6,7 +8,7 @@ export interface UserProps {
   // gender: "none" | "male" | "female";
   gender: string;
   password?: string;
-  role: "administrator" | "moderator";
+  role: Roles.administrator | Roles.moderator;
 }
 
 export type UserLoginCredentials = Pick<UserProps, "email" | "password">;
