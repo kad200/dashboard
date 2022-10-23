@@ -7,26 +7,22 @@ import { Input, Select, Button } from "components";
 import "styles/fonts.scss";
 import "styles/index.scss";
 import { Roles } from "types/enums";
-import useSetState from "hooks/useSetState";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
 const RegisterPage = () => {
-  const [registerForm, setRegisterForm] = useSetState({
-    name: "",
-    surname: "",
-    email: "",
-    gender: "",
-    password: "",
-    passwordConfirmation: "",
-    errorMessage: "",
-    processingConsent: false,
-  });
-
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [validPasswordConfirmation, setValidPasswordConfirmation] =
     useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  // const [success, setSuccess] = useState(false);
+  const [processingConsent, setProcessingConsent] = useState(false);
 
   const navigate = useNavigate();
 
@@ -35,31 +31,17 @@ const RegisterPage = () => {
   // }, []);
 
   useEffect(() => {
-    setValidPassword(PWD_REGEX.test(registerForm.password));
-    setValidPasswordConfirmation(
-      registerForm.password === registerForm.passwordConfirmation
-    );
-  }, [
-    registerForm.password,
-    registerForm.passwordConfirmation,
-    setRegisterForm,
-  ]);
+    setValidPassword(PWD_REGEX.test(password));
+    setValidPasswordConfirmation(password === passwordConfirmation);
+  }, [password, passwordConfirmation]);
 
   useEffect(() => {
     setErrorMessage("");
-  }, [
-    registerForm.email,
-    registerForm.password,
-    registerForm.passwordConfirmation,
-    setRegisterForm,
-  ]);
+  }, [email, password, passwordConfirmation]);
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (
-      !validPassword ||
-      !validPasswordConfirmation
-    ) {
+    if (!validPassword || !validPasswordConfirmation) {
       setErrorMessage("Invalid password");
       alert(errorMessage);
       return;
@@ -74,22 +56,22 @@ const RegisterPage = () => {
     //   processingConsent
     // );
     signUpUser({
-      name: registerForm.name,
-      surname: registerForm.surname,
-      email: registerForm.email,
-      gender: registerForm.gender,
+      name,
+      surname,
+      email,
+      gender: gender,
       role: Roles.moderator,
-      password: registerForm.password,
+      password,
     });
     getUsers();
-    setRegisterForm("");
-    // setName("");
-    // setSurname("");
-    // setEmail("");
-    // setGender("");
-    // setPassword("");
-    // setPasswordConfirmation("");
-    // setProcessingConsent(false);
+
+    setName("");
+    setSurname("");
+    setEmail("");
+    setGender("");
+    setPassword("");
+    setPasswordConfirmation("");
+    setProcessingConsent(false);
     // setSuccess(true);
     navigate("/login");
   };
@@ -107,8 +89,8 @@ const RegisterPage = () => {
             type="text"
             id="firstName"
             autoComplete="off"
-            onChange={(e) => setRegisterForm({ name: e.target.value })}
-            value={registerForm.name}
+            onChange={(e) => setName(e.target.value)}
+            value={name}
             required
           />
           <Input
@@ -116,8 +98,8 @@ const RegisterPage = () => {
             type="text"
             id="lastName"
             autoComplete="off"
-            onChange={(e) => setRegisterForm({ surname: e.target.value })}
-            value={registerForm.surname}
+            onChange={(e) => setSurname(e.target.value)}
+            value={surname}
             required
           />
           <Input
@@ -125,16 +107,16 @@ const RegisterPage = () => {
             type="email"
             id="email"
             autoComplete="off"
-            onChange={(e) => setRegisterForm({ email: e.target.value })}
-            value={registerForm.email}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             required
           />
           <Select
             label="Please set your gender:"
             placeholder="gender"
             id="gender"
-            onChange={(e) => setRegisterForm({ gender: e.target.value })}
-            value={registerForm.gender}
+            onChange={(e) => setGender(e.target.value)}
+            value={gender}
             required
           >
             <option defaultValue="none">None</option>
@@ -146,8 +128,8 @@ const RegisterPage = () => {
             type="password"
             id="password"
             autoComplete="off"
-            onChange={(e) => setRegisterForm({ password: e.target.value })}
-            value={registerForm.password}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             required
           />
           <Input
@@ -155,22 +137,16 @@ const RegisterPage = () => {
             type="password"
             id="password-confirmation"
             autoComplete="off"
-            onChange={(e) =>
-              setRegisterForm({ passwordConfirmation: e.target.value })
-            }
-            value={registerForm.passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            value={passwordConfirmation}
             required
           />
           <Input
             label="I consent with personal data processing"
             type="checkbox"
             id="processing-confirmation"
-            onChange={(e) =>
-              setRegisterForm({
-                processingConsent: !registerForm.processingConsent,
-              })
-            }
-            checked={registerForm.processingConsent}
+            onChange={(e) => setProcessingConsent(!processingConsent)}
+            checked={processingConsent}
             required
           />
           <Button children="Sign up" variant="danger" size="large" />
