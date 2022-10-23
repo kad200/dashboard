@@ -3,7 +3,9 @@ import { deleteUser, editUser } from "api/users";
 import { Button, Modal, ConfirmationModal } from "components";
 import { useUserContext } from "context/userContext";
 import { UserProps } from "types/types";
+import { Roles } from "types/enums";
 import UserForm from "./UserForm";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -11,16 +13,30 @@ const UserItem = ({ user }: { user: UserProps }) => {
 
   const { id, role } = useUserContext();
 
+  const queryClient = useQueryClient();
+
+  const editUserMutation = useMutation(editUser, {
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
+  const deleteUserMutation = useMutation(deleteUser, {
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
   const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    deleteUser(user.id);
-    window.location.pathname = "/";
+    deleteUserMutation.mutate(user.id);
+    setOpenRemoveModal(false);
   };
 
   const handleEdit = async (e: any) => {
     e.preventDefault();
-    editUser(user);
-    window.location.pathname = "/";
+    editUserMutation.mutate(user);
+    setOpenEditModal(false);
   };
 
   return (
@@ -32,7 +48,7 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <div className="table__cell">{user.gender}</div>
       <div className="table__cell">{user.role}</div>
       <div className="table__cell action-buttons">
-        {role === "administrator" || id === user.id ? (
+        {role === Roles.administrator || id === user.id ? (
           <>
             <Button
               variant="primary"
@@ -52,10 +68,20 @@ const UserItem = ({ user }: { user: UserProps }) => {
                   user={user}
                   onSubmit={() => {
                     handleEdit(user);
-                    setOpenEditModal(false);
                   }}
                 />
                 <div>
+                  <Button
+                    type="submit"
+                    form="form-user"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      // setOpenEditModal(false);
+                    }}
+                    variant={"primary"}
+                    size={"small"}
+                    children="Save"
+                  />
                   <Button
                     onClick={(event) => {
                       event.stopPropagation();

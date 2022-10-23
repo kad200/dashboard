@@ -1,10 +1,11 @@
-import { editUser, getUsers, signUpUser } from "api/users";
-import { Button, Input, Select } from "components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { editUser, signUpUser } from "api/users";
+import { Input, Select } from "components";
 import useSetState from "hooks/useSetState";
 import { UserProps } from "types/types";
 
 interface UserFormProps {
-  id?: string
+  id?: string;
   user?: UserProps | null;
   onSubmit?: (e: React.SyntheticEvent<UserProps>) => void;
 }
@@ -29,11 +30,25 @@ const UserForm = ({ user }: UserFormProps) => {
         }
   );
 
+  const queryClient = useQueryClient();
+  const addUserMutation = useMutation(signUpUser, {
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
+  const editUserMutation = useMutation(editUser, {
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
+
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log(userForm);
     user
-      ? editUser({
+      ? editUserMutation.mutate({
           id: userForm.id,
           name: userForm.name,
           surname: userForm.surname,
@@ -41,21 +56,19 @@ const UserForm = ({ user }: UserFormProps) => {
           gender: userForm.gender,
           role: userForm.role,
         })
-      : signUpUser({
+      : addUserMutation.mutate({
           name: userForm.name,
           surname: userForm.surname,
           email: userForm.email,
           gender: userForm.gender,
           role: userForm.role,
-          password: "default123",
+          password: "Default123",
         });
     setUserForm("");
-    getUsers();
-    window.location.reload();
   };
 
   return (
-    <form className="form-user" onSubmit={handleSubmit}>
+    <form  id="form-user" onSubmit={handleSubmit}>
       <Input
         id="name"
         placeholder="Name"
@@ -94,7 +107,7 @@ const UserForm = ({ user }: UserFormProps) => {
         <option value="moderator">Moderator</option>
         <option value="administrator">Administrator</option>
       </Select>
-      <Button variant="primary" size="small" children="Save" />
+      {/* <Button variant="primary" size="small" children="Save" /> */}
     </form>
   );
 };

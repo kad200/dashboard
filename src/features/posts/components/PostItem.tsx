@@ -5,10 +5,13 @@ import { deletePost } from "api/posts";
 import { Button, ConfirmationModal } from "components";
 import { useUserContext } from "context/userContext";
 import { PostProps } from "types/types";
+import { Roles } from "types/enums";
 import "./PostItem.scss";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const PostItem = ({ post }: { post: PostProps }) => {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
+  const queryClient = useQueryClient();
 
   const navigate = useNavigate();
   const { id, role } = useUserContext();
@@ -19,12 +22,17 @@ const PostItem = ({ post }: { post: PostProps }) => {
       deletePost(post.id);
     }
     setOpenRemoveModal(false);
-    window.location.reload();
   };
+
+  const editUserMutation = useMutation(handleDelete, {
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
 
   return (
     <div className="post-item" key={post.id}>
-        <h3 className="post-item__title">{post.title}</h3>
+      <h3 className="post-item__title">{post.title}</h3>
       <div className="post-item__content">
         <img
           className="post-item__content-image"
@@ -42,7 +50,7 @@ const PostItem = ({ post }: { post: PostProps }) => {
         </div>
       </div>
       <div className="post-item__action-buttons">
-        {role === "administrator" || id === post.author.id ? (
+        {role === Roles.administrator || id === post.author.id ? (
           <>
             <Button
               variant="primary"
@@ -70,7 +78,7 @@ const PostItem = ({ post }: { post: PostProps }) => {
                     size={"large"}
                   />
                   <Button
-                    onClick={handleDelete}
+                    onClick={editUserMutation.mutate}
                     children={"Accept"}
                     variant={"danger"}
                     size={"large"}
