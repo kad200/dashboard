@@ -23,6 +23,7 @@ export const useUserContext = () => useContext(UserContext);
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const userId = Number(localStorage.getItem("userId"));
   const userRole = localStorage.getItem("userRole");
+  console.log(userRole)
   const [userName, setUserName] = useState<string>();
   const [userSurname, setUserSurname] = useState<string>();
 

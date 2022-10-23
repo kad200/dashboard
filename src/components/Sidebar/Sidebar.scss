@@ -17,10 +17,10 @@
     padding: 1rem 1.25rem;
     margin-right: 2rem;
     &:hover {
-      background: $background-image;
-      opacity: 0.6;
+      background: #FFF;
+      opacity: 0.75;
       color: $danger-color;
-      font-weight: bold;
+      font-weight: bolder;
       width: 100%;
       text-align: center;
       border-radius: 5px;
