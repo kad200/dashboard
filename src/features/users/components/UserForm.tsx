@@ -45,23 +45,21 @@ const UserForm = ({ user }: UserFormProps) => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(userForm);
+    const userData = {
+      name: userForm.name,
+      surname: userForm.surname,
+      email: userForm.email,
+      gender: userForm.gender,
+      role: userForm.role,
+    };
     user
       ? editUserMutation.mutate({
           id: userForm.id,
-          name: userForm.name,
-          surname: userForm.surname,
-          email: userForm.email,
-          gender: userForm.gender,
-          role: userForm.role,
+          ...userData,
         })
       : addUserMutation.mutate({
-          name: userForm.name,
-          surname: userForm.surname,
-          email: userForm.email,
-          gender: userForm.gender,
-          role: userForm.role,
           password: "Default123",
+          ...userData,
         });
     setUserForm("");
   };
@@ -106,7 +104,6 @@ const UserForm = ({ user }: UserFormProps) => {
         <option value="moderator">Moderator</option>
         <option value="administrator">Administrator</option>
       </Select>
-      {/* <Button variant="primary" size="small" children="Save" /> */}
     </form>
   );
 };
