@@ -76,3 +76,19 @@
     text-decoration: none;
   }
 }
+
+@media (max-width: 1279px) {
+  .post-item {
+    margin: 0.4rem;
+    padding: 0.4rem;
+    &__title {
+      padding-left: 1rem;
+      padding-right: 0.7rem;
+      font-size: 1rem;
+    }
+    &__info {
+      font-size: 0.9rem;
+
+    }
+  }
+}

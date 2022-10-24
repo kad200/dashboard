@@ -1,2 +1,0 @@
-1. Requests
-2. Error handling / isLoading

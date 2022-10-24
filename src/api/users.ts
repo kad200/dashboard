@@ -38,8 +38,8 @@ const signInUser = async (UserLoginCredentials: UserLoginCredentials) => {
   const userId = JSON.stringify(response.data[0].id);
   localStorage.setItem("userId", userId);
 
-  const userRole = JSON.stringify(response.data[0].role);
-  localStorage.setItem("userRole", userRole);
+  // const userRole = JSON.stringify(response.data[0].role);
+  localStorage.setItem("userRole", response.data[0].role);
 
   window.location.replace("/");
   return response.data;

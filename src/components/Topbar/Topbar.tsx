@@ -21,7 +21,7 @@ export const Topbar: React.FC = () => {
         <img
           onClick={() => navigate("/")}
           src="/logo.png"
-          width="100px"
+          // width="100px"
           alt="logo"
         ></img>
       </div>

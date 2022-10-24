@@ -6,22 +6,21 @@ export type Context = {
   name: string | undefined;
   surname: string | undefined;
   id: number | null;
-  role: string | undefined;
+  role: string | null;
 };
 
 const UserContext = createContext<Context>({
   name: undefined,
   surname: undefined,
   id: null,
-  role: undefined,
+  role: null,
 });
 
 export const useUserContext = () => useContext(UserContext);
 
 export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const userId = Number(localStorage.getItem("userId"));
-  const userRole = localStorage.getItem("userRole")?.slice(1, -1);
-  console.log(userRole);
+  const userRole = localStorage.getItem("userRole");
   const [userName, setUserName] = useState<string>();
   const [userSurname, setUserSurname] = useState<string>();
 

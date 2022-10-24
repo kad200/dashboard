@@ -35,5 +35,22 @@
   }
   &__logo {
     cursor: pointer;
+    & img {
+      width: 100px;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .topbar {
+    &__logo img {
+      width: 80px;
+    }
+    &__user-container-name {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 1rem;
+    }
   }
 }
