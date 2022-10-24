@@ -45,8 +45,14 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <div className="table__cell">{user.name}</div>
       <div className="table__cell">{user.surname}</div>
       <div className="table__cell table__cell-email">{user.email}</div>
-      <div className="table__cell">{user.gender}</div>
-      <div className="table__cell">{user.role}</div>
+      <div className="table__cell">
+        <span className="table__cell-role-full">{user.gender}</span>
+        <span className="table__cell-role-short">{user.gender.slice(0, 1).toUpperCase()}</span>
+      </div>
+      <div className="table__cell">
+        <span className="table__cell-role-full">{user.role}</span>
+        <span className="table__cell-role-short">{user.role.charAt(0).toUpperCase() + user.role.slice(1, 3)}</span>
+      </div>
       <div className="table__cell action-buttons">
         {role === Roles.administrator || id === user.id ? (
           <>

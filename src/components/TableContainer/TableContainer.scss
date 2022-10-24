@@ -46,5 +46,44 @@ $table-border: #d9d9d9;
     &-email {
       min-width: 16rem;
     }
+    &-role-short {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .table {
+    &__row {
+      min-height: 3rem;
+    }
+
+    &__cell {
+      height: 2.5rem;
+      padding: 0.3rem 0.3rem;
+      font-size: 0.7rem;
+      &.action-buttons {
+        min-width: 7.5rem;
+      }
+      &-email {
+        min-width: 12rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table__cell {
+    font-size: 0.5rem;
+    height: 1.5rem;
+    &.action-buttons {
+      min-width: 5rem;
+    }
+    &-role-short {
+      display: flex;
+    }
+    &-role-full {
+      display: none;
+    }
   }
 }

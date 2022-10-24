@@ -38,6 +38,9 @@ body {
       & h1 {
         color: $main-text-color;
       }
+      & img {
+        width: 300px;
+      }
     }
   }
   &__form {
@@ -48,11 +51,11 @@ body {
     min-width: 400px;
   }
 }
+
 a,
 a:visited {
   color: #fff;
 }
-
 
 .page-content-wrapper {
   margin: 1rem 1rem 1rem 13.5rem;
@@ -64,4 +67,21 @@ a:visited {
 #form-user {
   width: 300px;
   padding: 1rem 1rem 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 1rem;
+    &__section {
+      padding: 1.5rem;
+      width: 25rem;
+      &-header img {
+        width: 100px;
+      }
+    }
+    &__form {
+      padding: 1rem;
+      min-width: 300px;
+    }
+  }
 }

@@ -37,7 +37,7 @@
     &:hover {
       background-color: $danger-color-active;
       box-shadow: rgba(164, 125, 70, 0.5) 0 10px 10px 0 inset,
-      rgba(65, 73, 83, 0.1) 0 3px 6px 0;
+        rgba(65, 73, 83, 0.1) 0 3px 6px 0;
     }
   }
 
@@ -55,5 +55,33 @@
 
   &-container__add-user {
     text-align: right;
+  }
+}
+
+@media (max-width: 1279px) {
+  .btn {
+    &--small {
+      font-size: 0.85rem;
+      line-height: 1.2rem;
+      padding: 0.4rem 0.6rem;
+    }
+    &--large {
+      font-size: 1.3rem;
+      line-height: 1.2rem;
+      padding: 0.8rem 1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    &--small {
+      font-size: 0.5rem;
+      line-height: 0.6rem;
+    }
+    &--large {
+      font-size: 1.1rem;
+      line-height: 1rem;
+    }
   }
 }

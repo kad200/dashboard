@@ -24,7 +24,7 @@ const LoginPage = () => {
     <div className="auth-page">
       <section className="auth-page__section">
         <div className="auth-page__section-header">
-          <img src="logo.png" width="300px" alt="logo" />
+          <img src="logo.png" alt="logo" />
           <h1>Please sign in</h1>
         </div>
         <form className="auth-page__form" onSubmit={handleSubmit}>
