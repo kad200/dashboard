@@ -42,8 +42,9 @@ const authRoutes = [
   {
     path: "/posts/:id/edit",
     element: AddPostPage,
-  }]
-  const adminRoutes = [
+  },
+];
+const adminRoutes = [
   {
     path: "/dashboard",
     element: Dashboard,

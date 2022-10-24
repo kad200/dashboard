@@ -21,8 +21,6 @@ export const Modal = ({
           <h1 className="modal__header-title">{title}</h1>
         </div>
         <div className="modal__content">{children}</div>
-        {/* <div className="modal__buttons">
-        </div> */}
       </div>
     </>
   );

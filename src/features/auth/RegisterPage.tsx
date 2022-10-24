@@ -30,10 +30,6 @@ const RegisterPage = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
-
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(registerForm.password));
     setValidPasswordConfirmation(
@@ -56,23 +52,12 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (
-      !validPassword ||
-      !validPasswordConfirmation
-    ) {
+    if (!validPassword || !validPasswordConfirmation) {
       setErrorMessage("Invalid password");
       alert(errorMessage);
       return;
     }
-    // console.log(
-    //   name,
-    //   surname,
-    //   email,
-    //   gender,
-    //   password,
-    //   passwordConfirmation,
-    //   processingConsent
-    // );
+
     signUpUser({
       name: registerForm.name,
       surname: registerForm.surname,
@@ -83,14 +68,6 @@ const RegisterPage = () => {
     });
     getUsers();
     setRegisterForm("");
-    // setName("");
-    // setSurname("");
-    // setEmail("");
-    // setGender("");
-    // setPassword("");
-    // setPasswordConfirmation("");
-    // setProcessingConsent(false);
-    // setSuccess(true);
     navigate("/login");
   };
 

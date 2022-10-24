@@ -21,14 +21,9 @@ const RegisterPage = () => {
   const [validPasswordConfirmation, setValidPasswordConfirmation] =
     useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  // const [success, setSuccess] = useState(false);
   const [processingConsent, setProcessingConsent] = useState(false);
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
 
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(password));
@@ -46,15 +41,7 @@ const RegisterPage = () => {
       alert(errorMessage);
       return;
     }
-    // console.log(
-    //   name,
-    //   surname,
-    //   email,
-    //   gender,
-    //   password,
-    //   passwordConfirmation,
-    //   processingConsent
-    // );
+
     signUpUser({
       name,
       surname,
@@ -72,7 +59,6 @@ const RegisterPage = () => {
     setPassword("");
     setPasswordConfirmation("");
     setProcessingConsent(false);
-    // setSuccess(true);
     navigate("/login");
   };
 

@@ -5,9 +5,9 @@
       "title": "How to Format Dates in JS????",
       "content": "Getting the date in JavaScript isn't usually a problem, but formatting these dates to suit your project can be cumbersome for beginners. Because of this, most people eventually end up using libraries.  The most used method to get the date in JavaScript is the new Date() object.  By default, when you run new Date() in your terminal, it uses your browser's time zone and displays the date as a full text string, like Fri Jul 02 2021 12:44:45 GMT+0100 (British Summer Time).  But having something like this in your web page or application is not professional and isn't easy to read. So this forces you to look for better ways to format these dates.  Let’s take a look at some methods that operate on a date object.",
       "imageURL": "https://pbs.twimg.com/profile_images/1276770212927410176/qTgTIejk_400x400.jpg",
-      "date": "2022-09-05",
+      "date": "2022-10-06",
       "author": {
-        "name": "Alex",
+        "name": "Alexds",
         "surname": "Dimovs",
         "id": 1
       }
@@ -467,16 +467,16 @@
     {
       "name": "Alexandr",
       "surname": "Dimov",
-      "email": "aaadalexandrd@gmail.com",
+      "email": "aaaadalexandrd@gmail.com",
       "gender": "male",
       "role": "moderator",
       "password": "Default123",
       "id": 7
     },
     {
-      "name": "Daddyasd",
-      "surname": "Yankee",
-      "email": "daddy@gmail.com",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "bbaadalexandrd@gmail.com",
       "gender": "male",
       "role": "moderator",
       "password": "Default123",
@@ -485,38 +485,20 @@
     {
       "name": "Alexandr",
       "surname": "Dimov",
-      "email": "cxcxcxdalexandrd@gmail.com",
+      "email": "ccbbaadalexandrd@gmail.com",
       "gender": "male",
       "role": "moderator",
       "password": "Default123",
       "id": 9
     },
     {
-      "name": "Alexandrasd",
+      "name": "Alexandr",
       "surname": "Dimov",
-      "email": "qqq@gmail.com",
+      "email": "qqqdalexandrd@gmail.com",
       "gender": "male",
       "role": "moderator",
       "password": "Default123",
       "id": 10
-    },
-    {
-      "name": "Alexandr",
-      "surname": "Dimov",
-      "email": "aaaadalexandrd@gmail.com",
-      "gender": "male",
-      "role": "moderator",
-      "password": "Default123",
-      "id": 11
-    },
-    {
-      "name": "fdffd",
-      "surname": "fdsfdsfaf",
-      "email": "fdf@gmail.com",
-      "gender": "male",
-      "role": "moderator",
-      "password": "Default123",
-      "id": 12
     }
   ]
 }

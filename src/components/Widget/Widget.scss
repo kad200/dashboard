@@ -38,6 +38,9 @@
     > a {
       color: rgb(157, 44, 36);
     }
+    & a:visited {
+      color: rgb(157, 44, 36);
+    }
   }
 
   &__icon {

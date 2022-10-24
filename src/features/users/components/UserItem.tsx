@@ -36,7 +36,7 @@ const UserItem = ({ user }: { user: UserProps }) => {
   const handleEdit = async (e: any) => {
     e.preventDefault();
     editUserMutation.mutate(user);
-    setOpenEditModal(false);
+    // setOpenEditModal(false);
   };
 
   return (

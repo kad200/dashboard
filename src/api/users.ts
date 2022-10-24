@@ -5,34 +5,15 @@ import {
   UserLoginCredentials,
 } from "types/types";
 
-// const getUsers = () => axios.get<UserProps[]>("/users").then((res) => res.data);
-
-// const getUser1 = (id: number) =>
-//   axios.get(`/users/${id}`).then((res) => res.data);
-
 const getUser = async (id: number) => {
   const response = await axios.get(`/users/${id}`);
   return response.data;
-}
-
-// const editUser = (id: number , { ...editedUser }) =>
-//   axios.put(`/users/${id}`, editedUser).then((res) => res.data);
-
-const getUsers = async () => {
-    const response = await axios.get<UserProps[]>(`/users`);
-    return response.data;
 };
 
-// const getUser = async (userId: number) => {
-//   try {
-//     const response = await axios.get<UserProps>(`/users/${userId}`);
-//     // console.log(response.data);
-
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+const getUsers = async () => {
+  const response = await axios.get<UserProps[]>(`/users`);
+  return response.data;
+};
 
 const signUpUser = async (user: UserRegistrationParams) => {
   const response = await axios.get<UserRegistrationParams[]>(
@@ -43,7 +24,6 @@ const signUpUser = async (user: UserRegistrationParams) => {
     throw new Error(`An account with the email ${user.email} already exists`);
   }
   return await axios.post<UserRegistrationParams>(`/users`, user);
-  // return register.data;
 };
 
 const signInUser = async (UserLoginCredentials: UserLoginCredentials) => {
@@ -52,6 +32,7 @@ const signInUser = async (UserLoginCredentials: UserLoginCredentials) => {
   );
 
   if (response.data.length === 0) {
+    alert("Please check your email or password!");
     throw new Error("Please check your email or password!");
   }
   const userId = JSON.stringify(response.data[0].id);
