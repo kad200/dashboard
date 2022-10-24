@@ -463,15 +463,6 @@
       "gender": "female",
       "role": "administrator",
       "password": "qwerty12345"
-    },
-    {
-      "name": "Alexandr",
-      "surname": "Dimov",
-      "email": "aaaadalexandrd@gmail.com",
-      "gender": "male",
-      "role": "moderator",
-      "password": "Default123",
-      "id": 7
     }
   ]
 }

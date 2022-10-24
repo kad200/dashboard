@@ -50,6 +50,11 @@ const editUser = async (user: UserProps) => {
 };
 
 const deleteUser = async (userId: number) => {
+  if (userId === Number(localStorage.getItem("userId"))) {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userRole");
+    window.location.reload();
+  }
   return await axios.delete<UserProps>(`/users/${userId}`);
 };
 
