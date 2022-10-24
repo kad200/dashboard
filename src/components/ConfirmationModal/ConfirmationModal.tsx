@@ -1,6 +1,5 @@
 import { Modal } from "components";
 
-
 interface ConfirmationModalProps {
   onClick: () => void;
   open: boolean;
@@ -15,14 +14,8 @@ export const ConfirmationModal = ({
   ...props
 }: React.PropsWithChildren<ConfirmationModalProps>) => {
   return (
-    <Modal
-      onClick={onClick}
-      title={title}
-      open={open}
-      {...props}
-    >
+    <Modal onClick={onClick} title={title} open={open} {...props}>
       {children}
     </Modal>
   );
 };
-

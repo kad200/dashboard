@@ -1,5 +1,5 @@
-import { Button } from "components/Button/Button";
-import "./Unauthorized.scss"
+import { Button } from "components";
+import "./Unauthorized.scss";
 
 function Unauthorized() {
   return (

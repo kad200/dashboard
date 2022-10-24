@@ -1,12 +1,11 @@
 import { createContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "api/users";
-import { Layout, Button, Modal } from "components";
 import { useUserContext } from "context/userContext";
+import { Roles } from "types/enums";
+import { Layout, Button, Modal, Loader } from "components";
 import UsersTable from "../components/UsersTable";
 import UserForm from "../components/UserForm";
-import { Roles } from "types/enums";
-import Loader from "components/Loader/Loader";
 
 export const UsersContext = createContext({
   refetch: () => {},
@@ -50,7 +49,7 @@ const UsersPage = () => {
                     form="form-user"
                     onClick={(event) => {
                       event.stopPropagation();
-                      // setOpenEditModal(false);
+                      // setOpenAddModal(false);
                     }}
                     variant={"primary"}
                     size={"small"}

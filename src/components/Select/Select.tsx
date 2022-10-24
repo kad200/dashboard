@@ -1,5 +1,5 @@
 import React from "react";
-import "./Select.scss"
+import "./Select.scss";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
@@ -29,4 +29,3 @@ export const Select: React.FC<SelectProps> = ({
     </select>
   </div>
 );
-

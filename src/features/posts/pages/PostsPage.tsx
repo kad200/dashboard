@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { getPosts } from "api/posts";
-import { Layout, Button, Grid } from "components";
+import { Layout, Button, Grid, Loader } from "components";
 import PostItem from "../components/PostItem";
-import Loader from "components/Loader/Loader";
 
 const PostsPage = () => {
   const { isError, isLoading, data } = useQuery(["posts"], getPosts);

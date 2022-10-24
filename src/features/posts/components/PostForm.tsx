@@ -1,12 +1,9 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { addPost, editPost, getPosts } from "api/posts";
-import { Button, Input } from "components";
 import { useUserContext } from "context/userContext";
 import useSetState from "hooks/useSetState";
 import { PostProps } from "types/types";
+import { Button, Input } from "components";
 import "./PostForm.scss";
 
 interface PostFormProps {
@@ -34,9 +31,9 @@ const PostForm = (post: PostFormProps) => {
           imageURL: post.post?.imageURL,
           date: post.post?.date,
           author: {
-            name: name,
-            surname: surname,
-            id: id,
+            name: post.post.author.name,
+            surname: post.post.author.surname,
+            id: post.post.author.id,
           },
         }
       : {
@@ -55,7 +52,7 @@ const PostForm = (post: PostFormProps) => {
   console.log(postForm);
   const navigate = useNavigate();
 
-  // if (isLoading || isFetching) {
+  // if (isLoading) {
   //   return <h1>Be patient</h1>;
   // }
 

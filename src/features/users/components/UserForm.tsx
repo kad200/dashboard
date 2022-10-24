@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { editUser, signUpUser } from "api/users";
-import { Input, Select } from "components";
 import useSetState from "hooks/useSetState";
 import { UserProps } from "types/types";
+import { Input, Select } from "components";
 
 interface UserFormProps {
   id?: string;
@@ -43,7 +43,6 @@ const UserForm = ({ user }: UserFormProps) => {
     },
   });
 
-
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log(userForm);
@@ -68,7 +67,7 @@ const UserForm = ({ user }: UserFormProps) => {
   };
 
   return (
-    <form  id="form-user" onSubmit={handleSubmit}>
+    <form id="form-user" onSubmit={handleSubmit}>
       <Input
         id="name"
         placeholder="Name"

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { deletePost } from "api/posts";
-import { Button, ConfirmationModal } from "components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUserContext } from "context/userContext";
+import { deletePost } from "api/posts";
 import { PostProps } from "types/types";
 import { Roles } from "types/enums";
+import { Button, ConfirmationModal } from "components";
 import "./PostItem.scss";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const PostItem = ({ post }: { post: PostProps }) => {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);

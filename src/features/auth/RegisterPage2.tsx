@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Roles } from "types/enums";
 import { getUsers, signUpUser } from "api/users";
 import { Input, Select, Button } from "components";
 
 import "styles/fonts.scss";
 import "styles/index.scss";
-import { Roles } from "types/enums";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 

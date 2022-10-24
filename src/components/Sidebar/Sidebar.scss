@@ -2,7 +2,7 @@
 
 .sidebar {
   z-index: 1;
-  position:fixed;
+  position: fixed;
   height: 100vh;
   background-color: $primary-color;
   display: flex;
@@ -17,7 +17,7 @@
     padding: 1rem 1.25rem;
     margin-right: 2rem;
     &:hover {
-      background: #FFF;
+      background: #fff;
       opacity: 0.75;
       color: $danger-color;
       font-weight: bolder;

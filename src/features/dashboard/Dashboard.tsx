@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
 import { getUsers } from "api/users";
-import { Layout, ChartBar, ChartPie, Widget } from "components";
-import Loader from "components/Loader/Loader";
+import { Layout, ChartBar, ChartPie, Widget, Loader } from "components";
 import "./Dashboard.scss";
 
 export interface WidgetDataProps {

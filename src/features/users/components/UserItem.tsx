@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteUser, editUser } from "api/users";
-import { Button, Modal, ConfirmationModal } from "components";
 import { useUserContext } from "context/userContext";
 import { UserProps } from "types/types";
 import { Roles } from "types/enums";
+import { Button, Modal, ConfirmationModal } from "components";
 import UserForm from "./UserForm";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);

@@ -1,9 +1,9 @@
-import axios from "./index";
 import {
   UserProps,
   UserRegistrationParams,
   UserLoginCredentials,
 } from "types/types";
+import axios from "./index";
 
 const getUser = async (id: number) => {
   const response = await axios.get(`/users/${id}`);

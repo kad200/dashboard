@@ -1,7 +1,7 @@
 import React from "react";
-import "./Table.scss";
+import "./TableContainer.scss";
 
-export const Table = ({
+export const TableContainer = ({
   className,
   children,
   ...props

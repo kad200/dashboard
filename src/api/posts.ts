@@ -1,15 +1,14 @@
-import axios from "./index";
 import { PostProps } from "types/types";
-
+import axios from "./index";
 
 const getPosts = async () => {
-    const response = await axios.get<PostProps[]>(`/posts`);
-    return response.data;
+  const response = await axios.get<PostProps[]>(`/posts`);
+  return response.data;
 };
 
 const getPost = async (postId: number) => {
-    const response = await axios.get<PostProps>(`/posts/${postId}`);
-    return response.data;
+  const response = await axios.get<PostProps>(`/posts/${postId}`);
+  return response.data;
 };
 
 const addPost = async (post: PostProps) => {
@@ -23,7 +22,6 @@ const editPost = async (post: PostProps) => {
   // console.log(post);
   // return response.data;
 };
-
 
 const deletePost = async (postId: number) => {
   return await axios.delete<PostProps>(`/posts/${postId}`);

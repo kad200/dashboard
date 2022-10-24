@@ -5,22 +5,20 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  Label,
 } from "recharts";
 
-const CustomTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{`${label}`}</p>
-        <p className="intro">{`Total posts: ${payload[0].value}`}</p>
-      </div>
-    );
-  }
+// const CustomTooltip = ({ active, payload, label }: any) => {
+//   if (active && payload && payload.length) {
+//     return (
+//       <div className="custom-tooltip">
+//         <p className="label">{`${label}`}</p>
+//         <p className="intro">{`Total posts: ${payload[0].value}`}</p>
+//       </div>
+//     );
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
 export function ChartBar(props: any) {
   return (

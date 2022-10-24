@@ -6,12 +6,7 @@ interface GridProps {
   children: React.ReactNode;
 }
 
-export const Grid = ({
-  variant,
-  children,
-  columns,
-  ...props
-}: GridProps) => {
+export const Grid = ({ variant, children, columns, ...props }: GridProps) => {
   return (
     <div
       className={`grid grid--${variant}`}
@@ -22,4 +17,3 @@ export const Grid = ({
     </div>
   );
 };
-
