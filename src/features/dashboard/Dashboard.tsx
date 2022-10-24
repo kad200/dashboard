@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "api/posts";
 import { getUsers } from "api/users";
 import { Layout, ChartBar, ChartPie, Widget } from "components";
+import Loader from "components/Loader/Loader";
 import "./Dashboard.scss";
 
 export interface WidgetDataProps {
@@ -15,21 +16,23 @@ export interface WidgetDataProps {
 }
 
 const Dashboard = () => {
-  const { isError: isPostsError, data: postsData } = useQuery(
-    ["posts"],
-    getPosts
-  );
-  const { isError: isUsersError, data: usersData } = useQuery(
-    ["users"],
-    getUsers
-  );
+  const {
+    isError: isPostsError,
+    isLoading: isPostsLoading,
+    data: postsData,
+  } = useQuery(["posts"], getPosts);
+  const {
+    isError: isUsersError,
+    isLoading: isUsersLoading,
+    data: usersData,
+  } = useQuery(["users"], getUsers);
 
   if (isPostsError || isUsersError) {
     return <h1>An unknown error occured</h1>;
   }
 
-  if (!postsData || !usersData) {
-    return <h1>Waiting for the information</h1>;
+  if (isPostsLoading || isUsersLoading) {
+    return <Loader />;
   }
 
   const dataPosts: WidgetDataProps = {
@@ -78,9 +81,6 @@ const Dashboard = () => {
     //   }
     // }
   });
-
-  console.log(postsPerId);
-  console.log(authorPostsArray);
 
   return (
     <Layout>

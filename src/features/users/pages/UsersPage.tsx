@@ -6,6 +6,7 @@ import { useUserContext } from "context/userContext";
 import UsersTable from "../components/UsersTable";
 import UserForm from "../components/UserForm";
 import { Roles } from "types/enums";
+import Loader from "components/Loader/Loader";
 
 export const UsersContext = createContext({
   refetch: () => {},
@@ -21,7 +22,7 @@ const UsersPage = () => {
   if (isError) {
     return <h1>An unknown error occured</h1>;
   } else if (isLoading) {
-    return <h1>Waiting for the information</h1>;
+    return <Loader />;
   } else {
     return (
       <Layout>

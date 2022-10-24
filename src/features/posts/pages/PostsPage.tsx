@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getPosts } from "api/posts";
 import { Layout, Button, Grid } from "components";
 import PostItem from "../components/PostItem";
+import Loader from "components/Loader/Loader";
 
 const PostsPage = () => {
   const { isError, isLoading, data } = useQuery(["posts"], getPosts);
@@ -15,7 +16,7 @@ const PostsPage = () => {
   if (isError) {
     return <h1>An unknown error occured</h1>;
   } else if (isLoading) {
-    return <h1>Waiting for the information</h1>;
+    return <Loader />;
   } else {
     return (
       <Layout>
