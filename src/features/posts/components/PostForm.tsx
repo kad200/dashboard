@@ -12,24 +12,13 @@ interface PostFormProps {
 
 const PostForm = (post: PostFormProps) => {
   const { name, surname, id } = useUserContext();
-
-  // const { id: postId } = useParams();
-  // const {
-  //   isFetching,
-  //   isLoading,
-  //   // isSuccess,
-  //   data: post,
-  // } = useQuery(["posts", postId], () => getPost(Number(postId)), );
-
-  // console.log(post);
-
   const [postForm, setPostForm] = useSetState(
-    post.post?.id
+    post.post
       ? {
-          title: post.post?.title,
-          content: post.post?.content,
-          imageURL: post.post?.imageURL,
-          date: post.post?.date,
+          title: post.post.title,
+          content: post.post.content,
+          imageURL: post.post.imageURL,
+          date: post.post.date,
           author: {
             name: post.post.author.name,
             surname: post.post.author.surname,
@@ -49,20 +38,13 @@ const PostForm = (post: PostFormProps) => {
         }
   );
 
-  console.log(postForm);
   const navigate = useNavigate();
-
-  // if (isLoading) {
-  //   return <h1>Be patient</h1>;
-  // }
-
   const handleBack = () => {
-    console.log("push me");
     navigate("/posts");
   };
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
 
     const postData = {
       title: postForm.title,

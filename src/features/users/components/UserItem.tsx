@@ -10,34 +10,20 @@ import UserForm from "./UserForm";
 const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
-
   const { id, role } = useUserContext();
-
   const queryClient = useQueryClient();
 
   const editUserMutation = useMutation(api.users.editUser, {
     onSuccess: () => {
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries(["users"]);
     },
   });
 
   const deleteUserMutation = useMutation(api.users.deleteUser, {
     onSuccess: () => {
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries(["users"]);
     },
   });
-
-  const handleDelete = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    deleteUserMutation.mutate(user.id);
-    setOpenRemoveModal(false);
-  };
-
-  const handleEdit = async (e: any) => {
-    e.preventDefault();
-    editUserMutation.mutate(user);
-    // setOpenEditModal(false);
-  };
 
   return (
     <div className="table__row" key={user.id}>
@@ -47,11 +33,15 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <div className="table__cell table__cell-email">{user.email}</div>
       <div className="table__cell">
         <span className="table__cell-role-full">{user.gender}</span>
-        <span className="table__cell-role-short">{user.gender.slice(0, 1).toUpperCase()}</span>
+        <span className="table__cell-role-short">
+          {user.gender.slice(0, 1).toUpperCase()}
+        </span>
       </div>
       <div className="table__cell">
         <span className="table__cell-role-full">{user.role}</span>
-        <span className="table__cell-role-short">{user.role.charAt(0).toUpperCase() + user.role.slice(1, 3)}</span>
+        <span className="table__cell-role-short">
+          {user.role.charAt(0).toUpperCase() + user.role.slice(1, 3)}
+        </span>
       </div>
       <div className="table__cell action-buttons">
         {role === Roles.administrator || id === user.id ? (
@@ -72,15 +62,16 @@ const UserItem = ({ user }: { user: UserProps }) => {
               >
                 <UserForm
                   user={user}
-                  onSubmit={() => {
-                    handleEdit(user);
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    editUserMutation.mutate(user);
                   }}
                 />
                 <div>
                   <Button
                     type="submit"
                     form="form-user"
-                    onClick={(event) => {
+                    onClick={(event: React.SyntheticEvent) => {
                       event.stopPropagation();
                       // setOpenEditModal(false);
                     }}
@@ -120,7 +111,10 @@ const UserItem = ({ user }: { user: UserProps }) => {
                     size={"large"}
                   />
                   <Button
-                    onClick={handleDelete}
+                    onClick={(event: React.SyntheticEvent) => {
+                      event.preventDefault();
+                      deleteUserMutation.mutate(user.id);
+                    }}
                     children={"Delete user"}
                     variant={"danger"}
                     size={"large"}

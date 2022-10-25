@@ -1,11 +1,9 @@
 import "./Modal.scss";
 
 interface ModalProps {
-  title?: string;
+  title: string;
   open: boolean;
-  setOpen?: string;
-  actions?: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const Modal = ({

@@ -5,7 +5,6 @@ export interface UserProps {
   name: string;
   surname: string;
   email: string;
-  // gender: "none" | "male" | "female";
   gender: string;
   password?: string;
   role: Roles.administrator | Roles.moderator;

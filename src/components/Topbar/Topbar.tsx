@@ -22,9 +22,8 @@ export const Topbar: React.FC = () => {
         <img
           onClick={() => navigate("/")}
           src="/logo.png"
-          // width="100px"
           alt="logo"
-        ></img>
+        />
       </div>
       <div className="topbar__user-container">
         <div className="topbar__user-container-name">{`${name?.charAt(

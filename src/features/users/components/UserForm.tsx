@@ -43,8 +43,9 @@ const UserForm = ({ user }: UserFormProps) => {
     },
   });
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event
+    : React.SyntheticEvent) => {
+    event.preventDefault();
     const userData = {
       name: userForm.name,
       surname: userForm.surname,

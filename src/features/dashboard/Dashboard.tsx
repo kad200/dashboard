@@ -72,12 +72,6 @@ const Dashboard = () => {
         element.value = postsPerId[element.id - 1];
       }
     });
-
-    // for (let i = 0; i < authorPostsArray.length; i++) {
-    //   if (!!postsPerId[i] === true) {
-    //     authorPostsArray[i].value = postsPerId[i];
-    //   }
-    // }
   });
 
   return (

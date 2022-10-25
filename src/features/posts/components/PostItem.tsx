@@ -15,8 +15,8 @@ const PostItem = ({ post }: { post: PostProps }) => {
   const navigate = useNavigate();
   const { id, role } = useUserContext();
 
-  const handleDelete = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const handleDelete = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
     if (post.id) {
       api.posts.deletePost(post.id);
     }

@@ -5,25 +5,23 @@ import PostForm from "../components/PostForm";
 import { api } from "api";
 
 const AddPostPage = () => {
-
   const { id: postId } = useParams();
-  const {
-    isFetching,
-    data: post,
-  } = useQuery(["posts", postId], () => api.posts.getPost(Number(postId)), {
-    enabled: !!postId,
-  });
+  const { isFetching, data: post } = useQuery(
+    ["posts", postId],
+    () => api.posts.getPost(Number(postId)),
+    {
+      enabled: !!postId,
+    }
+  );
 
-  console.log(post);
-
-    if ( isFetching) {
+  if (isFetching) {
     return <h1>Be patient</h1>;
   }
-  
+
   return (
     <Layout>
       <div className="post-edit">
-        <PostForm post={post ? post : null}/>
+        <PostForm post={post ? post : null} />
       </div>
     </Layout>
   );
