@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "api/users";
+import { api } from "api";
 
 export type Context = {
   name: string | undefined;
@@ -24,7 +24,7 @@ export const UserContextProvider = ({ children }: React.PropsWithChildren) => {
   const [userName, setUserName] = useState<string>();
   const [userSurname, setUserSurname] = useState<string>();
 
-  const { isError, error } = useQuery(["user", userId], () => getUser(userId), {
+  const { isError, error } = useQuery(["user", userId], () => api.users.getUser(userId), {
     enabled: !!userId,
     onSuccess: (user) => {
       setUserName(user?.name);

@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { addPost, editPost, getPosts } from "api/posts";
 import { useUserContext } from "context/userContext";
 import useSetState from "hooks/useSetState";
 import { PostProps } from "types/types";
 import { Button, Input } from "components";
+import { api } from "api";
 import "./PostForm.scss";
 
 interface PostFormProps {
@@ -73,15 +73,15 @@ const PostForm = (post: PostFormProps) => {
     };
 
     post.post?.id
-      ? editPost({
+      ? api.posts.editPost({
           id: post.post?.id,
           ...postData,
         })
-      : addPost(postData);
+      : api.posts.addPost(postData);
 
     setPostForm("");
     navigate("/posts");
-    getPosts();
+    api.posts.getPosts();
   };
 
   return (

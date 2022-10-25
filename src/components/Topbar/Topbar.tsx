@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { logoutUser } from "api/users";
 import { useUserContext } from "context/userContext";
 import { Button } from "components";
+import { api } from "api";
+
 import "./Topbar.scss";
 
 export const Topbar: React.FC = () => {
@@ -11,7 +12,7 @@ export const Topbar: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logoutUser();
+    api.users.logoutUser();
     navigate("/login");
   };
 

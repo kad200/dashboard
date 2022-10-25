@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteUser, editUser } from "api/users";
 import { useUserContext } from "context/userContext";
 import { UserProps } from "types/types";
 import { Roles } from "types/enums";
 import { Button, Modal, ConfirmationModal } from "components";
+import { api } from "api";
 import UserForm from "./UserForm";
 
 const UserItem = ({ user }: { user: UserProps }) => {
@@ -15,13 +15,13 @@ const UserItem = ({ user }: { user: UserProps }) => {
 
   const queryClient = useQueryClient();
 
-  const editUserMutation = useMutation(editUser, {
+  const editUserMutation = useMutation(api.users.editUser, {
     onSuccess: () => {
       queryClient.invalidateQueries();
     },
   });
 
-  const deleteUserMutation = useMutation(deleteUser, {
+  const deleteUserMutation = useMutation(api.users.deleteUser, {
     onSuccess: () => {
       queryClient.invalidateQueries();
     },

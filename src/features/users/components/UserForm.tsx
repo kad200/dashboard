@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { editUser, signUpUser } from "api/users";
 import useSetState from "hooks/useSetState";
 import { UserProps } from "types/types";
 import { Input, Select } from "components";
+import { api } from "api";
 
 interface UserFormProps {
   id?: string;
@@ -31,13 +31,13 @@ const UserForm = ({ user }: UserFormProps) => {
   );
 
   const queryClient = useQueryClient();
-  const addUserMutation = useMutation(signUpUser, {
+  const addUserMutation = useMutation(api.users.signUpUser, {
     onSuccess: () => {
       queryClient.invalidateQueries();
     },
   });
 
-  const editUserMutation = useMutation(editUser, {
+  const editUserMutation = useMutation(api.users.editUser, {
     onSuccess: () => {
       queryClient.invalidateQueries();
     },

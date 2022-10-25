@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPosts } from "api/posts";
-import { getUsers } from "api/users";
+import { api } from "api";
 import { Layout, ChartBar, ChartPie, Widget, Loader } from "components";
 import "./Dashboard.scss";
 
@@ -19,12 +18,12 @@ const Dashboard = () => {
     isError: isPostsError,
     isLoading: isPostsLoading,
     data: postsData,
-  } = useQuery(["posts"], getPosts);
+  } = useQuery(["posts"], api.posts.getPosts);
   const {
     isError: isUsersError,
     isLoading: isUsersLoading,
     data: usersData,
-  } = useQuery(["users"], getUsers);
+  } = useQuery(["users"], api.users.getUsers);
 
   if (isPostsError || isUsersError) {
     return <h1>An unknown error occured</h1>;
@@ -68,9 +67,9 @@ const Dashboard = () => {
       ? postsPerId[authorId]++
       : (postsPerId[authorId] = 1);
 
-    authorPostsArray.forEach((el) => {
-      if (!!postsPerId[el.id - 1] === true) {
-        el.value = postsPerId[el.id - 1];
+    authorPostsArray.forEach((element) => {
+      if (!!postsPerId[element.id - 1] === true) {
+        element.value = postsPerId[element.id - 1];
       }
     });
 

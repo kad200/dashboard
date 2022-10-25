@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getPost } from "api/posts";
 import { Layout } from "components";
 import PostForm from "../components/PostForm";
+import { api } from "api";
 
 const AddPostPage = () => {
 
@@ -10,7 +10,7 @@ const AddPostPage = () => {
   const {
     isFetching,
     data: post,
-  } = useQuery(["posts", postId], () => getPost(Number(postId)), {
+  } = useQuery(["posts", postId], () => api.posts.getPost(Number(postId)), {
     enabled: !!postId,
   });
 

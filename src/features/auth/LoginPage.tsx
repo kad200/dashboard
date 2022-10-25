@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { signInUser } from "api/users";
 import { Button, Input } from "components";
+import { api } from "api";
 
 import "styles/fonts.scss";
 import "styles/index.scss";
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    signInUser(signInData);
+    api.users.signInUser(signInData);
     navigate("/");
   };
 

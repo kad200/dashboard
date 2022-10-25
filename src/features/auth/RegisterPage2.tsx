@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Roles } from "types/enums";
-import { getUsers, signUpUser } from "api/users";
 import { Input, Select, Button } from "components";
 
 import "styles/fonts.scss";
 import "styles/index.scss";
+import { api } from "api";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
@@ -41,7 +41,7 @@ const RegisterPage = () => {
       return;
     }
 
-    signUpUser({
+    api.users.signUpUser({
       name,
       surname,
       email,
@@ -49,7 +49,7 @@ const RegisterPage = () => {
       role: Roles.moderator,
       password,
     });
-    getUsers();
+    api.users.getUsers();
 
     setName("");
     setSurname("");

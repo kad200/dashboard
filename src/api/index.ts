@@ -1,10 +1,15 @@
 import $axios from "axios";
+import { posts } from "./posts";
+import { users } from "./users";
 
-const axios = $axios.create({
+export const axios = $axios.create({
     baseURL: 'http://localhost:3000',
     headers: {
       "Content-type": "application/json",
     },
   });
 
-export default axios
+export const api = {
+  posts: posts,
+  users: users
+}

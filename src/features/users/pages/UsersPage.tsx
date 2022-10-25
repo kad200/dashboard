@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "api/users";
 import { useUserContext } from "context/userContext";
 import { Roles } from "types/enums";
 import { Layout, Button, Modal, Loader } from "components";
 import UsersTable from "../components/UsersTable";
 import UserForm from "../components/UserForm";
+import { api } from "api";
 
 export const UsersContext = createContext({
   refetch: () => {},
@@ -16,7 +16,7 @@ const UsersPage = () => {
 
   const { role } = useUserContext();
 
-  const { isError, isLoading, data, refetch } = useQuery(["users"], getUsers);
+  const { isError, isLoading, data, refetch } = useQuery(["users"], api.users.getUsers);
 
   if (isError) {
     return <h1>An unknown error occured</h1>;

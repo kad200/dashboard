@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Roles } from "types/enums";
 import useSetState from "hooks/useSetState";
-import { getUsers, signUpUser } from "api/users";
 import { Input, Select, Button } from "components";
+import { api } from "api";
 
 import "styles/fonts.scss";
 import "styles/index.scss";
@@ -57,7 +57,7 @@ const RegisterPage = () => {
       return;
     }
 
-    signUpUser({
+    api.users.signUpUser({
       name: registerForm.name,
       surname: registerForm.surname,
       email: registerForm.email,
@@ -65,7 +65,7 @@ const RegisterPage = () => {
       role: Roles.moderator,
       password: registerForm.password,
     });
-    getUsers();
+    api.users.getUsers();
     setRegisterForm("");
     navigate("/login");
   };
