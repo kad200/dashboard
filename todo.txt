@@ -1,0 +1,5 @@
+1. UsersPage & UserItem
+    dacă la ”save” button este pornită închiderea modalului - nu se salvează modificările introduse
+
+2. PostForm
+    invalidateQueries

@@ -8,7 +8,7 @@ const App = () => {
     <div className="App">
       <Router>
         <Routes>
-          {routes.map((route: any) => (
+          {routes.map((route) => (
             <Route
               key={route.path}
               path={route.path}
@@ -23,7 +23,7 @@ const App = () => {
               />
             }
           >
-            {authRoutes.map((route: any) => (
+            {authRoutes.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}
@@ -34,7 +34,7 @@ const App = () => {
           <Route
             element={<AuthorizedRoutes allowedRoles={[Roles.administrator]} />}
           >
-            {adminRoutes.map((route: any) => (
+            {adminRoutes.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}

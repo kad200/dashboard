@@ -65,7 +65,6 @@ export const RegisterPage = () => {
       role: Roles.moderator,
       password: registerForm.password,
     });
-    api.users.getUsers();
     setRegisterForm("");
     navigate("/login");
   };

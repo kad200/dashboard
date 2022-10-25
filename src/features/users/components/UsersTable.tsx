@@ -1,6 +1,6 @@
 import { UserProps } from "types/types";
 import { TableContainer } from "components";
-import { UserItem } from "./UserItem";
+import { UserItem } from "features";
 import "./UsersTable.scss";
 
 
