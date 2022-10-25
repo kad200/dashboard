@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { Layout, Button, Grid, Loader } from "components";
-import PostItem from "../components/PostItem";
+import { PostItem } from "features";
 import { api } from "api";
 
-const PostsPage = () => {
+export const PostsPage = () => {
   const { isError, isLoading, data } = useQuery(["posts"], api.posts.getPosts);
 
   let navigate = useNavigate();
@@ -36,5 +36,3 @@ const PostsPage = () => {
     );
   }
 };
-
-export default PostsPage;

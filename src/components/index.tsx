@@ -13,3 +13,5 @@ export * from "./Chart/ChartPie";
 export * from "./Chart/ChartBar";
 export * from "./Widget/Widget";
 export * from "./ConfirmationModal/ConfirmationModal";
+export * from "./NotFound/NotFound";
+export * from "./Unauthorized/Unauthorized";

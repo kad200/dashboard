@@ -1,6 +1,6 @@
 import "./Loader.scss";
 
-export function Loader() {
+export const Loader: React.FC = () => {
   return (
     <div className="loader">
       <span className="loader-spinner" />

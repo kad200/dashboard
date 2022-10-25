@@ -4,10 +4,10 @@ import { useUserContext } from "context/userContext";
 import { UserProps } from "types/types";
 import { Roles } from "types/enums";
 import { Button, Modal, ConfirmationModal } from "components";
+import { UserForm } from "features";
 import { api } from "api";
-import UserForm from "./UserForm";
 
-const UserItem = ({ user }: { user: UserProps }) => {
+export const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
   const { id, role } = useUserContext();
@@ -32,8 +32,8 @@ const UserItem = ({ user }: { user: UserProps }) => {
       <div className="table__cell">{user.surname}</div>
       <div className="table__cell table__cell-email">{user.email}</div>
       <div className="table__cell">
-        <span className="table__cell-role-full">{user.gender}</span>
-        <span className="table__cell-role-short">
+        <span className="table__cell-gender-full">{user.gender}</span>
+        <span className="table__cell-gender-short">
           {user.gender.slice(0, 1).toUpperCase()}
         </span>
       </div>
@@ -128,5 +128,3 @@ const UserItem = ({ user }: { user: UserProps }) => {
     </div>
   );
 };
-
-export default UserItem;

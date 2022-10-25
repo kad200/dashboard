@@ -3,15 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useUserContext } from "context/userContext";
 import { Roles } from "types/enums";
 import { Layout, Button, Modal, Loader } from "components";
-import UsersTable from "../components/UsersTable";
-import UserForm from "../components/UserForm";
+import { UserForm, UsersTable } from "features";
 import { api } from "api";
 
 export const UsersContext = createContext({
   refetch: () => {},
 });
 
-const UsersPage = () => {
+export const UsersPage = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
 
   const { role } = useUserContext();
@@ -76,4 +75,3 @@ const UsersPage = () => {
     );
   }
 };
-export default UsersPage;

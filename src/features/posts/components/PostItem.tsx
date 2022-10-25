@@ -8,7 +8,7 @@ import { Button, ConfirmationModal } from "components";
 import "./PostItem.scss";
 import { api } from "api";
 
-const PostItem = ({ post }: { post: PostProps }) => {
+export const PostItem = ({ post }: { post: PostProps }) => {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
   const queryClient = useQueryClient();
 
@@ -91,5 +91,3 @@ const PostItem = ({ post }: { post: PostProps }) => {
     </div>
   );
 };
-
-export default PostItem;

@@ -1,9 +1,5 @@
 @import "styles/variables.scss";
 
-$table-header: #1976d2;
-$table-header-border: #1565c0;
-$table-border: #d9d9d9;
-
 .header-cell {
   background: $primary-color;
   color: white;
@@ -49,6 +45,9 @@ $table-border: #d9d9d9;
     &-role-short {
       display: none;
     }
+    &-gender-short {
+      display: none;
+    }
   }
 }
 
@@ -82,10 +81,21 @@ $table-border: #d9d9d9;
     &.action-buttons {
       min-width: 5rem;
     }
-    &-role-short {
+    &-gender-short {
       display: flex;
     }
-    &-role-full {
+    &-gender-full {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .table__cell-role {
+    &-short {
+      display: flex;
+    }
+    &-full {
       display: none;
     }
   }

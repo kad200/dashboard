@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Layout } from "components";
-import PostForm from "../components/PostForm";
+import { PostForm } from "features";
 import { api } from "api";
 
-const AddPostPage = () => {
+export const AddPostPage = () => {
   const { id: postId } = useParams();
   const { isFetching, data: post } = useQuery(
     ["posts", postId],
@@ -26,5 +26,3 @@ const AddPostPage = () => {
     </Layout>
   );
 };
-
-export default AddPostPage;

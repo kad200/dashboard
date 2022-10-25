@@ -1,14 +1,14 @@
 import { UserProps } from "types/types";
 import { TableContainer } from "components";
+import { UserItem } from "./UserItem";
 import "./UsersTable.scss";
 
-import UserItem from "./UserItem";
 
 interface UsersTableProps {
   users: UserProps[];
 }
 
-const UsersTable = ({ users }: UsersTableProps) => {
+export const UsersTable = ({ users }: UsersTableProps) => {
   return (
     <TableContainer className="table-container">
       <div className="table-header table__row">
@@ -28,5 +28,3 @@ const UsersTable = ({ users }: UsersTableProps) => {
     </TableContainer>
   );
 };
-
-export default UsersTable;

@@ -1,7 +1,7 @@
 import { Button } from "components";
 import "./NotFound.scss";
 
-function NotFound() {
+export const NotFound = () => {
   return (
     <div className="page__not-found">
       <h1>Page not found</h1>
@@ -16,5 +16,3 @@ function NotFound() {
     </div>
   );
 }
-
-export default NotFound;

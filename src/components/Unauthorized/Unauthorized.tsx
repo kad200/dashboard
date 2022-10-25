@@ -1,7 +1,7 @@
 import { Button } from "components";
 import "./Unauthorized.scss";
 
-function Unauthorized() {
+export const Unauthorized = () => {
   return (
     <div className="page__unauthorized">
       <h1>You are not authorized to visit this page</h1>
@@ -16,5 +16,3 @@ function Unauthorized() {
     </div>
   );
 }
-
-export default Unauthorized;

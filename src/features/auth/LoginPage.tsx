@@ -7,7 +7,7 @@ import { api } from "api";
 import "styles/fonts.scss";
 import "styles/index.scss";
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const signInData = { email, password };
@@ -59,5 +59,3 @@ const LoginPage = () => {
     </div>
   );
 };
-
-export default LoginPage;

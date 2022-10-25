@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import useSetState from "hooks/useSetState";
+import { useSetState } from "hooks";
 import { UserProps } from "types/types";
 import { Input, Select } from "components";
 import { api } from "api";
@@ -10,7 +10,7 @@ interface UserFormProps {
   onSubmit?: (e: React.SyntheticEvent<UserProps>) => void;
 }
 
-const UserForm = ({ user }: UserFormProps) => {
+export const UserForm = ({ user }: UserFormProps) => {
   const [userForm, setUserForm] = useSetState(
     user
       ? {
@@ -43,8 +43,7 @@ const UserForm = ({ user }: UserFormProps) => {
     },
   });
 
-  const handleSubmit = async (event
-    : React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const userData = {
       name: userForm.name,
@@ -108,5 +107,3 @@ const UserForm = ({ user }: UserFormProps) => {
     </form>
   );
 };
-
-export default UserForm;

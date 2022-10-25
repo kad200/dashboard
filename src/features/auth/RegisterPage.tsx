@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Roles } from "types/enums";
-import useSetState from "hooks/useSetState";
+import { useSetState } from "hooks";
 import { Input, Select, Button } from "components";
 import { api } from "api";
 
@@ -10,7 +10,7 @@ import "styles/index.scss";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
   const [registerForm, setRegisterForm] = useSetState({
     name: "",
     surname: "",
@@ -155,5 +155,3 @@ const RegisterPage = () => {
     </div>
   );
 };
-
-export default RegisterPage;

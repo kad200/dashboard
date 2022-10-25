@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "context/userContext";
-import useSetState from "hooks/useSetState";
+import { useSetState } from "hooks";
 import { PostProps } from "types/types";
 import { Button, Input } from "components";
 import { api } from "api";
@@ -10,7 +10,7 @@ interface PostFormProps {
   post: PostProps | null;
 }
 
-const PostForm = (post: PostFormProps) => {
+export const PostForm = (post: PostFormProps) => {
   const { name, surname, id } = useUserContext();
   const [postForm, setPostForm] = useSetState(
     post.post
@@ -118,5 +118,3 @@ const PostForm = (post: PostFormProps) => {
     </form>
   );
 };
-
-export default PostForm;

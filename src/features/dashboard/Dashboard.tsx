@@ -13,7 +13,7 @@ export interface WidgetDataProps {
   };
 }
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const {
     isError: isPostsError,
     isLoading: isPostsLoading,
@@ -89,5 +89,3 @@ const Dashboard = () => {
     </Layout>
   );
 };
-
-export default Dashboard;

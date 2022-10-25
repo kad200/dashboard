@@ -1,7 +1,7 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useUserContext } from "context/userContext";
 
-const AuthorizedRoutes = ({ allowedRoles }: any) => {
+export const AuthorizedRoutes = ({ allowedRoles }: any) => {
   const { role } = useUserContext();
   const location = useLocation();
 
@@ -14,4 +14,3 @@ const AuthorizedRoutes = ({ allowedRoles }: any) => {
   );
 };
 
-export { AuthorizedRoutes };
