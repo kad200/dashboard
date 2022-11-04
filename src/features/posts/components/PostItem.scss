@@ -59,8 +59,14 @@
       text-align: end;
     }
   }
-  &__action-buttons > Button {
-    margin: 0;
+  &__action-buttons {
+    display: flex;
+    min-width: 10rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+    & > Button {
+      margin: 0;
+    }
   }
 }
 
@@ -91,7 +97,6 @@
     }
     &__info {
       font-size: 0.9rem;
-
     }
   }
 }

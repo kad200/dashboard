@@ -5,8 +5,7 @@
   position: fixed;
   height: 100vh;
   background-color: $primary-color;
-  display: flex;
-  justify-content: start;
+  // display: flex;
   flex-direction: column;
 
   &__link-item {
@@ -14,26 +13,28 @@
     display: flex;
     align-items: center;
     height: 3.5rem;
-    padding: 1rem 1.25rem;
-    margin-right: 2rem;
+    padding: 1rem 0 0 0rem;
+    margin-right: 3rem;
+
     &:hover {
       background: #fff;
-      opacity: 0.75;
+      opacity: 0.9;
       color: $danger-color;
       font-weight: bolder;
       width: 100%;
       text-align: center;
-      border-radius: 10px;
-      margin: 0 1rem;
+      border-radius: 2rem 0px 0px 2rem;
     }
   }
 }
+
 @media (max-width: 1279px) {
   .sidebar__link-item {
     height: 2.5rem;
     padding: 0.8rem 1rem;
     margin-right: 1rem;
     font-size: 0.8rem;
+    
     &:hover {
       margin: 0 0.5rem;
     }

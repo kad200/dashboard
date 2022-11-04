@@ -42,7 +42,7 @@ export const UsersPage = () => {
                 open={openAddModal}
               >
                 <UserForm />
-                <div>
+                <div className="modal__content-buttons">
                   <Button
                     type="submit"
                     form="form-user"

@@ -2,18 +2,18 @@
 @import "styles/fonts.scss";
 
 .modal {
-  width: fit-content;
+  width: 25rem;
   height: fit-content;
   background: white;
   color: white;
   z-index: 10;
   border-radius: 16px;
-
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   &-bg {
     background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
@@ -24,13 +24,14 @@
     transform: translate(-50%, -50%);
     position: fixed;
   }
+
   &__header {
     background: $primary-color-active;
-    overflow: hidden;
+    word-wrap: normal;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+
     &-title {
-      margin: 0;
       padding: 1.5rem 2rem;
       color: $main-text-color;
       font-weight: 700;
@@ -38,6 +39,7 @@
       text-align: center;
     }
   }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -46,5 +48,11 @@
     color: #2c3e50;
     text-align: center;
     justify-content: space-evenly;
+
+    &-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
   }
 }

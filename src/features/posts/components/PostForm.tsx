@@ -100,21 +100,22 @@ export const PostForm = (post: PostFormProps) => {
           ? post.post?.author.name + " " + post.post?.author.surname
           : `${name} ${surname}`}
       </div>
-      <br />
-      <Button
-        type="button"
-        onClick={handleBack}
-        children={"Go back"}
-        variant={"danger"}
-        size={"small"}
-      ></Button>
-      <Button
-        type="button"
-        onClick={handleSubmit}
-        children={"Submit"}
-        variant={"primary"}
-        size={"small"}
-      ></Button>
+      <div className="post-edit-buttons">
+        <Button
+          type="button"
+          onClick={handleBack}
+          children={"Go back"}
+          variant={"danger"}
+          size={"small"}
+        ></Button>
+        <Button
+          type="button"
+          onClick={handleSubmit}
+          children={"Submit"}
+          variant={"primary"}
+          size={"small"}
+        ></Button>
+      </div>
     </form>
   );
 };

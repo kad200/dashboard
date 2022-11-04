@@ -69,7 +69,7 @@ export const PostItem = ({ post }: { post: PostProps }) => {
                 title="Do you really want to delete this post?"
                 open={true}
               >
-                <div>
+                <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
                     children={"Cancel"}

@@ -9,7 +9,8 @@ export const Sidebar: React.FC = () => {
       {sidebarItems.map((item) => {
         return (
             <Link className="sidebar__link-item" key={item.id} to={item.path}>
-              {item.icon}
+              {/* {item.icon} */}
+              <span style={{ marginLeft: "1rem" }}>{item.icon}</span>
               <span style={{ marginLeft: "1rem" }}>{item.title}</span>
             </Link>
         );

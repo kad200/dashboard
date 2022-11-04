@@ -27,10 +27,10 @@ export const UserItem = ({ user }: { user: UserProps }) => {
 
   return (
     <div className="table__row" key={user.id}>
-      <div className="table__cell table__cell-id">{user.id}</div>
-      <div className="table__cell">{user.name}</div>
-      <div className="table__cell">{user.surname}</div>
-      <div className="table__cell table__cell-email">{user.email}</div>
+      <div className="table__cell table__cell-id"><span>{user.id}</span></div>
+      <div className="table__cell"><span>{user.name}</span></div>
+      <div className="table__cell"><span>{user.surname}</span></div>
+      <div className="table__cell table__cell-email"><div>{user.email}</div></div>
       <div className="table__cell">
         <span className="table__cell-gender-full">{user.gender}</span>
         <span className="table__cell-gender-short">
@@ -67,7 +67,7 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                     editUserMutation.mutate(user);
                   }}
                 />
-                <div>
+                <div className="modal__content-buttons">
                   <Button
                     type="submit"
                     form="form-user"
@@ -103,7 +103,7 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                 title="Do you really want to delete this user?"
                 open
               >
-                <div>
+                <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
                     children={"Cancel"}
