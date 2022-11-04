@@ -2,9 +2,10 @@
 
 .dashboard-page {
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  min-height: calc(100vh - 13rem);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 20px;
+  min-height: calc(100vh - 11rem);
   &__widgets {
     display: flex;
     justify-content: space-around;

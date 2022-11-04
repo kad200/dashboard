@@ -9,9 +9,9 @@
 //1. button hover nu tre să iasă din sidebar
 //2. spații între butoane peste tot (posts, modalele, confirmation)
 //3. modal width tre să fie fixed
-4. table - numele să nu iese din celula
+//4. table - numele să nu iese din celula
 //5. role, gender - cu majuscula peste tot
-6. email la inregistrare - obligatoriu
+//6. toate câmpuri la inregistrare de admin - obligatoriu
 7. erorile nu ca alert, dar sub fiecare input
 8. dacă la ”save” button este pornită închiderea modalului - nu se salvează modificările introduse
 9. culorile la cancel tre să fie pastrate

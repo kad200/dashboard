@@ -71,12 +71,14 @@ export const UserForm = ({ user }: UserFormProps) => {
         placeholder="Name"
         value={userForm.name}
         onChange={(event) => setUserForm({ name: event.target.value })}
+        required
       />
       <Input
         id="surname"
         placeholder="Surname"
         value={userForm.surname}
         onChange={(event) => setUserForm({ surname: event.target.value })}
+        required      
       />
       <Input
         id="email"
@@ -84,12 +86,14 @@ export const UserForm = ({ user }: UserFormProps) => {
         value={userForm.email}
         onChange={(event) => setUserForm({ email: event.target.value })}
         type="email"
+        required
       />
       <Select
         id="gender"
         label="Gender"
         value={userForm.gender}
         onChange={(event) => setUserForm({ gender: event.target.value })}
+        required
       >
         <option value="">None</option>
         <option value="male">Male</option>

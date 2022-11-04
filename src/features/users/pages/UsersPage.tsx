@@ -7,7 +7,7 @@ import { UserForm, UsersTable } from "features";
 import { api } from "api";
 
 export const UsersContext = createContext({
-  refetch: () => {},
+  refetch: () => { },
 });
 
 export const UsersPage = () => {
@@ -44,6 +44,15 @@ export const UsersPage = () => {
                 <UserForm />
                 <div className="modal__content-buttons">
                   <Button
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setOpenAddModal(false);
+                    }}
+                    variant={"danger"}
+                    size={"small"}
+                    children="Cancel"
+                  />
+                  <Button
                     type="submit"
                     form="form-user"
                     onClick={(event) => {
@@ -53,15 +62,6 @@ export const UsersPage = () => {
                     variant={"primary"}
                     size={"small"}
                     children="Save"
-                  />
-                  <Button
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setOpenAddModal(false);
-                    }}
-                    variant={"danger"}
-                    size={"small"}
-                    children="Cancel"
                   />
                 </div>
               </Modal>

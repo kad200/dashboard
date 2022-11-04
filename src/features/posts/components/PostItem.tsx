@@ -73,13 +73,13 @@ export const PostItem = ({ post }: { post: PostProps }) => {
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
                     children={"Cancel"}
-                    variant={"primary"}
+                    variant={"danger"}
                     size={"large"}
                   />
                   <Button
                     onClick={editUserMutation.mutate}
-                    children={"Accept"}
-                    variant={"danger"}
+                    children={"Delete"}
+                    variant={"primary"}
                     size={"large"}
                   />
                 </div>

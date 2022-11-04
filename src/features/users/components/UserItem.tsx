@@ -69,6 +69,15 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                 />
                 <div className="modal__content-buttons">
                   <Button
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setOpenEditModal(false);
+                    }}
+                    variant={"danger"}
+                    size={"small"}
+                    children="Cancel"
+                  />
+                  <Button
                     type="submit"
                     form="form-user"
                     onClick={(event: React.SyntheticEvent) => {
@@ -78,15 +87,6 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                     variant={"primary"}
                     size={"small"}
                     children="Save"
-                  />
-                  <Button
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setOpenEditModal(false);
-                    }}
-                    variant={"danger"}
-                    size={"small"}
-                    children="Cancel"
                   />
                 </div>
               </Modal>
@@ -107,7 +107,7 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
                     children={"Cancel"}
-                    variant={"primary"}
+                    variant={"danger"}
                     size={"large"}
                   />
                   <Button
@@ -115,8 +115,8 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                       event.preventDefault();
                       deleteUserMutation.mutate(user.id);
                     }}
-                    children={"Delete user"}
-                    variant={"danger"}
+                    children={"Delete"}
+                    variant={"primary"}
                     size={"large"}
                   />
                 </div>
