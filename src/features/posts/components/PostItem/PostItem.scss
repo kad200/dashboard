@@ -1,4 +1,4 @@
-@import "styles/variables.scss";
+@import 'styles/variables.scss';
 
 .post-item {
   background: $main-color;
@@ -12,9 +12,11 @@
   flex-direction: column;
   transition: all 0.4s ease;
   height: 600px;
+
   &:hover {
     box-shadow: 10px 15px 10px rgba(77, 202, 108, 0.6);
   }
+
   &__title {
     box-sizing: border-box;
     display: inline;
@@ -31,20 +33,24 @@
     font-weight: 700;
     // }
   }
+
   &__content {
     box-sizing: border-box;
     height: 500px;
     overflow: hidden;
+
     &-text {
       color: $main-text-color;
       margin-bottom: 1rem;
       text-align: justify;
     }
+
     &-image {
       max-width: 100%;
       max-height: 200px;
     }
   }
+
   &__info {
     display: grid;
     margin: 1rem 0;
@@ -52,20 +58,24 @@
     color: $danger-color;
     font-weight: 700;
     font-size: 1.2rem;
+
     &-date {
       text-align: start;
     }
+
     &-author {
       text-align: end;
     }
   }
+
   &__action-buttons {
     display: flex;
     min-width: 10rem;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
     & > Button {
-      margin: 0;
+      margin: 0 10px;
     }
   }
 }
@@ -78,23 +88,27 @@
     box-sizing: border-box;
     resize: none;
   }
+
   &__link {
     text-decoration: none;
   }
 }
 
-@media (max-width: 1279px) {
+@include size(medium) {
   .post-item {
     margin: 0.4rem;
     padding: 0.4rem;
+
     &__title {
       padding-left: 1rem;
       padding-right: 0.7rem;
       font-size: 1rem;
     }
+
     &__content-text {
       font-size: 0.7rem;
     }
+
     &__info {
       font-size: 0.9rem;
     }

@@ -1,17 +1,19 @@
-@import "styles/variables.scss";
+@import 'styles/variables.scss';
 
 .dashboard-page {
-  background-color: #fff;
+  background-color: $white;
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 20px;
   min-height: calc(100vh - 11rem);
+
   &__widgets {
     display: flex;
     justify-content: space-around;
     margin-bottom: 4rem;
     flex-wrap: wrap;
   }
+
   &__charts {
     display: flex;
     flex-direction: row;

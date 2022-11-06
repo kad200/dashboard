@@ -1,10 +1,4 @@
-1. UsersPage & UserItem
-    dacă la ”save” button este pornită închiderea modalului - nu se salvează modificările introduse
-
-2. PostForm
-    invalidateQueries
-
-////
+//// UI
 
 //1. button hover nu tre să iasă din sidebar
 //2. spații între butoane peste tot (posts, modalele, confirmation)
@@ -12,34 +6,33 @@
 //4. table - numele să nu iese din celula
 //5. role, gender - cu majuscula peste tot
 //6. toate câmpuri la inregistrare de admin - obligatoriu
-7. erorile nu ca alert, dar sub fiecare input
-8. dacă la ”save” button este pornită închiderea modalului - nu se salvează modificările introduse
-9. culorile la cancel tre să fie pastrate
-10. marimile la buttons să fie aceleasi
-11. unificarea denumirilor butoanelor
-12. la dashboard spațiu din toate părțile cum e jos
-13. media querries de verificat
+//7. erorile nu ca alert, dar ca modal
+//8. dacă la ”save” button este pornită închiderea modalului - nu se salvează modificările introduse
+//9. culorile la cancel tre să fie pastrate, 
+     marimile la buttons să fie aceleasi
+     unificarea denumirilor butoanelor
+//10. la dashboard spațiu din toate părțile cum e jos
+//11. scss media querries de verificat
 
-////
+//// code
 
-0. prettier.rc de adaugat
-1. de lăsat numai numele acolo unde coincide cu valoarea
-2. default styles pentru font, h1-h6 în index.scss, de șters peste tot
-3. media width values - în variables ca să fie centralizate
-4. la chart - props generic în loc de any
-5. în scss spațiu înainte de child
-6. la componenta input și select nu are sens de atribuit toate, doar cele care vor fi utilizate (type, label, id, etc)
-7. culorile de văzut care sânt deja în variabile
-8. de pus default font color în index.scss
-9. modal__header__title.....
-10. border în px de făcut
-11. optional type în loc de string | undefined
-12. useMutation la RegisterPage în loc de direct cu API. useMutation tre să fie peste tot unde poți arăta loading cât omul așteaptă
-13. acolo unde sunt 2 useQuery - de folosit useQueries
-14. logica de după postsPerId - de scos într-o funcție logică și de folosit o funcție care returnează postsPerId
-15. la PostForm de utilizat useMutation în loc de API 
-16. la post components - de grupat în folders cu index.ts
-17. handleDelete de modificat logica (see example)
-18. la post-item__info în loc de div de pus ceva paragrafs, span, headings
-19. nu are sens de pus else acolo unde toate variantele au return, care oprește flow
-20. de făcut ca modalul să se închidă după ce se face remove la user cu succes și nu a venit un error, nu deodată
+//0. prettierrc de adaugat
+//1. de lăsat numai numele acolo unde coincide cu valoarea
+//2. default styles pentru font și color, h1-h6 în index.scss, de șters peste tot
+//3. media width values - în variables ca să fie centralizate
+//4. la chart - props generic în loc de any
+//5. în scss spațiu înainte de child
+//6. la componenta input și select nu are sens de atribuit toate, doar cele care vor fi utilizate (type, label, id, etc)
+//7. culorile de văzut care sânt deja în variabile
+//8. de pus default font color în index.scss
+//9. modal__header__title.....
+//10. border în px de făcut
+//11. optional type în loc de string | undefined
+//12. useMutation la RegisterPage, LoginPage, PostForm în loc de direct cu API. useMutation tre să fie peste tot unde poți arăta loading cât omul așteaptă
+//13. acolo unde sunt 2 useQuery - de folosit useQueries
+//14. logica de după postsPerId - de scos într-o funcție logică și de folosit o funcție care returnează postsPerId
+//15. la post components - de grupat în folders cu index.ts
+//16. handleDelete la PostItem de corectat
+//17. la post-item__info în loc de div de pus ceva paragrafs, span, headings
+//18. nu are sens de pus else acolo unde toate variantele au return, care oprește flow
+//19. de făcut ca modalul să se închidă după ce se face remove la user cu succes și nu a venit un error, nu deodată

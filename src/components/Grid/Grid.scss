@@ -1,15 +1,17 @@
+@import 'styles/variables.scss';
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-@media (max-width: 1279px) {
+@include size(medium) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@include size(small) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }

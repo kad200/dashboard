@@ -1,15 +1,32 @@
 $danger-color: #ff500a;
 $danger-color-active: #fd6f1d;
-$primary-color: #24C18F;
-$primary-color-active: #00DEA3;
+$primary-color: #24c18f;
+$primary-color-active: #00dea3;
+$white: #f5f5f5;
 
-
-$background-color: #EFF3FD;
-$background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #EFF3FD 10px ), repeating-linear-gradient( #f5e4dc, #d9d8d7 );
+$background-color: #eff3fd;
+$background-image: repeating-radial-gradient(
+    circle at 0 0,
+    transparent 0,
+    #eff3fd 10px
+  ),
+  repeating-linear-gradient(#f5e4dc, #d9d8d7);
 $main-color: #f6f6f6;
 $main-text-color: #213b87;
-
 
 $table-header: #1976d2;
 $table-header-border: #1565c0;
 $table-border: #d9d9d9;
+
+@mixin size($size) {
+  @if $size == medium {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  }
+  @if $size == small {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+}

@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import React, { useCallback, useState } from 'react';
+import { PieChart, Pie, Sector } from 'recharts';
+import { ChartPieShapeProps, ChartProps } from 'types/types';
 
 
-const renderActiveShape = (props : any) => {
+const renderActiveShape = (props: ChartPieShapeProps) => {
   const RADIAN = Math.PI / 180;
   const {
     cx,
@@ -25,7 +26,7 @@ const renderActiveShape = (props : any) => {
   const my = cy + (outerRadius + 30) * sin;
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
-  const textAnchor = cos >= 0 ? "start" : "end";
+  const textAnchor = cos >= 0 ? 'start' : 'end';
 
   return (
     <g>
@@ -60,7 +61,7 @@ const renderActiveShape = (props : any) => {
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
-        fill="#333"
+        fill="#24c18f"
       >{`${value} posts`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
@@ -75,13 +76,13 @@ const renderActiveShape = (props : any) => {
   );
 };
 
-export function ChartPie(props: any) {
+export function ChartPie(props: ChartProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
-    (_: any, index: any) => {
+    (_: number, index: number) => {
       setActiveIndex(index);
     },
-    [setActiveIndex]
+    [setActiveIndex],
   );
 
   return (
@@ -94,7 +95,7 @@ export function ChartPie(props: any) {
         cy={200}
         innerRadius={90}
         outerRadius={120}
-        fill="#0a64ff"
+        fill="#00dea3"
         dataKey="value"
         onMouseEnter={onPieEnter}
       />

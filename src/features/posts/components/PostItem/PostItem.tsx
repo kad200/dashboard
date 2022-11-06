@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useUserContext } from "context/userContext";
-import { PostProps } from "types/types";
-import { Roles } from "types/enums";
-import { Button, ConfirmationModal } from "components";
-import "./PostItem.scss";
-import { api } from "api";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useUserContext } from 'context/userContext';
+import { PostProps } from 'types/types';
+import { Roles } from 'types/enums';
+import { Button, ConfirmationModal } from 'components';
+import './PostItem.scss';
+import { api } from 'api';
 
 export const PostItem = ({ post }: { post: PostProps }) => {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
@@ -17,17 +17,21 @@ export const PostItem = ({ post }: { post: PostProps }) => {
 
   const handleDelete = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+
     if (post.id) {
-      api.posts.deletePost(post.id);
+      editUserMutation.mutate(post.id);
     }
     setOpenRemoveModal(false);
   };
 
-  const editUserMutation = useMutation(handleDelete, {
-    onSuccess: () => {
-      queryClient.invalidateQueries();
+  const editUserMutation = useMutation(
+    (id: number) => api.posts.deletePost(id),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries();
+      },
     },
-  });
+  );
 
   return (
     <div className="post-item" key={post.id}>
@@ -41,12 +45,12 @@ export const PostItem = ({ post }: { post: PostProps }) => {
         <p className="post-item__content-text">{post.content}</p>
       </div>
       <div className="post-item__info">
-        <div className="post-item__info-date">{post.date}</div>
-        <div className="post-item__info-author">
+        <span className="post-item__info-date">{post.date}</span>
+        <p className="post-item__info-author">
           {post.author
-            ? post.author.name + " " + post.author.surname
-            : "anonymous"}
-        </div>
+            ? post.author.name + ' ' + post.author.surname
+            : 'anonymous'}
+        </p>
       </div>
       <div className="post-item__action-buttons">
         {role === Roles.administrator || id === post.author.id ? (
@@ -72,15 +76,15 @@ export const PostItem = ({ post }: { post: PostProps }) => {
                 <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
-                    children={"Cancel"}
-                    variant={"danger"}
-                    size={"large"}
+                    children={'Cancel'}
+                    variant={'danger'}
+                    size={'large'}
                   />
                   <Button
-                    onClick={editUserMutation.mutate}
-                    children={"Delete"}
-                    variant={"primary"}
-                    size={"large"}
+                    onClick={handleDelete}
+                    children={'Delete'}
+                    variant={'primary'}
+                    size={'large'}
                   />
                 </div>
               </ConfirmationModal>

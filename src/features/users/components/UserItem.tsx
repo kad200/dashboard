@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useUserContext } from "context/userContext";
-import { UserProps } from "types/types";
-import { Roles } from "types/enums";
-import { Button, Modal, ConfirmationModal } from "components";
-import { UserForm } from "features";
-import { api } from "api";
+import { useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useUserContext } from 'context/userContext';
+import { UserProps } from 'types/types';
+import { Roles } from 'types/enums';
+import { Button, Modal, ConfirmationModal } from 'components';
+import { UserForm } from 'features';
+import { api } from 'api';
 
 export const UserItem = ({ user }: { user: UserProps }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -15,22 +15,32 @@ export const UserItem = ({ user }: { user: UserProps }) => {
 
   const editUserMutation = useMutation(api.users.editUser, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["users"]);
+      queryClient.invalidateQueries(['users']);
+      setOpenEditModal(false);
     },
   });
 
   const deleteUserMutation = useMutation(api.users.deleteUser, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["users"]);
+      queryClient.invalidateQueries(['users']);
+      // setOpenEditModal(false);
     },
   });
 
   return (
     <div className="table__row" key={user.id}>
-      <div className="table__cell table__cell-id"><span>{user.id}</span></div>
-      <div className="table__cell"><span>{user.name}</span></div>
-      <div className="table__cell"><span>{user.surname}</span></div>
-      <div className="table__cell table__cell-email"><div>{user.email}</div></div>
+      <div className="table__cell table__cell-id">
+        <span>{user.id}</span>
+      </div>
+      <div className="table__cell">
+        <span>{user.name}</span>
+      </div>
+      <div className="table__cell">
+        <span>{user.surname}</span>
+      </div>
+      <div className="table__cell table__cell-email">
+        <div>{user.email}</div>
+      </div>
       <div className="table__cell">
         <span className="table__cell-gender-full">{user.gender}</span>
         <span className="table__cell-gender-short">
@@ -54,7 +64,8 @@ export const UserItem = ({ user }: { user: UserProps }) => {
             />
             {openEditModal && (
               <Modal
-                onClick={() => {
+                onClick={(event) => {
+                  event.preventDefault();
                   setOpenEditModal(false);
                 }}
                 title={`Edit ${user.name} ${user.surname} data`}
@@ -73,8 +84,8 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                       event.stopPropagation();
                       setOpenEditModal(false);
                     }}
-                    variant={"danger"}
-                    size={"small"}
+                    variant={'danger'}
+                    size={'small'}
                     children="Cancel"
                   />
                   <Button
@@ -82,10 +93,10 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                     form="form-user"
                     onClick={(event: React.SyntheticEvent) => {
                       event.stopPropagation();
-                      // setOpenEditModal(false);
+                      editUserMutation.mutate(user);
                     }}
-                    variant={"primary"}
-                    size={"small"}
+                    variant={'primary'}
+                    size={'small'}
                     children="Save"
                   />
                 </div>
@@ -100,24 +111,24 @@ export const UserItem = ({ user }: { user: UserProps }) => {
             {openRemoveModal && (
               <ConfirmationModal
                 onClick={() => setOpenRemoveModal(false)}
-                title="Do you really want to delete this user?"
+                title={`Do you really want to remove ${user.name} ${user.surname}?`}
                 open
               >
                 <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
-                    children={"Cancel"}
-                    variant={"danger"}
-                    size={"large"}
+                    children={'Cancel'}
+                    variant={'danger'}
+                    size={'large'}
                   />
                   <Button
                     onClick={(event: React.SyntheticEvent) => {
                       event.preventDefault();
                       deleteUserMutation.mutate(user.id);
                     }}
-                    children={"Delete"}
-                    variant={"primary"}
-                    size={"large"}
+                    children={'Delete'}
+                    variant={'primary'}
+                    size={'large'}
                   />
                 </div>
               </ConfirmationModal>

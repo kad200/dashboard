@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { Layout } from "components";
+import { Layout, Loader } from "components";
 import { PostForm } from "features";
 import { api } from "api";
 
@@ -15,7 +15,7 @@ export const AddPostPage = () => {
   );
 
   if (isFetching) {
-    return <h1>Be patient</h1>;
+    return <Loader />;
   }
 
   return (

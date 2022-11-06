@@ -1,34 +1,13 @@
-import React from "react";
-import "./Input.scss";
+import React from 'react';
+import './Input.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export const Input: React.FC<InputProps> = ({
-  label,
-  placeholder,
-  type,
-  id,
-  value,
-  autoComplete,
-  onChange,
-  required,
-  checked,
-  ...props
-}) => (
+export const Input: React.FC<InputProps> = ({ label, type, id, ...props }) => (
   <div className="auth-form__input">
-    <input
-      type={type}
-      placeholder={placeholder}
-      id={id}
-      value={value}
-      autoComplete={autoComplete}
-      onChange={onChange}
-      required={required}
-      checked={checked}
-      {...props}
-    />
+    <input type={type} id={id} {...props} />
     {label && (
       <label className={`${type}-label`} htmlFor={id}>
         {label}

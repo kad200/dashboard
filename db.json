@@ -407,6 +407,18 @@
         "id": 1
       },
       "id": 34
+    },
+    {
+      "id": 35,
+      "title": "</></></></></>",
+      "content": "\n    //         ...postData,    //         id: post.post?.id,\n    //         ...postData,    //         id: post.post?.id,\n    //         ...postData,</></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></></>v",
+      "imageURL": "https://pbs.twimg.com/profile_images/1276770212927410176/qTgTIejk_400x400.jpg",
+      "date": "2001-01-01",
+      "author": {
+        "name": "Alex",
+        "surname": "Dimov",
+        "id": 1
+      }
     }
   ],
   "users": [
@@ -463,6 +475,33 @@
       "gender": "female",
       "role": "administrator",
       "password": "qwerty12345"
+    },
+    {
+      "password": "Default123",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "1589@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "id": 7
+    },
+    {
+      "password": "Default123",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "157@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "id": 8
+    },
+    {
+      "password": "Default123",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "854@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "id": 9
     }
   ]
 }

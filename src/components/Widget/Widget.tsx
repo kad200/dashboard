@@ -1,6 +1,5 @@
-import "./Widget.scss";
-
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './Widget.scss';
 
 export const Widget = ({ data }: any) => {
   return (

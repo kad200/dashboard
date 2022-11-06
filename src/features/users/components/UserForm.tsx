@@ -1,8 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useSetState } from "hooks";
-import { UserProps } from "types/types";
-import { Input, Select } from "components";
-import { api } from "api";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useSetState } from 'hooks';
+import { UserProps } from 'types/types';
+import { Button, ConfirmationModal, Input, Select } from 'components';
+import { api } from 'api';
+import { useState } from 'react';
 
 interface UserFormProps {
   id?: string;
@@ -11,6 +12,7 @@ interface UserFormProps {
 }
 
 export const UserForm = ({ user }: UserFormProps) => {
+  const [errorMessage, setErrorMessage] = useState('');
   const [userForm, setUserForm] = useSetState(
     user
       ? {
@@ -22,17 +24,27 @@ export const UserForm = ({ user }: UserFormProps) => {
           role: user.role,
         }
       : {
-          name: "",
-          surname: "",
-          email: "",
-          gender: "none",
-          role: "moderator",
-        }
+          name: '',
+          surname: '',
+          email: '',
+          gender: 'none',
+          role: 'moderator',
+        },
   );
 
   const queryClient = useQueryClient();
   const addUserMutation = useMutation(api.users.signUpUser, {
+    onError: (error: Error) => {
+      setErrorMessage(error.message);
+    },
     onSuccess: () => {
+      setUserForm({
+        name: '',
+        surname: '',
+        email: '',
+        gender: 'none',
+        role: 'moderator',
+      });
       queryClient.invalidateQueries();
     },
   });
@@ -58,10 +70,9 @@ export const UserForm = ({ user }: UserFormProps) => {
           ...userData,
         })
       : addUserMutation.mutate({
-          password: "Default123",
+          password: 'Default123',
           ...userData,
         });
-    setUserForm("");
   };
 
   return (
@@ -78,7 +89,7 @@ export const UserForm = ({ user }: UserFormProps) => {
         placeholder="Surname"
         value={userForm.surname}
         onChange={(event) => setUserForm({ surname: event.target.value })}
-        required      
+        required
       />
       <Input
         id="email"
@@ -108,6 +119,20 @@ export const UserForm = ({ user }: UserFormProps) => {
         <option value="moderator">Moderator</option>
         <option value="administrator">Administrator</option>
       </Select>
+      {errorMessage && (
+        <ConfirmationModal
+          title={errorMessage}
+          open={false}
+          onClick={() => setErrorMessage('')}
+        >
+          <Button
+            children={'Try again'}
+            variant={'danger'}
+            size={'large'}
+            onClick={() => setErrorMessage('')}
+          />
+        </ConfirmationModal>
+      )}
     </form>
   );
 };

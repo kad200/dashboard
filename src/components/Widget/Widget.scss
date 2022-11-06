@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .widget {
   display: inline-flex;
   flex-direction: column;
@@ -8,21 +10,23 @@
   height: 100px;
   width: 300px;
   margin-inline: 40px;
+
   &:hover {
     transform: translateY(-2px);
   }
+
   &__title {
     display: flex;
     align-items: center;
     font-weight: bold;
     font-size: 1.4rem;
-    color: rgb(128, 103, 103);
+    color: $primary-color;
   }
 
   &__counter {
     font-size: 28px;
     font-weight: 400;
-    color: rgb(50, 10, 135);
+    color: $primary-color-active;
   }
 
   &__footer {
@@ -36,10 +40,11 @@
     font-size: 1rem;
     border-bottom: 1px solid gray;
     > a {
-      color: rgb(157, 44, 36);
+      color: $danger-color;
     }
+
     & a:visited {
-      color: rgb(157, 44, 36);
+      color: $danger-color;
     }
   }
 

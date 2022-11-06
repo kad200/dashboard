@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "api";
 
 export type Context = {
-  name: string | undefined;
-  surname: string | undefined;
+  name?: string;
+  surname?: string;
   id: number | null;
   role: string | null;
 };

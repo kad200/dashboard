@@ -1,13 +1,7 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ChartProps } from 'types/types';
 
-export function ChartBar(props: any) {
+export function ChartBar(props: ChartProps) {
   return (
     <BarChart
       width={700}
@@ -24,7 +18,7 @@ export function ChartBar(props: any) {
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
-      <Bar dataKey="value" barSize={30} fill="#0a64ff" />
+      <Bar dataKey="value" barSize={40} fill="#00dea3" />
     </BarChart>
   );
 }
