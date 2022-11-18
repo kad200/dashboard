@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button } from 'ebs-design';
 
-import { Button, ConfirmationModal, Input, Loader } from 'components';
+import { ConfirmationModal, Loader } from 'components';
 import { api } from 'api';
 
 import 'styles/fonts.scss';
@@ -15,11 +16,10 @@ export const LoginPage = () => {
   const signInData = { email, password };
 
   const queryClient = useQueryClient();
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     signInUserMutation.mutate();
   };
 
@@ -46,30 +46,40 @@ export const LoginPage = () => {
             <img src="logo.png" alt="logo" />
             <h1>Please sign in</h1>
           </div>
-          <form className="auth-page__form" onSubmit={handleSubmit}>
-            <Input
-              placeholder="Enter your email"
-              type="email"
-              id="email"
-              autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              required
-            />
-            <Input
-              placeholder="Enter your password"
-              type="password"
-              id="password"
-              autoComplete="off"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-            />
-            <Button variant="primary" size="large" children="Sign in" />
-          </form>
+          <Form onFinish={handleSubmit}
+          className="form">
+            <Form.Field
+              initialValue=""
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  warningOnly: true,
+                },
+              ]}
+            >
+              <Input placeholder="Your email" type="email" size="small" />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  warningOnly: true,
+                },
+              ]}
+            >
+              <Input
+                type="password"
+                placeholder="Enter your password"
+                size="small"
+              />
+            </Form.Field>
+            <Button submit type="primary" children="Submit" />
+          </Form>
           <h3>Still don't have an account?</h3>
           <Button
-            variant="danger"
             size="small"
             onClick={() => navigate('/register')}
             children="Sign up"
@@ -84,7 +94,7 @@ export const LoginPage = () => {
         >
           <Button
             children={'Try again'}
-            variant={'danger'}
+            type="primary"
             size={'large'}
             onClick={() => setErrorMessage('')}
           />
