@@ -1,0 +1,12 @@
+@import 'styles/variables.scss';
+
+.topbar {
+  &__logo {
+    & img {
+      cursor: pointer;
+    }
+  }
+  &__avatar {
+    cursor: pointer;
+  }
+}

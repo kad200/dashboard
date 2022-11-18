@@ -1,4 +1,8 @@
 @import './fonts.scss';
+@import 'ebs-design/dist/styles/index.scss';
+@import 'ebs-design/dist/styles/default.scss';
+
+
 
 * {
   margin: 0;
@@ -58,12 +62,12 @@ a:visited {
   color: $white;
 }
 
-.page-content-wrapper {
-  margin: 0rem 1rem 1rem 13.5rem;
-  min-height: calc(100vh - 8.5rem);
-  display: flex;
-  flex-direction: column;
-}
+// .page-content-wrapper {
+//   margin: 0rem 1rem 1rem 13.5rem;
+//   min-height: calc(100vh - 8.5rem);
+//   display: flex;
+//   flex-direction: column;
+// }
 
 #form-user {
   box-sizing: border-box;
@@ -71,11 +75,11 @@ a:visited {
   padding: 1rem 1rem 0 1rem;
 }
 
-@include size(medium) {
-  .page-content-wrapper {
-    margin: 0rem 1rem 1rem 11.5rem;
-  }
-}
+// @include size(medium) {
+//   .page-content-wrapper {
+//     margin: 0rem 1rem 1rem 11.5rem;
+//   }
+// }
 
 @include size(small) {
   .auth-page {
