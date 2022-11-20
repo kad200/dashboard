@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button } from 'ebs-design';
 
@@ -8,6 +8,7 @@ import { api } from 'api';
 import 'styles/fonts.scss';
 import 'styles/index.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { stringify } from 'querystring';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -17,11 +18,6 @@ export const LoginPage = () => {
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-
-  const handleSubmit = async (e: React.SyntheticEvent) => {
-    // e.preventDefault();
-    signInUserMutation.mutate();
-  };
 
   const signInUserMutation = useMutation(
     () => api.users.signInUser(signInData),
@@ -36,6 +32,11 @@ export const LoginPage = () => {
     },
   );
 
+  const handleSubmit = async () => {
+    // e.preventDefault();
+    signInUserMutation.mutate();
+  };
+
   return (
     <div className="auth-page">
       {signInUserMutation.isLoading ? (
@@ -46,27 +47,35 @@ export const LoginPage = () => {
             <img src="logo.png" alt="logo" />
             <h1>Please sign in</h1>
           </div>
-          <Form onFinish={handleSubmit}
-          className="form">
+          <Form onFinish={handleSubmit} className="form">
             <Form.Field
               initialValue=""
               name="email"
+              label="Email"
+              hideLabel
               rules={[
                 {
                   required: true,
-                  warningOnly: true,
+                  // warningOnly: true,
                 },
               ]}
             >
-              <Input placeholder="Your email" type="email" size="small" />
+              <Input
+                // onChange={(value) => setEmail()}
+                placeholder="Enter your email"
+                type="email"
+                size="small"
+              />
             </Form.Field>
             <Form.Field
               initialValue=""
               name="password"
+              label="Password"
+              hideLabel
               rules={[
                 {
                   required: true,
-                  warningOnly: true,
+                  // warningOnly: true,
                 },
               ]}
             >
@@ -74,12 +83,14 @@ export const LoginPage = () => {
                 type="password"
                 placeholder="Enter your password"
                 size="small"
+                // onChange={(value) => setPassword(value.toLocaleString)}
               />
             </Form.Field>
             <Button submit type="primary" children="Submit" />
           </Form>
           <h3>Still don't have an account?</h3>
           <Button
+            type="ghost"
             size="small"
             onClick={() => navigate('/register')}
             children="Sign up"
@@ -95,7 +106,7 @@ export const LoginPage = () => {
           <Button
             children={'Try again'}
             type="primary"
-            size={'large'}
+            size="large"
             onClick={() => setErrorMessage('')}
           />
         </ConfirmationModal>
