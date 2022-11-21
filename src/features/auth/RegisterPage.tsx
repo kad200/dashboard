@@ -6,8 +6,8 @@ import { useSetState } from 'hooks';
 import { Input, Select, Button, Loader, ConfirmationModal } from 'components';
 import { api } from 'api';
 
-import 'styles/fonts.scss';
-import 'styles/index.scss';
+// import 'styles/fonts.scss';
+// import 'styles/index.scss';
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 

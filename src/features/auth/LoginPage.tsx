@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Form, Input, Button } from 'ebs-design';
 
 import { ConfirmationModal, Loader } from 'components';
+import { UserLoginCredentials } from 'types/types';
 import { api } from 'api';
 
-import 'styles/fonts.scss';
-import 'styles/index.scss';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { stringify } from 'querystring';
-
 export const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const signInData = { email, password };
-
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const signInUserMutation = useMutation(
-    () => api.users.signInUser(signInData),
+    (signInData: UserLoginCredentials) => api.users.signInUser(signInData),
     {
       onError: (error: Error) => {
         setErrorMessage(error.message);
@@ -32,9 +25,11 @@ export const LoginPage = () => {
     },
   );
 
-  const handleSubmit = async () => {
-    // e.preventDefault();
-    signInUserMutation.mutate();
+  const handleSubmit = async (signInData: UserLoginCredentials) => {
+    signInUserMutation.mutate({
+      email: signInData.email,
+      password: signInData.password,
+    });
   };
 
   return (
@@ -61,7 +56,6 @@ export const LoginPage = () => {
               ]}
             >
               <Input
-                // onChange={(value) => setEmail()}
                 placeholder="Enter your email"
                 type="email"
                 size="small"
@@ -83,7 +77,6 @@ export const LoginPage = () => {
                 type="password"
                 placeholder="Enter your password"
                 size="small"
-                // onChange={(value) => setPassword(value.toLocaleString)}
               />
             </Form.Field>
             <Button submit type="primary" children="Submit" />
