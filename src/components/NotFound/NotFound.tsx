@@ -10,8 +10,6 @@ export const NotFound = () => {
         onClick={() => {
           window.history.back();
         }}
-        variant={"danger"}
-        size={"small"}
       />
     </div>
   );

@@ -61,10 +61,10 @@
 
     &-date {
       text-align: start;
-    }
 
-    &-author {
-      text-align: end;
+      &-author {
+        text-align: end;
+      }
     }
   }
 
@@ -73,10 +73,11 @@
     min-width: 10rem;
     flex-direction: row;
     justify-content: space-between;
+    margin: 0 1rem;
 
-    & > Button {
-      margin: 0 10px;
-    }
+    // & > button {
+    //   padding: 200px;
+    // }
   }
 }
 
@@ -94,23 +95,23 @@
   }
 }
 
-@include size(medium) {
-  .post-item {
-    margin: 0.4rem;
-    padding: 0.4rem;
+// @include size(medium) {
+//   .post-item {
+//     margin: 0.4rem;
+//     padding: 0.4rem;
 
-    &__title {
-      padding-left: 1rem;
-      padding-right: 0.7rem;
-      font-size: 1rem;
-    }
+//     &__title {
+//       padding-left: 1rem;
+//       padding-right: 0.7rem;
+//       font-size: 1rem;
+//     }
 
-    &__content-text {
-      font-size: 0.7rem;
-    }
+//     &__content-text {
+//       font-size: 0.7rem;
+//     }
 
-    &__info {
-      font-size: 0.9rem;
-    }
-  }
-}
+//     &__info {
+//       font-size: 0.9rem;
+//     }
+//   }
+// }

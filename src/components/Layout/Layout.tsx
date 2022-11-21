@@ -38,12 +38,7 @@ const MainLayout = (props: any) => {
             type="regular"
             size="small"
           />
-          <Button
-            onClick={handleLogout}
-            children={'logout'}
-            variant={'danger'}
-            size={'small'}
-          />
+          <Button type="primary" onClick={handleLogout} children="logout" />
         </Layout.Topbar.RightSide>
       </Layout.Topbar>
 

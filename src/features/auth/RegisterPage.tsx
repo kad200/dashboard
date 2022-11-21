@@ -159,7 +159,7 @@ export const RegisterPage = () => {
               checked={registerForm.processingConsent}
               required
             />
-            <Button children="Sign up" variant="danger" size="large" />
+            <Button children="Sign up" />
             {errorMessage && (
               <ConfirmationModal
                 title={errorMessage}
@@ -167,9 +167,7 @@ export const RegisterPage = () => {
                 onClick={() => setErrorMessage('')}
               >
                 <Button
-                  children={'Try again'}
-                  variant={'danger'}
-                  size={'large'}
+                  children="Try again"
                   onClick={() => setErrorMessage('')}
                 />
               </ConfirmationModal>

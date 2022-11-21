@@ -54,9 +54,7 @@ export const PostForm = (post: PostFormProps) => {
     author: postForm.author,
   };
 
-  const handleSubmit = async (event: React.SyntheticEvent) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     post.post?.id ? editPostMutation.mutate() : addPostMutation.mutate();
   };
 
@@ -120,19 +118,11 @@ export const PostForm = (post: PostFormProps) => {
               : `${name} ${surname}`}
           </div>
           <div className="post-edit-buttons">
+            <Button onClick={handleBack} children="Go back"></Button>
             <Button
-              type="button"
-              onClick={handleBack}
-              children={'Go back'}
-              variant={'danger'}
-              size={'small'}
-            ></Button>
-            <Button
-              type="button"
               onClick={handleSubmit}
-              children={'Submit'}
-              variant={'primary'}
-              size={'small'}
+              children="Submit"
+              type="primary"
             ></Button>
           </div>
         </form>

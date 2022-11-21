@@ -1,94 +1,17 @@
 @import 'styles/variables.scss';
 
 .btn {
-  border-radius: 0.5rem;
-  border: 0;
-  box-sizing: border-box;
-  color: $white;
-  cursor: pointer;
-  display: inline;
-  font-family: 'Montserrat', sans-serif;
-  margin: 1rem 0;
-  position: relative;
-  text-align: center;
-  vertical-align: baseline;
-  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-
-  &--primary {
-    background-color: $primary-color;
-    box-shadow: rgba(21, 68, 27, 0.5) 0 10px 10px 0 inset,
-      rgba(0, 44, 97, 0.1) 0 3px 6px 0;
-
-    &:hover {
-      background-color: $primary-color-active;
-      box-shadow: rgba(70, 164, 83, 0.5) 0 10px 10px 0 inset,
-        rgba(65, 73, 83, 0.1) 0 3px 6px 0;
-    }
-  }
-
-  &--danger {
-    background-color: $danger-color;
-    box-shadow: rgba(21, 68, 27, 0.5) 0 5px 3px 0 inset,
-      rgba(97, 37, 0, 0.1) 0 3px 6px 0;
-
-    &:hover {
-      background-color: $danger-color-active;
-      box-shadow: rgba(164, 125, 70, 0.5) 0 10px 10px 0 inset,
-        rgba(65, 73, 83, 0.1) 0 3px 6px 0;
-    }
-  }
-
-  &--small {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    padding: 0.5rem 1rem;
-  }
-
-  &--large {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    padding: 1rem 1.25rem;
-  }
-
   &-container__add-user {
     text-align: right;
+    margin: 1rem 0;
   }
 }
 
-// @media (max-width: 1279px) {
 @include size(medium) {
-  .btn {
-    &--small {
-      font-size: 0.85rem;
-      line-height: 1.2rem;
-      padding: 0.4rem 0.6rem;
-    }
-
-    &--large {
-      font-size: 1.3rem;
-      line-height: 1.2rem;
-      padding: 0.8rem 1rem;
-    }
   }
-}
 
-// @media (max-width: 768px) {
 @include size(small) {
-  .btn {
-    &--small {
-      font-size: 0.5rem;
-      line-height: 0.6rem;
-    }
-
-    &--large {
-      font-size: 1.1rem;
-      line-height: 1rem;
-    }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
-

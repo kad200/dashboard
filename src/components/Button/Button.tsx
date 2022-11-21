@@ -1,30 +1,10 @@
-import React from "react";
-import "./Button.scss";
+import React from 'react';
+import { Button } from 'ebs-design';
+import { ButtonProps } from 'ebs-design/dist/components/atoms/Button/Button';
+import './Button.scss';
 
-type ButtonType = JSX.IntrinsicElements["button"];
-
-export interface ButtonProps extends ButtonType {
-  children: React.ReactNode;
-  variant: "primary" | "danger";
-  size: "small" | "large";
-}
-
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  type,
-  onClick = () => {},
-  variant,
-  size,
-  ...props
-}) => {
-  return (
-    <button
-      className={`btn btn--${variant} btn--${size}`}
-      onClick={onClick}
-      type={type}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+const MyButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+  return <Button {...props}>{children}</Button>;
 };
+
+export { MyButton as Button };

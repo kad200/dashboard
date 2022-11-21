@@ -125,12 +125,7 @@ export const UserForm = ({ user }: UserFormProps) => {
           open={false}
           onClick={() => setErrorMessage('')}
         >
-          <Button
-            children={'Try again'}
-            variant={'danger'}
-            size={'large'}
-            onClick={() => setErrorMessage('')}
-          />
+          <Button children={'Try again'} onClick={() => setErrorMessage('')} />
         </ConfirmationModal>
       )}
     </form>

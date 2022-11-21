@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useUserContext } from 'context/userContext';
 import { Roles } from 'types/enums';
+import { Icon } from 'ebs-design';
 import { Layout, Button, Modal, Loader } from 'components';
 import { UserForm, UsersTable } from 'features';
 import { api } from 'api';
@@ -32,10 +33,10 @@ export const UsersPage = () => {
         <div className="btn-container__add-user">
           <Button
             children="Add a new user"
-            variant="danger"
-            size="small"
-            onClick={(event) => {
-              event.stopPropagation();
+            prefix={<Icon type="users" />}
+            type="ghost"
+            onClick={() => {
+              // event.stopPropagation();
               setOpenAddModal(true);
             }}
           />
@@ -48,22 +49,19 @@ export const UsersPage = () => {
               <UserForm />
               <div className="modal__content-buttons">
                 <Button
-                  onClick={(event) => {
-                    event.stopPropagation();
+                  onClick={() => {
+                    // event.stopPropagation();
                     setOpenAddModal(false);
                   }}
-                  variant={'danger'}
-                  size={'small'}
                   children="Cancel"
+                  type="primary"
                 />
                 <Button
-                  type="submit"
+                  type="ghost"
                   form="form-user"
-                  onClick={(event) => {
-                    event.stopPropagation();
+                  onClick={() => {
+                    // event.stopPropagation();
                   }}
-                  variant={'primary'}
-                  size={'small'}
                   children="Save"
                 />
               </div>
