@@ -1,27 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { Roles } from 'types/enums';
-import { useSetState } from 'hooks';
-import { Input, Select, Button, Loader, ConfirmationModal } from 'components';
-import { api } from 'api';
+import { Form, Button, Select, Checkbox, Input } from 'ebs-design';
 
-// import 'styles/fonts.scss';
-// import 'styles/index.scss';
+import { Loader, ConfirmationModal } from 'components';
+import { Roles } from 'types/enums';
+import { api } from 'api';
+import { UserRegistrationParams } from 'types/types';
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
 export const RegisterPage = () => {
-  const [registerForm, setRegisterForm] = useSetState({
-    name: '',
-    surname: '',
-    email: '',
-    gender: '',
-    password: '',
-    passwordConfirmation: '',
-    errorMessage: '',
-    processingConsent: false,
-  });
+  const passwordRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const passwordConfirmationRef =
+    useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  const password = passwordRef.current?.value;
+  const passwordConfirmation = passwordConfirmationRef.current?.value;
 
   const [validPassword, setValidPassword] = useState(false);
   const [validPasswordConfirmation, setValidPasswordConfirmation] =
@@ -32,18 +27,24 @@ export const RegisterPage = () => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    setValidPassword(PWD_REGEX.test(registerForm.password));
-    setValidPasswordConfirmation(
-      registerForm.password === registerForm.passwordConfirmation,
-    );
-  }, [
-    registerForm.password,
-    registerForm.passwordConfirmation,
-    setRegisterForm,
-  ]);
+    setValidPassword(PWD_REGEX.test(password));
+    setValidPasswordConfirmation(password === passwordConfirmation);
+  }, [password, passwordConfirmation]);
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const signUpUserMutation = useMutation(
+    (signUpData: UserRegistrationParams) => api.users.signUpUser(signUpData),
+    {
+      onError: (error: Error) => {
+        setErrorMessage(error.message);
+      },
+      onSuccess: () => {
+        navigate('/login');
+        queryClient.invalidateQueries();
+      },
+    },
+  );
+
+  const handleSubmit = async (signUpData: UserRegistrationParams) => {
     if (!validPassword) {
       setErrorMessage('Invalid password');
       return;
@@ -52,30 +53,15 @@ export const RegisterPage = () => {
       setErrorMessage('Invalid password confirmation');
       return;
     }
-    signUpUserMutation.mutate();
+    signUpUserMutation.mutate({
+      name: signUpData.name,
+      surname: signUpData.surname,
+      email: signUpData.email,
+      gender: signUpData.gender,
+      password: signUpData.password,
+      role: Roles.moderator,
+    });
   };
-
-  const signUpUserMutation = useMutation(
-    () =>
-      api.users.signUpUser({
-        name: registerForm.name,
-        surname: registerForm.surname,
-        email: registerForm.email,
-        gender: registerForm.gender,
-        role: Roles.moderator,
-        password: registerForm.password,
-      }),
-    {
-      onError: (error: Error) => {
-        setErrorMessage(error.message);
-      },
-      onSuccess: () => {
-        queryClient.invalidateQueries();
-        setRegisterForm('');
-        navigate('/login');
-      },
-    },
-  );
 
   return (
     <div className="auth-page">
@@ -87,79 +73,120 @@ export const RegisterPage = () => {
             <img src="logo.png" width="300px" alt="logo" />
             <h1>Sign up form</h1>
           </div>
-          <form className="auth-page__form" onSubmit={handleSubmit}>
-            <Input
-              placeholder="First name"
-              type="text"
-              id="firstName"
-              autoComplete="off"
-              onChange={(e) => setRegisterForm({ name: e.target.value })}
-              value={registerForm.name}
-              required
-            />
-            <Input
-              placeholder="Last name"
-              type="text"
-              id="lastName"
-              autoComplete="off"
-              onChange={(e) => setRegisterForm({ surname: e.target.value })}
-              value={registerForm.surname}
-              required
-            />
-            <Input
-              placeholder="Email"
-              type="email"
-              id="email"
-              autoComplete="off"
-              onChange={(e) => setRegisterForm({ email: e.target.value })}
-              value={registerForm.email}
-              required
-            />
-            <Select
-              label="Please set your gender:"
-              placeholder="gender"
-              id="gender"
-              onChange={(e) => setRegisterForm({ gender: e.target.value })}
-              value={registerForm.gender}
-              required
+          <Form className="auth-page__form" onFinish={handleSubmit}>
+            <Form.Field
+              initialValue=""
+              name="name"
+              label="First name"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
             >
-              <option defaultValue="none">None</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </Select>
-            <Input
-              placeholder="Password"
-              type="password"
-              id="password"
-              autoComplete="off"
-              onChange={(e) => setRegisterForm({ password: e.target.value })}
-              value={registerForm.password}
-              required
-            />
-            <Input
-              placeholder="Password confirmation"
-              type="password"
-              id="password-confirmation"
-              autoComplete="off"
-              onChange={(e) =>
-                setRegisterForm({ passwordConfirmation: e.target.value })
-              }
-              value={registerForm.passwordConfirmation}
-              required
-            />
-            <Input
-              label="I consent with personal data processing"
-              type="checkbox"
-              id="processing-confirmation"
-              onChange={(e) =>
-                setRegisterForm({
-                  processingConsent: !registerForm.processingConsent,
-                })
-              }
-              checked={registerForm.processingConsent}
-              required
-            />
-            <Button children="Sign up" variant="danger" size="large" />
+              <Input placeholder="First name" autoComplete="off" />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="surname"
+              label="Last name"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input placeholder="Last name" type="text" autoComplete="off" />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="email"
+              label="Email"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input placeholder="Email" type="email" />
+            </Form.Field>
+            <Form.Field
+              initialValue="None"
+              name="gender"
+              label="Gender"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Select
+                label="Please set your gender:"
+                placeholder="gender"
+                options={[
+                  { value: 'male', text: 'Male' },
+                  { value: 'female', text: 'Female' },
+                ]}
+              ></Select>
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="password"
+              label="Password"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input placeholder="Password" type="password" ref={passwordRef} />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="password-confirmation"
+              label="Password confirmation"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input
+                placeholder="Password confirmation"
+                type="password"
+                ref={passwordConfirmationRef}
+              />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="personal-consent"
+              label="Personal consent"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Checkbox
+                checkAlign="left"
+                text="I consent with personal data processing"
+              />
+            </Form.Field>
+            <Button submit children="Sign up" />
             {errorMessage && (
               <ConfirmationModal
                 title={errorMessage}
@@ -167,14 +194,12 @@ export const RegisterPage = () => {
                 onClick={() => setErrorMessage('')}
               >
                 <Button
-                  children={'Try again'}
-                  variant={'danger'}
-                  size={'large'}
+                  children="Try again"
                   onClick={() => setErrorMessage('')}
                 />
               </ConfirmationModal>
             )}
-          </form>
+          </Form>
         </section>
       )}
     </div>
