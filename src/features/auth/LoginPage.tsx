@@ -1,30 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Form, Input, Button } from 'ebs-design';
 
-import { Button, ConfirmationModal, Input, Loader } from 'components';
+import { ConfirmationModal, Loader } from 'components';
+import { UserLoginCredentials } from 'types/types';
 import { api } from 'api';
 
-import 'styles/fonts.scss';
-import 'styles/index.scss';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-
 export const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const signInData = { email, password };
-
   const queryClient = useQueryClient();
-
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    signInUserMutation.mutate();
-  };
-
   const signInUserMutation = useMutation(
-    () => api.users.signInUser(signInData),
+    (signInData: UserLoginCredentials) => api.users.signInUser(signInData),
     {
       onError: (error: Error) => {
         setErrorMessage(error.message);
@@ -36,6 +25,13 @@ export const LoginPage = () => {
     },
   );
 
+  const handleSubmit = async (signInData: UserLoginCredentials) => {
+    signInUserMutation.mutate({
+      email: signInData.email,
+      password: signInData.password,
+    });
+  };
+
   return (
     <div className="auth-page">
       {signInUserMutation.isLoading ? (
@@ -46,30 +42,48 @@ export const LoginPage = () => {
             <img src="logo.png" alt="logo" />
             <h1>Please sign in</h1>
           </div>
-          <form className="auth-page__form" onSubmit={handleSubmit}>
-            <Input
-              placeholder="Enter your email"
-              type="email"
-              id="email"
-              autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              required
-            />
-            <Input
-              placeholder="Enter your password"
-              type="password"
-              id="password"
-              autoComplete="off"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-            />
-            <Button variant="primary" size="large" children="Sign in" />
-          </form>
+          <Form onFinish={handleSubmit} className="form">
+            <Form.Field
+              initialValue=""
+              name="email"
+              label="Email"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input
+                placeholder="Enter your email"
+                type="email"
+                size="small"
+              />
+            </Form.Field>
+            <Form.Field
+              initialValue=""
+              name="password"
+              label="Password"
+              hideLabel
+              rules={[
+                {
+                  required: true,
+                  // warningOnly: true,
+                },
+              ]}
+            >
+              <Input
+                type="password"
+                placeholder="Enter your password"
+                size="small"
+              />
+            </Form.Field>
+            <Button submit type="primary" children="Submit" />
+          </Form>
           <h3>Still don't have an account?</h3>
           <Button
-            variant="danger"
+            type="ghost"
             size="small"
             onClick={() => navigate('/register')}
             children="Sign up"
@@ -84,8 +98,8 @@ export const LoginPage = () => {
         >
           <Button
             children={'Try again'}
-            variant={'danger'}
-            size={'large'}
+            type="primary"
+            size="large"
             onClick={() => setErrorMessage('')}
           />
         </ConfirmationModal>

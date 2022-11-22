@@ -12,7 +12,6 @@ export interface ButtonProps extends ButtonType {
 export const Button: React.FC<ButtonProps> = ({
   children,
   type,
-  onClick = () => {},
   variant,
   size,
   ...props
@@ -20,7 +19,6 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`btn btn--${variant} btn--${size}`}
-      onClick={onClick}
       type={type}
       {...props}
     >
