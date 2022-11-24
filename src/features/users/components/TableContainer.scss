@@ -1,0 +1,129 @@
+@import 'styles/variables.scss';
+
+td .btn {
+    margin: 0;
+  }
+
+// .header-cell {
+//   background: $primary-color;
+//   color: $white;
+//   border: 2px solid $table-border;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .table {
+//   &__row {
+//     display: flex;
+//     border-left: solid 2px $table-border;
+//     transition: 0.5s;
+//     min-height: 5rem;
+
+//     &:hover {
+//       background: $white;
+//       transition: 500ms;
+//     }
+//   }
+
+//   &__cell {
+//     width: calc((100% - 35rem) / 12);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0.5rem 0.5rem;
+//     border: solid 2px $table-border;
+//     flex: auto;
+//     overflow: hidden;
+
+//     & > * {
+//       overflow: scroll;
+
+//       &::-webkit-scrollbar {
+//         display: none;
+//       }
+//     }
+
+//     &.action-buttons {
+//       display: flex;
+//       min-width: 10rem;
+//       flex-direction: row;
+//       justify-content: space-around;
+//     }
+
+//     &-id {
+//       max-width: 2rem;
+//       border-left: none;
+//     }
+
+//     &-email {
+//       min-width: 16rem;
+//     }
+
+//     &-role,
+//     &-gender {
+//       &-full {
+//         text-transform: capitalize;
+//       }
+
+//       &-short {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// @include size(medium) {
+//   .table {
+//     &__row {
+//       min-height: 3rem;
+//     }
+
+//     &__cell {
+//       height: 2.5rem;
+//       padding: 0.3rem 0.3rem;
+//       font-size: 0.7rem;
+
+//       &.action-buttons {
+//         min-width: 7.5rem;
+//       }
+
+//       &-email {
+//         min-width: 11rem;
+//       }
+
+//       &-role {
+//         &-short {
+//           display: flex;
+//         }
+
+//         &-full {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include size(small) {
+//   .table__cell {
+//     font-size: 0.5rem;
+//     height: 1.5rem;
+
+//     &-email {
+//       min-width: 7rem;
+//     }
+
+//     &.action-buttons {
+//       min-width: 5rem;
+//     }
+
+//     &-gender-short {
+//       display: flex;
+//     }
+
+//     &-gender-full {
+//       display: none;
+//     }
+//   }
+// }

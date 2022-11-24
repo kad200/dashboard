@@ -12,5 +12,5 @@ export * from "./users/pages/UsersPage";
 export * from "./posts/components/PostForm";
 export * from "./posts/components/PostItem";
 export * from "./users/components/UserForm";
-export * from "./users/components/UserItem";
+export * from "./users/components/UserItemButtons";
 export * from "./users/components/UsersTable";
