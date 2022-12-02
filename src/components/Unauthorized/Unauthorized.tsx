@@ -1,5 +1,5 @@
-import { Button } from "components";
-import "./Unauthorized.scss";
+import { Button } from 'components';
+import './Unauthorized.scss';
 
 export const Unauthorized = () => {
   return (
@@ -10,9 +10,7 @@ export const Unauthorized = () => {
         onClick={() => {
           window.history.back();
         }}
-        variant={"danger"}
-        size={"small"}
       />
     </div>
   );
-}
+};
