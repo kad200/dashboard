@@ -15,9 +15,7 @@ export const PostItem = ({ post }: { post: PostProps }) => {
   const navigate = useNavigate();
   const { id, role } = useUserContext();
 
-  const handleDelete = async (event: React.SyntheticEvent) => {
-    event.preventDefault();
-
+  const handleDelete = async () => {
     if (post.id) {
       editUserMutation.mutate(post.id);
     }
@@ -56,14 +54,11 @@ export const PostItem = ({ post }: { post: PostProps }) => {
         {role === Roles.administrator || id === post.author.id ? (
           <>
             <Button
-              variant="primary"
-              size="small"
               onClick={() => navigate(`/posts/${post.id}/edit`)}
               children="Edit"
+              type="primary"
             />
             <Button
-              variant="danger"
-              size="small"
               onClick={() => setOpenRemoveModal(true)}
               children="Remove"
             />
@@ -71,21 +66,14 @@ export const PostItem = ({ post }: { post: PostProps }) => {
               <ConfirmationModal
                 onClick={() => setOpenRemoveModal(false)}
                 title="Do you really want to delete this post?"
-                open={true}
+                open
               >
                 <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
-                    children={'Cancel'}
-                    variant={'danger'}
-                    size={'large'}
+                    children="Cancel"
                   />
-                  <Button
-                    onClick={handleDelete}
-                    children={'Delete'}
-                    variant={'primary'}
-                    size={'large'}
-                  />
+                  <Button onClick={handleDelete} children="Delete" />
                 </div>
               </ConfirmationModal>
             )}

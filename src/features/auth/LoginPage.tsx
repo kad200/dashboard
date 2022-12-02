@@ -65,12 +65,10 @@ export const LoginPage = () => {
               value={password}
               required
             />
-            <Button variant="primary" size="large" children="Sign in" />
+            <Button children="Sign in" />
           </form>
           <h3>Still don't have an account?</h3>
           <Button
-            variant="danger"
-            size="small"
             onClick={() => navigate('/register')}
             children="Sign up"
           />
@@ -83,9 +81,7 @@ export const LoginPage = () => {
           onClick={() => setErrorMessage('')}
         >
           <Button
-            children={'Try again'}
-            variant={'danger'}
-            size={'large'}
+            children='Try again'
             onClick={() => setErrorMessage('')}
           />
         </ConfirmationModal>

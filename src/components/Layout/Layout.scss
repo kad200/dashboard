@@ -1,0 +1,10 @@
+.topbar {
+  &__logo {
+    & img {
+      cursor: pointer;
+    }
+  }
+  &__avatar {
+    cursor: pointer;
+  }
+}

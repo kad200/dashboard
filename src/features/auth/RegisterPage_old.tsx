@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Roles } from "types/enums";
-import { Input, Select, Button } from "components";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Roles } from 'types/enums';
+import { Input, Select, Button } from 'components';
 
-import "styles/fonts.scss";
-import "styles/index.scss";
-import { api } from "api";
+import 'styles/fonts.scss';
+import 'styles/index.scss';
+import { api } from 'api';
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
 
 const RegisterPage = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [email, setEmail] = useState('');
+  const [gender, setGender] = useState('');
+  const [password, setPassword] = useState('');
   const [validPassword, setValidPassword] = useState(false);
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [validPasswordConfirmation, setValidPasswordConfirmation] =
     useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const [processingConsent, setProcessingConsent] = useState(false);
 
   const navigate = useNavigate();
@@ -30,13 +30,13 @@ const RegisterPage = () => {
   }, [password, passwordConfirmation]);
 
   useEffect(() => {
-    setErrorMessage("");
+    setErrorMessage('');
   }, [email, password, passwordConfirmation]);
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (!validPassword || !validPasswordConfirmation) {
-      setErrorMessage("Invalid password");
+      setErrorMessage('Invalid password');
       alert(errorMessage);
       return;
     }
@@ -51,14 +51,14 @@ const RegisterPage = () => {
     });
     api.users.getUsers();
 
-    setName("");
-    setSurname("");
-    setEmail("");
-    setGender("");
-    setPassword("");
-    setPasswordConfirmation("");
+    setName('');
+    setSurname('');
+    setEmail('');
+    setGender('');
+    setPassword('');
+    setPasswordConfirmation('');
     setProcessingConsent(false);
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
@@ -134,7 +134,7 @@ const RegisterPage = () => {
             checked={processingConsent}
             required
           />
-          <Button children="Sign up" variant="danger" size="large" />
+          <Button children="Sign up" />
         </form>
       </section>
     </div>

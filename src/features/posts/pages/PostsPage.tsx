@@ -21,12 +21,7 @@ export const PostsPage = () => {
   return (
     <Layout>
       <div className="btn-container__add-user">
-        <Button
-          children="Add a new post"
-          variant="danger"
-          size="small"
-          onClick={routeChange}
-        />
+        <Button children="Add a new post" onClick={routeChange} />
       </div>
       <Grid>
         {data.map((post) => (

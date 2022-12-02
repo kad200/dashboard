@@ -23,7 +23,6 @@ export const UserItem = ({ user }: { user: UserProps }) => {
   const deleteUserMutation = useMutation(api.users.deleteUser, {
     onSuccess: () => {
       queryClient.invalidateQueries(['users']);
-      // setOpenEditModal(false);
     },
   });
 
@@ -57,8 +56,7 @@ export const UserItem = ({ user }: { user: UserProps }) => {
         {role === Roles.administrator || id === user.id ? (
           <>
             <Button
-              variant="primary"
-              size="small"
+              type="primary"
               onClick={() => setOpenEditModal(true)}
               children="Edit"
             />
@@ -80,31 +78,25 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                 />
                 <div className="modal__content-buttons">
                   <Button
-                    onClick={(event) => {
-                      event.stopPropagation();
+                    onClick={() => {
+                      // event.stopPropagation();
                       setOpenEditModal(false);
                     }}
-                    variant={'danger'}
-                    size={'small'}
                     children="Cancel"
                   />
                   <Button
-                    type="submit"
+                    type="primary"
                     form="form-user"
-                    onClick={(event: React.SyntheticEvent) => {
-                      event.stopPropagation();
+                    onClick={() => {
+                      // event.stopPropagation();
                       editUserMutation.mutate(user);
                     }}
-                    variant={'primary'}
-                    size={'small'}
                     children="Save"
                   />
                 </div>
               </Modal>
             )}
             <Button
-              variant="danger"
-              size="small"
               onClick={() => setOpenRemoveModal(true)}
               children="Remove"
             />
@@ -117,18 +109,14 @@ export const UserItem = ({ user }: { user: UserProps }) => {
                 <div className="modal__content-buttons">
                   <Button
                     onClick={() => setOpenRemoveModal(false)}
-                    children={'Cancel'}
-                    variant={'danger'}
-                    size={'large'}
+                    children="Cancel"
                   />
                   <Button
-                    onClick={(event: React.SyntheticEvent) => {
-                      event.preventDefault();
+                    onClick={() => {
+                      // event.preventDefault();
                       deleteUserMutation.mutate(user.id);
                     }}
-                    children={'Delete'}
-                    variant={'primary'}
-                    size={'large'}
+                    children="Delete"
                   />
                 </div>
               </ConfirmationModal>
