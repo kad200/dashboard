@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Form, Input, Select, Modal, Space } from 'ebs-design';
 import { useSetState } from 'hooks';
 import { UserProps } from 'types/types';
-import { Button, ConfirmationModal, Input, Select } from 'components';
+import { Button, ConfirmationModal } from 'components';
 import { api } from 'api';
 import { useState } from 'react';
 
@@ -76,63 +77,144 @@ export const UserForm = ({ user }: UserFormProps) => {
   };
 
   return (
-    <form id="form-user" onSubmit={handleSubmit}>
-      <Input
-        id="name"
-        placeholder="Name"
-        value={userForm.name}
-        onChange={(event) => setUserForm({ name: event.target.value })}
-        required
-      />
-      <Input
-        id="surname"
-        placeholder="Surname"
-        value={userForm.surname}
-        onChange={(event) => setUserForm({ surname: event.target.value })}
-        required
-      />
-      <Input
-        id="email"
-        placeholder="Email address"
-        value={userForm.email}
-        onChange={(event) => setUserForm({ email: event.target.value })}
-        type="email"
-        required
-      />
-      <Select
-        id="gender"
+    // <form id="form-user" onSubmit={handleSubmit}>
+    <Form onFinish={handleSubmit} className="form">
+      <Form.Field
+        initialValue={userForm.name}
+        name="name"
+        label="Name"
+        hideLabel
+        rules={[
+          {
+            required: true,
+            // warningOnly: true,
+          },
+        ]}
+      >
+        <Input
+          type="name"
+          placeholder="Name"
+          // value={userForm.name}
+          // onChange={(event) => setUserForm({ name: event.target.value })}
+          size="small"
+        />
+      </Form.Field>
+      <Form.Field
+        initialValue={userForm.surname}
+        name="name"
+        label="Name"
+        hideLabel
+        rules={[
+          {
+            required: true,
+            // warningOnly: true,
+          },
+        ]}
+      >
+        <Input
+          type="surname"
+          placeholder="Surname"
+          // value={userForm.name}
+          // onChange={(event) => setUserForm({ name: event.target.value })}
+          size="small"
+        />
+      </Form.Field>
+      <Form.Field
+        initialValue={userForm.email}
+        name="email"
+        label="Email"
+        hideLabel
+        rules={[{ required: true }]}
+      >
+        <Input type="email" placeholder="Email" size="small" />
+      </Form.Field>
+      <Form.Field
+        initialValue={userForm.gender}
+        name="gender"
         label="Gender"
-        value={userForm.gender}
-        onChange={(event) => setUserForm({ gender: event.target.value })}
-        required
+        hideLabel
+        rules={[
+          {
+            required: true,
+            // warningOnly: true,
+          },
+        ]}
       >
-        <option value="">None</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </Select>
-      <Select
-        id="role"
+        <Select
+          label="Gender"
+          // initialValue={userForm.gender}
+          // onChange={(event) => setUserForm({ gender: event.target.value })}
+          options={[
+            { value: '"', text: 'None' },
+            { value: 'male', text: 'Male' },
+            { value: 'female', text: 'Female' },
+          ]}
+        />
+      </Form.Field>
+      <Form.Field
+        initialValue={userForm.role}
+        name="role"
         label="Role"
-        value={userForm.role}
-        onChange={(event) => setUserForm({ role: event.target.value })}
+        hideLabel
+        rules={[
+          {
+            required: true,
+            // warningOnly: true,
+          },
+        ]}
       >
-        <option value="moderator">Moderator</option>
-        <option value="administrator">Administrator</option>
-      </Select>
+        <Select
+          label="Role"
+          // onChange={(event) => setUserForm({ role: event.target.value })}
+          options={[
+            { value: 'moderator', text: 'Moderator' },
+            { value: 'administrator', text: 'Administrator' },
+          ]}
+        />
+      </Form.Field>
       {errorMessage && (
-        <ConfirmationModal
-          title={errorMessage}
-          open={false}
-          onClick={() => setErrorMessage('')}
+        <Modal
+          closeOnClickOutside
+          mask
+          open
+          size="small"
+          // title=""
+          // onClick={() => setOpenAddModal(false)}
+          // open={openAddModal}
         >
-          <Button
-            children={'Try again'}
-            variant={'danger'}
-            size={'large'}
-            onClick={() => setErrorMessage('')}
-          />
-        </ConfirmationModal>
+          <Modal.Content>{errorMessage}</Modal.Content>
+          <Modal.Footer>
+            <Space justify="space-around">
+              <Button
+                // onClick={() => {
+                //   setOpenEditModal(false);
+                // }}
+                size="large"
+                children="Cancel"
+                variant={'primary'}
+              />
+              <Button
+                // submit
+                form="form-user"
+                size="large"
+                // type="primary"
+                children="Save" variant={'primary'}              />
+            </Space>
+          </Modal.Footer>
+        </Modal>
+        // <ConfirmationModal
+        //   title={errorMessage}
+        //   open={false}
+        //   onClick={() => setErrorMessage('')}
+        // >
+        //   <Button
+        //     children={'Try again'}
+        //     variant={'danger'}
+        //     size={'large'}
+        //     onClick={() => setErrorMessage('')}
+        //   />
+        // </ConfirmationModal>
       )}
-    </form>
+    </Form>
   );
 };

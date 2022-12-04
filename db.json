@@ -502,6 +502,24 @@
       "gender": "male",
       "role": "moderator",
       "id": 9
+    },
+    {
+      "password": "Default123",
+      "name": "Alexandr",
+      "surname": "Dimovcc",
+      "email": "sssdalexandrd@gmail.com",
+      "gender": "male",
+      "role": "administrator",
+      "id": 10
+    },
+    {
+      "password": "Default123",
+      "name": "Alexandr",
+      "surname": "Dimov",
+      "email": "dalxdxexandrd@gmail.com",
+      "gender": "male",
+      "role": "moderator",
+      "id": 11
     }
   ]
 }
